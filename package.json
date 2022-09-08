@@ -1,0 +1,74 @@
+{
+  "name": "vuemg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "private": true,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nakrovati/vuemg.git"
+  },
+  "author": "Daniil Zhuravlev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nakrovati/vuemg/issues"
+  },
+  "homepage": "https://github.com/nakrovati/vuemg#readme",
+  "scripts": {
+    "dev": "vite",
+    "dev:host": "vite --host",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "lint": "eslint --ext .ts,.vue src",
+    "lint:fix": "eslint --ext .ts,.vue --fix src",
+    "style": "stylelint **/*.{scss,vue}",
+    "style:fix": "stylelint **/*.{scss,vue} --fix",
+    "format": "prettier . --write",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{html,json,md}": "prettier --write",
+    "*.scss": "prettier --write",
+    "*.vue": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{js,cjs,ts}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@vueuse/core": "^9.2.0",
+    "pinia": "^2.0.22",
+    "three": "^0.144.0",
+    "vue": "^3.2.39",
+    "vuemg": "link:"
+  },
+  "devDependencies": {
+    "@types/three": "^0.144.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "@vitejs/plugin-vue": "^3.1.0",
+    "@vue/eslint-config-typescript": "^11.0.1",
+    "autoprefixer": "^10.4.8",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-vue": "^9.4.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.4.16",
+    "postcss-html": "^1.5.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.54.9",
+    "stylelint": "^14.11.0",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-order": "^5.0.0",
+    "typescript": "^4.8.2",
+    "vite": "^3.1.0",
+    "vitest": "^0.23.0",
+    "vue-tsc": "^0.40.13"
+  }
+}

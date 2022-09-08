@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+
+    /* Projects */
+
+    /* Language and Environment */
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "jsx": "preserve",
+
+    /* Modules */
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "Assets/*": ["src/assets/*"],
+      "Components/*": ["src/components/*"],
+      "Helpers/*": ["src/helpers/*"],
+      "Stores/*": ["src/stores/*"],
+      "Styles/*": ["src/styles/*"],
+      "Types/*": ["src/types/*"],
+      "Utils/*": ["src/utils/*"],
+      "@/*": ["src/*"]
+    },
+
+    /* JavaScript Support */
+
+    /* Emit */
+    "importHelpers": true,
+
+    /* Interop Constraints */
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
+    "strict": true,
+
+    /* Completeness */
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"]
+}

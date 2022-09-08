@@ -1,0 +1,13 @@
+@use "./colors";
+
+body {
+  color: colors.$text-dark;
+  font-family: Quicksand, sans-serif;
+  font-size: 16px;
+  margin: 0;
+}
+
+.dark body {
+  background-color: colors.$background-dark;
+  color: colors.$text-light;
+}
