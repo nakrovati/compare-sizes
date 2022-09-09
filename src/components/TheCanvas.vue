@@ -10,9 +10,9 @@ import { useItemsStore } from "Stores/items";
 import { useCameraStore } from "Stores/camera";
 import { scene } from "Helpers/canvas";
 
-const canvas = ref();
+const canvas = ref<HTMLCanvasElement>();
+
 const { camera } = useCameraStore();
-camera.position.setZ(4);
 
 const itemsStore = useItemsStore();
 
@@ -33,7 +33,6 @@ onMounted(() => {
   renderer.render(scene, camera);
 
   const controls = new OrbitControls(camera, renderer.domElement);
-  (controls.maxDistance = 10), (controls.minDistance = 1);
 
   function resizeCanvasToDisplaySize() {
     const canvas = renderer.domElement;
@@ -63,6 +62,8 @@ onMounted(() => {
 
   function animate() {
     requestAnimationFrame(animate);
+
+    controls.update();
 
     renderer.render(scene, camera);
   }

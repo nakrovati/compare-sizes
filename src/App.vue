@@ -45,6 +45,7 @@ if (window.matchMedia("(prefers-color-scheme: dark)").matches)
 .menu-container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
   height: 100%;
   width: 50%;
 

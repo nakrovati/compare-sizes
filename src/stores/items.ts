@@ -11,6 +11,7 @@ import {
 } from "three";
 import { scene } from "Helpers/canvas";
 import { toThreeColor } from "Utils/getRandomColor";
+import { convertToMM } from "Utils/dimensionsConverter";
 
 export const useItemsStore = defineStore("items", {
   state: () => ({
@@ -25,50 +26,28 @@ export const useItemsStore = defineStore("items", {
       const widths: number[] = [];
 
       for (let i = 0; i < state.items.length; i++) {
-        heights.push(state.items[i].height);
-        widths.push(state.items[i].width);
+        heights.push(
+          convertToMM(state.items[i].height, state.items[i].dimensionAbbr)
+        );
+        widths.push(
+          convertToMM(state.items[i].width, state.items[i].dimensionAbbr)
+        );
       }
 
       return Math.max(...heights, ...widths);
     },
   },
   actions: {
-    addItemsToScene() {
-      const itemForScene: Mesh[] = [];
-
-      for (const item of this.items) {
-        itemForScene.push(this.createItem(item));
-      }
-
-      scene.add(...itemForScene);
-    },
-    repositionItems(): void {
-      const items = this.items;
-
-      for (let i = 0; i < items.length; i++) {
-        if (items[i] === items[0]) {
-          items[i].positionX = 0;
-        } else {
-          const prevItem = items[i - 1];
-          const currentItem = items[i];
-
-          const prevItemPositionX = prevItem.positionX ?? 0;
-          const prevItemHalfWidth = prevItem.width / 2;
-          const currentItemHalfWidth = currentItem.width / 2;
-
-          items[i].positionX =
-            prevItemPositionX + prevItemHalfWidth + currentItemHalfWidth;
-        }
-      }
-    },
-    clearScene(): void {
-      scene.clear();
-    },
-    createItem(item: Box): Mesh {
+    createItem(item: Box): Mesh<BoxGeometry, MeshBasicMaterial> {
       const material = new MeshBasicMaterial({
         color: toThreeColor(item.color),
       });
-      const geometry = new BoxGeometry(item.width, item.height, item.length);
+
+      const width = convertToMM(item.width, item.dimensionAbbr);
+      const height = convertToMM(item.height, item.dimensionAbbr);
+      const length = convertToMM(item.length, item.dimensionAbbr);
+
+      const geometry = new BoxGeometry(width, height, length);
       const itemForScene = new Mesh(geometry, material);
 
       itemForScene.name = item.name;
@@ -92,6 +71,38 @@ export const useItemsStore = defineStore("items", {
       } catch (error) {
         console.error(error);
       }
+    },
+    addItemsToScene(): void {
+      const itemsForScene: Mesh<BoxGeometry, MeshBasicMaterial>[] = [];
+
+      for (const item of this.items) {
+        itemsForScene.push(this.createItem(item));
+      }
+      scene.add(...itemsForScene);
+    },
+    repositionItems(): void {
+      const items = this.items;
+
+      for (let i = 0; i < items.length; i++) {
+        const prevItem = items[i - 1];
+        const currentItem = items[i];
+
+        if (currentItem === items[0]) {
+          currentItem.positionX = 0;
+        } else {
+          const prevItemPositionX = prevItem.positionX ?? 0;
+          const prevItemHalfWidth =
+            convertToMM(prevItem.width, prevItem.dimensionAbbr) / 2;
+          const currentItemHalfWidth =
+            convertToMM(currentItem.width, currentItem.dimensionAbbr) / 2;
+
+          currentItem.positionX =
+            prevItemPositionX + prevItemHalfWidth + currentItemHalfWidth;
+        }
+      }
+    },
+    clearScene(): void {
+      scene.clear();
     },
     removeItem(index: number): void {
       this.items.splice(index, 1);

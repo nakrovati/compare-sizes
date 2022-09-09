@@ -30,7 +30,6 @@
         </option>
       </select>
     </div>
-    <button @click="calcCurrentPositionX(10)">Get LAst</button>
     <button @click="addItem">Add item</button>
   </div>
 </template>
@@ -41,6 +40,7 @@ import { useItemsStore } from "Stores/items";
 import { getRandomColor } from "Utils/getRandomColor";
 import validateItemParams from "Utils/getItemParams";
 import type { Box } from "Types/types";
+import { convertToMM } from "Utils/dimensionsConverter";
 
 interface AbbreviationOptions {
   text: string;
@@ -59,12 +59,16 @@ const itemsStore = useItemsStore();
 const itemName = ref("");
 const itemParams = ref("");
 
-function calcCurrentPositionX(width: number) {
+function calcCurrentPositionX(width: number, dimensionAbbr: string) {
   const lastItem = itemsStore.items.at(-1);
 
   if (!lastItem) return 0;
 
-  return lastItem.positionX + lastItem.width / 2 + width / 2;
+  return (
+    lastItem.positionX +
+    convertToMM(lastItem.width, lastItem.dimensionAbbr) / 2 +
+    convertToMM(width, dimensionAbbr) / 2
+  );
 }
 
 function addItem() {
@@ -83,7 +87,7 @@ function addItem() {
   const name = itemName.value;
   const color = getRandomColor();
   const dimensionAbbr = selectedDimension.value;
-  const positionX = calcCurrentPositionX(width);
+  const positionX = calcCurrentPositionX(width, dimensionAbbr);
 
   const item: Box = {
     height,
