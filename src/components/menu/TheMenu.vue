@@ -37,8 +37,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useItemsStore } from "Stores/items";
-import { getRandomColor } from "Utils/getRandomColor";
-import validateItemParams from "Utils/getItemParams";
+import { getRandomColor } from "Utils/colorRandomizer";
+import validateItemParams from "Utils/validateItemParams";
 import type { Box } from "Types/types";
 import { convertToMM } from "Utils/dimensionsConverter";
 

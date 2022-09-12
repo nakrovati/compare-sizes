@@ -27,7 +27,6 @@
 import IconXmark from "Assets/icons/xmark-solid.svg";
 import { computed } from "vue";
 import { useItemsStore } from "Stores/items";
-import { toHex } from "Utils/getRandomColor";
 
 const itemsStore = useItemsStore();
 
@@ -40,7 +39,7 @@ const props = defineProps({
   color: { type: String, required: true },
   dimensionAbbr: { type: String, required: true },
 });
-const color = computed(() => toHex(props.color));
+const color = computed(() => props.color);
 
 function deleteItem() {
   itemsStore.removeItem(props.index);

@@ -5,20 +5,14 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { WebGLRenderer } from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useItemsStore } from "Stores/items";
-import { useCameraStore } from "Stores/camera";
+import { useCanvasStore } from "Stores/canvas";
 import { scene } from "Helpers/canvas";
 
 const canvas = ref<HTMLCanvasElement>();
 
-const { camera } = useCameraStore();
-
-const itemsStore = useItemsStore();
-
-onMounted(() => {
-  itemsStore.addItemsToScene();
-});
+const { initScene } = useItemsStore();
+const { camera, initOrbitControls } = useCanvasStore();
 
 onMounted(() => {
   if (canvas.value === undefined) {
@@ -32,9 +26,10 @@ onMounted(() => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.render(scene, camera);
 
-  const controls = new OrbitControls(camera, renderer.domElement);
+  initOrbitControls(camera, renderer.domElement);
+  initScene();
 
-  function resizeCanvasToDisplaySize() {
+  function resizeCanvasToDisplaySize(): void {
     const canvas = renderer.domElement;
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
@@ -62,8 +57,6 @@ onMounted(() => {
 
   function animate() {
     requestAnimationFrame(animate);
-
-    controls.update();
 
     renderer.render(scene, camera);
   }

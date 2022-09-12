@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import { useStorage } from "@vueuse/core";
-import type { Box } from "Types/types";
 import {
   MeshBasicMaterial,
   Mesh,
@@ -9,45 +8,72 @@ import {
   LineBasicMaterial,
   LineSegments,
 } from "three";
-import { scene } from "Helpers/canvas";
-import { toThreeColor } from "Utils/getRandomColor";
+import { useCanvasStore } from "Stores/canvas";
+import { toThreeColor } from "Utils/colorRandomizer";
 import { convertToMM } from "Utils/dimensionsConverter";
+import { scene } from "Helpers/canvas";
+import type { Box } from "Types/types";
 
 export const useItemsStore = defineStore("items", {
   state: () => ({
     items: useStorage<Array<Box>>("drawable-items", []),
   }),
   getters: {
-    /** Maximum height or width */
-    maxFront: (state): number => {
+    /** Width of widest element */
+    maxWidth: (state): number => {
+      if (!state.items.length) return 0;
+
+      const width: number[] = [];
+
+      for (const item of state.items) {
+        width.push(convertToMM(item.width, item.dimensionAbbr));
+      }
+
+      return Math.max(...width);
+    },
+    /** Height of highest element */
+    maxHeight: (state): number => {
       if (!state.items.length) return 0;
 
       const heights: number[] = [];
-      const widths: number[] = [];
 
-      for (let i = 0; i < state.items.length; i++) {
-        heights.push(
-          convertToMM(state.items[i].height, state.items[i].dimensionAbbr)
-        );
-        widths.push(
-          convertToMM(state.items[i].width, state.items[i].dimensionAbbr)
-        );
+      for (const item of state.items) {
+        heights.push(convertToMM(item.height, item.dimensionAbbr));
       }
 
-      return Math.max(...heights, ...widths);
+      return Math.max(...heights);
+    },
+    /** Length of the longest element */
+    maxLength: (state): number => {
+      if (!state.items.length) return 0;
+
+      const lengths: number[] = [];
+
+      for (const item of state.items) {
+        lengths.push(convertToMM(item.height, item.dimensionAbbr));
+      }
+
+      return Math.max(...lengths);
+    },
+    /** Maximum width of all item */
+    middlePositionX: (state): number => {
+      const firstItemPositionX = state.items.at(0)?.positionX ?? 0;
+      const lastItemPositionX = state.items.at(-1)?.positionX ?? 0;
+
+      return (firstItemPositionX + lastItemPositionX) / 2;
     },
   },
   actions: {
     createItem(item: Box): Mesh<BoxGeometry, MeshBasicMaterial> {
-      const material = new MeshBasicMaterial({
-        color: toThreeColor(item.color),
-      });
-
       const width = convertToMM(item.width, item.dimensionAbbr);
       const height = convertToMM(item.height, item.dimensionAbbr);
       const length = convertToMM(item.length, item.dimensionAbbr);
 
       const geometry = new BoxGeometry(width, height, length);
+      const material = new MeshBasicMaterial({
+        color: toThreeColor(item.color),
+      });
+
       const itemForScene = new Mesh(geometry, material);
 
       itemForScene.name = item.name;
@@ -68,17 +94,25 @@ export const useItemsStore = defineStore("items", {
 
         const itemForScene = this.createItem(item);
         scene.add(itemForScene);
+
+        const canvasStore = useCanvasStore();
+        canvasStore.updateCamera();
       } catch (error) {
         console.error(error);
       }
     },
-    addItemsToScene(): void {
+    initScene(): void {
       const itemsForScene: Mesh<BoxGeometry, MeshBasicMaterial>[] = [];
 
       for (const item of this.items) {
         itemsForScene.push(this.createItem(item));
       }
+
+      const canvasStore = useCanvasStore();
+
       scene.add(...itemsForScene);
+
+      canvasStore.updateCamera();
     },
     repositionItems(): void {
       const items = this.items;
@@ -89,26 +123,31 @@ export const useItemsStore = defineStore("items", {
 
         if (currentItem === items[0]) {
           currentItem.positionX = 0;
-        } else {
-          const prevItemPositionX = prevItem.positionX ?? 0;
-          const prevItemHalfWidth =
-            convertToMM(prevItem.width, prevItem.dimensionAbbr) / 2;
-          const currentItemHalfWidth =
-            convertToMM(currentItem.width, currentItem.dimensionAbbr) / 2;
-
-          currentItem.positionX =
-            prevItemPositionX + prevItemHalfWidth + currentItemHalfWidth;
+          continue;
         }
+
+        const prevItemPositionX = prevItem.positionX ?? 0;
+        const prevItemHalfWidth =
+          convertToMM(prevItem.width, prevItem.dimensionAbbr) / 2;
+        const currentItemHalfWidth =
+          convertToMM(currentItem.width, currentItem.dimensionAbbr) / 2;
+
+        currentItem.positionX =
+          prevItemPositionX + prevItemHalfWidth + currentItemHalfWidth;
       }
     },
     clearScene(): void {
       scene.clear();
     },
     removeItem(index: number): void {
+      const canvasStore = useCanvasStore();
+
       this.items.splice(index, 1);
       this.clearScene();
       this.repositionItems();
-      this.addItemsToScene();
+      this.initScene();
+
+      canvasStore.updateCamera();
     },
   },
 });
