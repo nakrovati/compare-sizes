@@ -13,8 +13,6 @@ export const useCanvasStore = defineStore("canvas", {
     updateCamera(): void {
       const itemsStore = useItemsStore();
 
-      this.controls.maxDistance = Infinity;
-
       if (itemsStore.items.length === 1) {
         const cameraX = -itemsStore.maxWidth * 1.25;
         const cameraY = itemsStore.maxHeight * 1.25;
@@ -22,7 +20,13 @@ export const useCanvasStore = defineStore("canvas", {
 
         this.camera.position.set(cameraX, cameraY, cameraZ);
 
-        this.camera.lookAt(0, 0, 0);
+        const targetX = cameraX;
+        const targety = cameraY;
+        const targetZ = cameraZ;
+
+        this.camera.lookAt(targetX, targety, targetZ);
+
+        this.controls.target = new Vector3(targetX, targety, targetZ);
 
         return;
       }
@@ -45,6 +49,8 @@ export const useCanvasStore = defineStore("canvas", {
     },
     initOrbitControls(object: Camera, domElement: HTMLElement) {
       this.controls = new OrbitControls(object, domElement);
+
+      this.controls.maxDistance = Infinity;
     },
     clearScene(): void {
       scene.clear();
