@@ -27,8 +27,7 @@ export const useCanvasStore = defineStore("canvas", {
         return;
       }
 
-      const cameraX =
-        (itemsStore.middlePositionX - itemsStore.maxLength / 1.5) * 1.25 - 1;
+      const cameraX = itemsStore.middlePositionX - 1;
       const cameraY = itemsStore.maxHeight * 1.25;
       const cameraZ = itemsStore.maxLength * 1.25;
 
