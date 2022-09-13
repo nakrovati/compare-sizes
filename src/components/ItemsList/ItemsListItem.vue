@@ -60,7 +60,6 @@ function deleteItem() {
   background-color: inherit;
   border: none;
   bottom: 0.5em;
-  cursor: pointer;
   padding: 0 6px;
   position: absolute;
   right: 0.5em;
