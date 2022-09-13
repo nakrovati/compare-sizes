@@ -69,10 +69,8 @@ onMounted(() => {
 #canvas {
   border-radius: 10px;
   box-shadow: shadows.$default;
-  display: block;
-  grid-area: 1 / 1 / 6 / 2;
   height: 100%;
-  width: 50%;
+  width: 60%;
 
   @media screen and (max-width: 1024px) {
     height: 50%;

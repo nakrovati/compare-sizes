@@ -47,7 +47,7 @@ if (window.matchMedia("(prefers-color-scheme: dark)").matches)
   flex-direction: column;
   gap: 20px;
   height: 100%;
-  width: 50%;
+  width: 40%;
 
   @media screen and (max-width: 1024px) {
     height: 50%;
