@@ -7,14 +7,14 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nakrovati/vuemg.git"
+    "url": "git+https://github.com/nakrovati/compare-sizes.git"
   },
   "author": "Daniil Zhuravlev",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nakrovati/vuemg/issues"
+    "url": "https://github.com/nakrovati/compare-sizes/issues"
   },
-  "homepage": "https://github.com/nakrovati/vuemg#readme",
+  "homepage": "https://github.com/nakrovati/compare-sizes#readme",
   "scripts": {
     "dev": "vite",
     "dev:host": "vite --host",
