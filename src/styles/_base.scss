@@ -7,6 +7,11 @@ body {
   margin: 0;
 }
 
+button {
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s;
+}
+
 .dark body {
   background-color: colors.$background-dark;
   color: colors.$text-light;

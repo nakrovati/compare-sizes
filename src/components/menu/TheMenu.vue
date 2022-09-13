@@ -1,10 +1,10 @@
 <template>
   <div class="menu">
-    <div class="item">
+    <div class="menu__item item">
       <span class="item__name">Item name:</span
       ><input v-model="itemName" type="text" class="item__input" />
     </div>
-    <div class="item">
+    <div class="menu__item item">
       <span class="item__name">Item size:</span
       ><input
         v-model="itemParams"
@@ -13,9 +13,8 @@
         placeholder="height, width, length"
       />
     </div>
-    <div class="item">
+    <div class="menu__item item">
       <select
-        id=""
         v-model="selectedDimension"
         class="dimension-abbreviation"
         name="dimensionAbbreviation"
@@ -30,7 +29,9 @@
         </option>
       </select>
     </div>
-    <button @click="addItem">Add item</button>
+    <button class="menu__button-submit" type="button" @click="addItem">
+      Add item
+    </button>
   </div>
 </template>
 
@@ -100,10 +101,18 @@ function addItem() {
   };
 
   itemsStore.addItem(item);
+
+  itemName.value = "";
+  itemParams.value = "";
 }
 </script>
 
 <style scoped lang="scss">
+$button-submit-bg: #2176ff;
+$button-submit-bg-hover: #274690;
+$button-submit-dark-bg: #1f5da2;
+$button-submit-dark-bg-hover: #274690;
+
 .menu {
   align-items: center;
   border-radius: 10px;
@@ -111,8 +120,19 @@ function addItem() {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  grid-area: 1 / 2 / 3 / 3;
   padding: 1em;
+
+  .menu__button-submit {
+    background-color: $button-submit-bg;
+    border: none;
+    border-radius: 5px;
+    color: colors.$text-light;
+    padding: 0.5em 1.5em;
+
+    &:hover {
+      background-color: $button-submit-bg;
+    }
+  }
 }
 
 .item {
@@ -131,6 +151,14 @@ function addItem() {
   .menu {
     background-color: colors.$background-menu-dark;
     box-shadow: none;
+
+    .menu__button-submit {
+      background-color: $button-submit-dark-bg;
+
+      &:hover {
+        background-color: $button-submit-dark-bg-hover;
+      }
+    }
   }
 
   .item .item__input {
