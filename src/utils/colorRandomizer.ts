@@ -23,7 +23,6 @@ function getRandomColor(): string {
     "#57C4E5",
     "#84A9C0",
     "#9DACFF",
-    "#FFFC31",
     "#FFB400",
     "#6FFFE9",
     "#96E072",
