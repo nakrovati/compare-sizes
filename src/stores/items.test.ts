@@ -4,6 +4,14 @@ import { useItemsStore } from "./items";
 import { getRandomColor } from "Utils/colorRandomizer";
 import type { Box } from "Types/types";
 
+type CreateTestItem = (
+  name: string,
+  width: number,
+  height: number,
+  length: number,
+  dimensionAbbr: string
+) => Box;
+
 describe("Counter Store", () => {
   // Initializing pinia
   beforeEach(() => {
@@ -14,46 +22,27 @@ describe("Counter Store", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.maxWidth).toBe(0);
 
-    let name = "Item 1",
-      width = 1,
-      height = 1,
-      length = 1,
-      color = getRandomColor(),
-      dimensionAbbr = "mm",
-      positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
-
-    const item1: Box = {
+    const createTestItem: CreateTestItem = (
       name,
       width,
       height,
       length,
-      color,
-      dimensionAbbr,
-      positionX,
+      dimensionAbbr
+    ) => {
+      const color = getRandomColor();
+      const positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
+
+      return { name, width, height, length, color, dimensionAbbr, positionX };
     };
 
+    const item1 = createTestItem("Item 1", 1, 1, 1, "mm");
     itemsStore.addItem(item1);
+
     expect(itemsStore.maxWidth).toBe(1);
 
-    name = "Item 2";
-    width = 5;
-    height = 5;
-    length = 5;
-    color = getRandomColor();
-    dimensionAbbr = "mm";
-    positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
-
-    const item2: Box = {
-      name,
-      width,
-      height,
-      length,
-      color,
-      dimensionAbbr,
-      positionX,
-    };
-
+    const item2 = createTestItem("Item 2", 5, 5, 5, "mm");
     itemsStore.addItem(item2);
+
     expect(itemsStore.maxWidth).toBe(5);
   });
 
@@ -61,46 +50,27 @@ describe("Counter Store", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.maxHeight).toBe(0);
 
-    let name = "Item 1",
-      width = 1,
-      height = 1,
-      length = 1,
-      color = getRandomColor(),
-      dimensionAbbr = "mm",
-      positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
-
-    const item1: Box = {
+    const createTestItem: CreateTestItem = (
       name,
       width,
       height,
       length,
-      color,
-      dimensionAbbr,
-      positionX,
+      dimensionAbbr
+    ) => {
+      const color = getRandomColor();
+      const positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
+
+      return { name, width, height, length, color, dimensionAbbr, positionX };
     };
 
+    const item1 = createTestItem("Item 1", 1, 1, 1, "mm");
     itemsStore.addItem(item1);
+
     expect(itemsStore.maxHeight).toBe(1);
 
-    name = "Item 2";
-    width = 5;
-    height = 5;
-    length = 5;
-    color = getRandomColor();
-    dimensionAbbr = "mm";
-    positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
-
-    const item2: Box = {
-      name,
-      width,
-      height,
-      length,
-      color,
-      dimensionAbbr,
-      positionX,
-    };
-
+    const item2 = createTestItem("Item 2", 5, 5, 5, "mm");
     itemsStore.addItem(item2);
+
     expect(itemsStore.maxHeight).toBe(5);
   });
 
@@ -108,46 +78,27 @@ describe("Counter Store", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.maxLength).toBe(0);
 
-    let name = "Item 1",
-      width = 1,
-      height = 1,
-      length = 1,
-      color = getRandomColor(),
-      dimensionAbbr = "mm",
-      positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
-
-    const item1: Box = {
+    const createTestItem: CreateTestItem = (
       name,
       width,
       height,
       length,
-      color,
-      dimensionAbbr,
-      positionX,
+      dimensionAbbr
+    ) => {
+      const color = getRandomColor();
+      const positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
+
+      return { name, width, height, length, color, dimensionAbbr, positionX };
     };
 
+    const item1 = createTestItem("Item 1", 1, 1, 1, "mm");
     itemsStore.addItem(item1);
+
     expect(itemsStore.maxLength).toBe(1);
 
-    name = "Item 2";
-    width = 5;
-    height = 5;
-    length = 5;
-    color = getRandomColor();
-    dimensionAbbr = "mm";
-    positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
-
-    const item2: Box = {
-      name,
-      width,
-      height,
-      length,
-      color,
-      dimensionAbbr,
-      positionX,
-    };
-
+    const item2 = createTestItem("Item 2", 5, 5, 5, "mm");
     itemsStore.addItem(item2);
+
     expect(itemsStore.maxLength).toBe(5);
   });
 
@@ -155,46 +106,27 @@ describe("Counter Store", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.middlePositionX).toBe(0);
 
-    let name = "Item 1",
-      width = 1,
-      height = 1,
-      length = 1,
-      color = getRandomColor(),
-      dimensionAbbr = "mm",
-      positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
-
-    const item1: Box = {
+    const createTestItem: CreateTestItem = (
       name,
       width,
       height,
       length,
-      color,
-      dimensionAbbr,
-      positionX,
+      dimensionAbbr
+    ) => {
+      const color = getRandomColor();
+      const positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
+
+      return { name, width, height, length, color, dimensionAbbr, positionX };
     };
 
+    const item1 = createTestItem("Item 1", 1, 1, 1, "mm");
     itemsStore.addItem(item1);
+
     expect(itemsStore.middlePositionX).toBe(0);
 
-    name = "Item 2";
-    width = 5;
-    height = 5;
-    length = 5;
-    color = getRandomColor();
-    dimensionAbbr = "mm";
-    positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
-
-    const item2: Box = {
-      name,
-      width,
-      height,
-      length,
-      color,
-      dimensionAbbr,
-      positionX,
-    };
-
+    const item2 = createTestItem("Item 2", 5, 5, 5, "mm");
     itemsStore.addItem(item2);
+
     expect(itemsStore.middlePositionX).toBe(1.5);
   });
 });
