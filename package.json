@@ -21,6 +21,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "test:watch": "vitest run",
+    "coverage": "vitest run --coverage",
     "lint": "eslint --ext .ts,.vue src",
     "lint:fix": "eslint --ext .ts,.vue --fix src",
     "style": "stylelint **/*.{scss,vue}",
