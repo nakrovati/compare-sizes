@@ -14,15 +14,15 @@ export const useCanvasStore = defineStore("canvas", {
       const itemsStore = useItemsStore();
 
       if (itemsStore.items.length === 1) {
-        const cameraX = -itemsStore.maxWidth * 1.25;
-        const cameraY = itemsStore.maxHeight * 1.25;
-        const cameraZ = itemsStore.maxLength * 1.25;
+        const cameraX: number = -itemsStore.maxWidth * 1.25,
+          cameraY: number = itemsStore.maxHeight * 1.25,
+          cameraZ: number = itemsStore.maxLength * 1.25;
 
         this.camera.position.set(cameraX, cameraY, cameraZ);
 
-        const targetX = cameraX;
-        const targety = cameraY;
-        const targetZ = cameraZ;
+        const targetX = 0,
+          targety = 0,
+          targetZ = 0;
 
         this.camera.lookAt(targetX, targety, targetZ);
 
@@ -31,17 +31,15 @@ export const useCanvasStore = defineStore("canvas", {
         return;
       }
 
-      const cameraX = itemsStore.middlePositionX - 1;
-      const cameraY = itemsStore.maxHeight * 1.25;
-      const cameraZ = itemsStore.maxLength * 1.25;
+      const cameraX: number = itemsStore.middlePositionX - 1,
+        cameraY: number = itemsStore.maxHeight * 1.25,
+        cameraZ: number = itemsStore.maxLength * 1.25;
 
-      this.camera.position.setX(cameraX);
-      this.camera.position.setY(cameraY);
-      this.camera.position.setZ(cameraZ);
+      this.camera.position.set(cameraX, cameraY, cameraZ);
 
-      const targetX = cameraX + 1;
-      const targety = cameraY - 1;
-      const targetZ = cameraZ - 1;
+      const targetX = cameraX + 1,
+        targety = cameraY - 1,
+        targetZ = cameraZ - 1;
 
       this.camera.lookAt(targetX, targety, targetZ);
 
