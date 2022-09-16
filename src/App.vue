@@ -14,7 +14,7 @@
 import TheLayout from "Components/layout/TheLayout.vue";
 import TheCanvas from "./components/TheCanvas.vue";
 import TheMenu from "Components/menu/TheMenu.vue";
-import ItemsList from "Components/itemsList/ItemsList.vue";
+import ItemsList from "Components/ItemsList/ItemsList.vue";
 
 if (window.matchMedia("(prefers-color-scheme: dark)").matches)
   document.documentElement.classList.add("dark");
