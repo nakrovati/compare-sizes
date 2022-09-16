@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import ItemsListItem from "Components/itemsList/ItemsListItem.vue";
+import ItemsListItem from "Components/ItemsList/ItemsListItem.vue";
 import { useItemsStore } from "Stores/items";
 
 const { items } = useItemsStore();
