@@ -41,7 +41,6 @@ import { useItemsStore } from "Stores/items";
 import { getRandomColor } from "Utils/colorRandomizer";
 import validateItemParams from "Utils/validateItemParams";
 import type { Box } from "Types/types";
-import { convertToMM } from "Utils/dimensionsConverter";
 
 interface AbbreviationOptions {
   text: string;
@@ -60,18 +59,6 @@ const itemsStore = useItemsStore();
 const itemName = ref("");
 const itemParams = ref("");
 
-function calcCurrentPositionX(width: number, dimensionAbbr: string) {
-  const lastItem = itemsStore.items.at(-1);
-
-  if (!lastItem) return 0;
-
-  return (
-    lastItem.positionX +
-    convertToMM(lastItem.width, lastItem.dimensionAbbr) / 2 +
-    convertToMM(width, dimensionAbbr) / 2
-  );
-}
-
 function addItem() {
   if (!itemName.value || !itemParams.value) {
     alert("Enter the object name, height, width and length");
@@ -88,7 +75,7 @@ function addItem() {
   const name = itemName.value;
   const color = getRandomColor();
   const dimensionAbbr = selectedDimension.value;
-  const positionX = calcCurrentPositionX(width, dimensionAbbr);
+  const positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
 
   const item: Box = {
     height,

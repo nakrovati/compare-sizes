@@ -57,6 +57,8 @@ export const useItemsStore = defineStore("items", {
     },
     /** Maximum width of all item */
     middlePositionX: (state): number => {
+      if (!state.items.length || state.items.length === 1) return 0;
+
       const firstItemPositionX = state.items.at(0)?.positionX ?? 0;
       const lastItemPositionX = state.items.at(-1)?.positionX ?? 0;
 
@@ -88,20 +90,18 @@ export const useItemsStore = defineStore("items", {
       return itemForScene;
     },
     addItem(item: Box): void {
-      try {
-        const itemForStore = item;
-        this.items.push(itemForStore);
+      const itemForStore = item;
+      this.items.push(itemForStore);
 
-        const itemForScene = this.createItem(item);
-        scene.add(itemForScene);
+      const itemForScene = this.createItem(item);
+      scene.add(itemForScene);
 
-        const canvasStore = useCanvasStore();
-        canvasStore.updateCamera();
-      } catch (error) {
-        console.error(error);
-      }
+      const canvasStore = useCanvasStore();
+      canvasStore.updateCamera();
     },
     initScene(): void {
+      if (!this.items.length) return;
+
       const itemsForScene: Mesh<BoxGeometry, MeshBasicMaterial>[] = [];
 
       for (const item of this.items) {
@@ -135,6 +135,17 @@ export const useItemsStore = defineStore("items", {
         currentItem.positionX =
           prevItemPositionX + prevItemHalfWidth + currentItemHalfWidth;
       }
+    },
+    calcCurrentPositionX(width: number, dimensionAbbr: string) {
+      const lastItem = this.items.at(-1);
+
+      if (!lastItem) return 0;
+
+      return (
+        lastItem.positionX +
+        convertToMM(lastItem.width, lastItem.dimensionAbbr) / 2 +
+        convertToMM(width, dimensionAbbr) / 2
+      );
     },
     clearScene(): void {
       scene.clear();
