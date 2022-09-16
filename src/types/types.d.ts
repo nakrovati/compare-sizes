@@ -1,9 +1,9 @@
 /** Object interface for the Three.js scene */
 export interface Box {
-  height: number;
-  width: number;
-  length: number;
   name: string;
+  width: number;
+  height: number;
+  length: number;
   color: string;
   dimensionAbbr: string;
   positionX: number;
