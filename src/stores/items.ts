@@ -147,14 +147,13 @@ export const useItemsStore = defineStore("items", {
         convertToMM(width, dimensionAbbr) / 2
       );
     },
-    clearScene(): void {
-      scene.clear();
-    },
     removeItem(index: number): void {
       const canvasStore = useCanvasStore();
 
       this.items.splice(index, 1);
-      this.clearScene();
+
+      canvasStore.clearScene();
+
       this.repositionItems();
       this.initScene();
 
