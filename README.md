@@ -4,11 +4,11 @@ A site where you can compare object sizes.
 
 ## Features
 
-* The whole interface is on one page
-* The dark theme is supported
-* Supports millimeters, centimiters, meters and inches
+- The whole interface is on one page
+- The dark theme is supported
+- Supports millimeters, centimiters, meters and inches
 
-## Quick start 
+## Quick start
 
 ```bash
 git clone https://github.com/nakrovati/compare-sizes.git
