@@ -75,7 +75,6 @@ function addItem() {
   const name = itemName.value;
   const color = getRandomColor();
   const dimensionAbbr = selectedDimension.value;
-  const positionX = itemsStore.calcCurrentPositionX(width, dimensionAbbr);
 
   const item: Box = {
     height,
@@ -84,7 +83,6 @@ function addItem() {
     name,
     color,
     dimensionAbbr,
-    positionX,
   };
 
   itemsStore.addItem(item);

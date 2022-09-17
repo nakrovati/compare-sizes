@@ -6,5 +6,5 @@ export interface Box {
   length: number;
   color: string;
   dimensionAbbr: string;
-  positionX: number;
+  positionX?: number;
 }

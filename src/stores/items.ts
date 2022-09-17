@@ -90,6 +90,11 @@ export const useItemsStore = defineStore("items", {
       return itemForScene;
     },
     addItem(item: Box): void {
+      item.positionX = this.calcCurrentPositionX(
+        item.width,
+        item.dimensionAbbr
+      );
+
       const itemForStore = item;
       this.items.push(itemForStore);
 
@@ -140,6 +145,8 @@ export const useItemsStore = defineStore("items", {
       const lastItem = this.items.at(-1);
 
       if (!lastItem) return 0;
+
+      if (!lastItem.positionX) lastItem.positionX = 0;
 
       return (
         lastItem.positionX +
