@@ -31,10 +31,11 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{html,json,md}": "prettier --write",
-    "*.scss": "prettier --write",
+    "*.{html,json,md,yml,yaml}": "prettier --write",
+    "*.scss": "stylelint --fix",
     "*.vue": [
       "prettier --write",
+      "stylelint --fix",
       "eslint --fix"
     ],
     "*.{js,cjs,ts}": [
