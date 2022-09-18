@@ -129,6 +129,7 @@ function addItem() {
     width: 100%;
 
     &::placeholder {
+      color: var(--menu-input-placeholder);
       opacity: 0;
     }
 
