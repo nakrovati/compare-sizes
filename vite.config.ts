@@ -25,7 +25,6 @@ export default defineConfig({
         additionalData: `
           @use "Styles/colors";
           @use "Styles/shadows";
-          @use "Styles/borders";
           `,
       },
     },

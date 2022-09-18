@@ -22,22 +22,7 @@
       />
       <label class="item__label" for="item__params">Item size</label>
     </div>
-    <div class="item-select">
-      <select
-        v-model="selectedDimension"
-        class="dimension-abbreviation"
-        name="dimensionAbbreviation"
-      >
-        <option
-          v-for="option in options"
-          :key="option.value"
-          :value="option.value"
-          class="dimension-abbreviation__item"
-        >
-          {{ option.text }}
-        </option>
-      </select>
-    </div>
+    <TheSelect @toogle="changeDimensionAbbr"></TheSelect>
     <button class="menu__button-submit" type="button" @click="addItem">
       Add item
     </button>
@@ -46,26 +31,17 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import TheSelect from "Components/ui/TheSelect.vue";
 import { useItemsStore } from "Stores/items";
 import { getRandomColor } from "Utils/colorRandomizer";
 import validateItemParams from "Utils/validateItemParams";
 import type { Box } from "Types/types";
 
-interface AbbreviationOptions {
-  text: string;
-  value: string;
-}
-
 const selectedDimension = ref("mm");
-const options = ref<AbbreviationOptions[]>([
-  { text: "millimeter", value: "mm" },
-  { text: "centimeter", value: "cm" },
-  { text: "meter", value: "m" },
-  { text: "inch", value: "in" },
-  { text: "feet", value: "ft" },
-  { text: "yards", value: "ya" },
-  { text: "miles", value: "mi" },
-]);
+
+function changeDimensionAbbr(value: string) {
+  selectedDimension.value = value;
+}
 
 const itemsStore = useItemsStore();
 const itemName = ref("");
@@ -129,7 +105,6 @@ function addItem() {
 }
 
 .item {
-  color: var(--text);
   max-width: 240px;
   position: relative;
   width: 100%;
@@ -148,9 +123,7 @@ function addItem() {
 
   .item__input {
     background-color: var(--menu-input-bg);
-    border: var(--menu-input-border);
     border-radius: 5px;
-    border-width: 1px;
     color: inherit;
     padding: 1.5em 0.5em 0.5em;
     width: 100%;
@@ -162,13 +135,12 @@ function addItem() {
     &:focus::placeholder {
       opacity: 100;
     }
-  }
 
-  .item__input:focus + .item__label,
-  .item__input:valid + .item__label {
-    color: var(--menu-input-label);
-    font-size: 0.875rem;
-    transform: translateY(-200%);
+    &:focus + .item__label,
+    &:valid + .item__label {
+      font-size: 0.875rem;
+      transform: translateY(-200%);
+    }
   }
 }
 </style>
