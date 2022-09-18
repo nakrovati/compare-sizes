@@ -1,6 +1,22 @@
-$text-light: #f3f3f3;
-$text-dark: #1e1e1e;
-$background-dark: #1b1b1b;
-$background-menu-dark: #343434;
-$input-background-dark: #e8e8e8;
-$input-placeholder-dark: $text-dark;
+:root {
+  --bg: inherit;
+  --text: #1e1e1e;
+
+  // Item list
+  --item-list-text: #f3f3f3;
+
+  // Button submin
+  --btn-submit-text: #f3f3f3;
+  --btn-submit-bg: #225de8;
+  --btn-submit-bg-hover: #1849bd;
+}
+
+:root.dark {
+  --text: #f3f3f3;
+  --bg: #121212;
+
+  // Menu
+  --menu-bg: #222;
+  --menu-input-bg: #31333d;
+  --menu-input-label: #76a9ff;
+}

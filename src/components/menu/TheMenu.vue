@@ -1,19 +1,28 @@
 <template>
   <div class="menu">
-    <div class="menu__item item">
-      <span class="item__name">Item name:</span
-      ><input v-model="itemName" type="text" class="item__input" />
+    <div class="item">
+      <input
+        id="item__name"
+        v-model="itemName"
+        type="text"
+        class="item__input"
+        placeholder="box 1"
+        required
+      />
+      <label class="item__label" for="item__name">Item name</label>
     </div>
-    <div class="menu__item item">
-      <span class="item__name">Item size:</span
-      ><input
+    <div class="item">
+      <input
+        id="item__params"
         v-model="itemParams"
         type="text"
         class="item__input"
-        placeholder="height, width, length"
+        placeholder="width, height, length"
+        required
       />
+      <label class="item__label" for="item__params">Item size</label>
     </div>
-    <div class="menu__item item">
+    <div class="item-select">
       <select
         v-model="selectedDimension"
         class="dimension-abbreviation"
@@ -93,65 +102,70 @@ function addItem() {
 </script>
 
 <style scoped lang="scss">
-$button-submit-bg: #2176ff;
-$button-submit-bg-hover: #274690;
-$button-submit-dark-bg: #1f5da2;
-$button-submit-dark-bg-hover: #274690;
-
 .menu {
   align-items: center;
+  background-color: var(--menu-bg);
   border-radius: 10px;
-  box-shadow: shadows.$default;
+  box-shadow: var(--shadow-default);
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  padding: 1em;
+  padding: 2em;
 
   .menu__button-submit {
-    background-color: $button-submit-bg;
+    background-color: var(--btn-submit-bg);
     border: none;
     border-radius: 5px;
-    color: colors.$text-light;
+    color: var(--btn-submit-text);
     padding: 0.5em 1.5em;
 
     &:hover {
-      background-color: $button-submit-bg;
+      background-color: var(--btn-submit-bg-hover);
     }
   }
 }
 
 .item {
-  .item__name {
-    margin-right: 0.5em;
+  color: var(--text);
+  max-width: 240px;
+  position: relative;
+  width: 100%;
+
+  &:first-child {
+    margin-bottom: 1em;
+  }
+
+  .item__label {
+    bottom: 0;
+    left: 0.5rem;
+    position: absolute;
+    transform: translateY(-50%);
+    transition: 0.25s;
   }
 
   .item__input {
+    background-color: var(--menu-input-bg);
+    border: var(--menu-input-border);
     border-radius: 5px;
     border-width: 1px;
-    padding: 0.5em;
-  }
-}
-
-.dark {
-  .menu {
-    background-color: colors.$background-menu-dark;
-    box-shadow: none;
-
-    .menu__button-submit {
-      background-color: $button-submit-dark-bg;
-
-      &:hover {
-        background-color: $button-submit-dark-bg-hover;
-      }
-    }
-  }
-
-  .item .item__input {
-    background-color: colors.$input-background-dark;
+    color: inherit;
+    padding: 1.5em 0.5em 0.5em;
+    width: 100%;
 
     &::placeholder {
-      color: colors.$input-placeholder-dark;
+      opacity: 0;
     }
+
+    &:focus::placeholder {
+      opacity: 100;
+    }
+  }
+
+  .item__input:focus + .item__label,
+  .item__input:valid + .item__label {
+    color: var(--menu-input-label);
+    font-size: 0.875rem;
+    transform: translateY(-200%);
   }
 }
 </style>

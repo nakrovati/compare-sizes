@@ -50,8 +50,8 @@ function deleteItem() {
 .item {
   background-color: v-bind(color);
   border-radius: 10px;
-  box-shadow: shadows.$default;
-  color: colors.$text-light;
+  box-shadow: var(--shadow-default);
+  color: var(--item-list-text);
   padding: 0.5rem;
   position: relative;
 }

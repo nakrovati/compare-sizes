@@ -22,7 +22,11 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "Styles/colors"; @use "Styles/shadows";',
+        additionalData: `
+          @use "Styles/colors";
+          @use "Styles/shadows";
+          @use "Styles/borders";
+          `,
       },
     },
   },

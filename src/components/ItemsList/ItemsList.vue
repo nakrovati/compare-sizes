@@ -1,5 +1,5 @@
 <template>
-  <section v-if="items.length" class="items-list">
+  <section v-if="items.length" class="item-list">
     <ItemsListItem
       v-for="(item, index) in items"
       :key="index"
@@ -22,7 +22,7 @@ const { items } = useItemsStore();
 </script>
 
 <style scoped lang="scss">
-.items-list {
+.item-list {
   display: flex;
   flex-direction: column;
   gap: 1rem;

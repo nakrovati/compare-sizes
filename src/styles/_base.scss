@@ -1,7 +1,8 @@
 @use "./colors";
 
 body {
-  color: colors.$text-dark;
+  background-color: var(--bg);
+  color: var(--text);
   font-family: Quicksand, sans-serif;
   font-size: 16px;
   margin: 0;
@@ -10,9 +11,4 @@ body {
 button {
   cursor: pointer;
   transition: color 0.2s, background-color 0.2s;
-}
-
-.dark body {
-  background-color: colors.$background-dark;
-  color: colors.$text-light;
 }
