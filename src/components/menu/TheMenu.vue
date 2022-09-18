@@ -58,10 +58,13 @@ interface AbbreviationOptions {
 
 const selectedDimension = ref("mm");
 const options = ref<AbbreviationOptions[]>([
-  { text: "meter", value: "m" },
-  { text: "centimeter", value: "cm" },
   { text: "millimeter", value: "mm" },
+  { text: "centimeter", value: "cm" },
+  { text: "meter", value: "m" },
   { text: "inch", value: "in" },
+  { text: "feet", value: "ft" },
+  { text: "yards", value: "ya" },
+  { text: "miles", value: "mi" },
 ]);
 
 const itemsStore = useItemsStore();
