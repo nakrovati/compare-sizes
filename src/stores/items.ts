@@ -113,10 +113,9 @@ export const useItemsStore = defineStore("items", {
         itemsForScene.push(this.createItem(item));
       }
 
-      const canvasStore = useCanvasStore();
-
       scene.add(...itemsForScene);
 
+      const canvasStore = useCanvasStore();
       canvasStore.updateCamera();
     },
     repositionItems(): void {
@@ -155,10 +154,9 @@ export const useItemsStore = defineStore("items", {
       );
     },
     removeItem(index: number): void {
-      const canvasStore = useCanvasStore();
-
       this.items.splice(index, 1);
 
+      const canvasStore = useCanvasStore();
       canvasStore.clearScene();
 
       this.repositionItems();
