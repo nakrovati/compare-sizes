@@ -24,6 +24,11 @@
     </div>
     <TheDimensionSelect @toogle="changeDimensionAbbr"></TheDimensionSelect>
     <TheButton @click="addItem"> Add item</TheButton>
+    <Teleport to="body">
+      <TheModal v-if="isOpen" @close="isOpen = !isOpen">
+        Enter the object name, height, width and length
+      </TheModal>
+    </Teleport>
   </div>
 </template>
 
@@ -35,6 +40,9 @@ import { useItemsStore } from "Stores/items";
 import { getRandomColor } from "Utils/colorRandomizer";
 import validateItemParams from "Utils/validateItemParams";
 import type { Box } from "Types/types";
+import TheModal from "Components/ui/TheModal.vue";
+
+const isOpen = ref(false);
 
 const selectedDimension = ref("mm");
 
@@ -48,7 +56,7 @@ const itemParams = ref("");
 
 function addItem() {
   if (!itemName.value || !itemParams.value) {
-    alert("Enter the object name, height, width and length");
+    isOpen.value = true;
     return;
   }
 
@@ -121,7 +129,7 @@ function addItem() {
     }
 
     &:focus::placeholder {
-      opacity: 100;
+      opacity: 1;
     }
 
     &:focus + .item__label,
