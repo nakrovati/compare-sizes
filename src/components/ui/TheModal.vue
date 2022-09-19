@@ -71,14 +71,13 @@ onUnmounted(() => {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 2em;
-  padding: 1rem;
+  gap: 1em;
+  padding: 1em;
   position: relative;
 
   .text {
     margin: 0;
     padding: 0;
-    text-align: center;
   }
 }
 

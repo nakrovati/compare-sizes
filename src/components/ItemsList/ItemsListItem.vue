@@ -7,16 +7,15 @@
     </div>
     <button
       type="button"
-      class="close"
+      class="button-delete"
       aria-label="delete item"
       @click="deleteItem"
     >
       <object
-        class="close__icon"
+        class="button-delete__icon"
         type="image/svg+xml"
         :data="IconXmark"
         aria-hidden="true"
-        focusable="false"
         tabindex="-1"
       ></object>
     </button>
@@ -24,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import IconXmark from "Assets/icons/xmark-solid.svg";
 import { computed } from "vue";
+import IconXmark from "Assets/icons/xmark-solid.svg";
 import { useItemsStore } from "Stores/items";
 
 const itemsStore = useItemsStore();
@@ -56,18 +55,17 @@ function deleteItem() {
   position: relative;
 }
 
-.close {
+.button-delete {
   background-color: inherit;
   border: none;
   bottom: 0.5em;
-  padding: 0 6px;
+  padding: 0 0.5rem;
   position: absolute;
   right: 0.5em;
   top: 0.5em;
-  width: 32px;
-  z-index: 2;
+  z-index: 0;
 
-  &__icon {
+  .button-delete__icon {
     filter: invert(0.9);
     height: 100%;
     position: relative;
