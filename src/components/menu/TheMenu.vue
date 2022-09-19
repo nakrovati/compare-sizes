@@ -22,10 +22,7 @@
       />
       <label class="item__label" for="item__params">Item size</label>
     </div>
-    <TheSelect @toogle="changeDimensionAbbr"></TheSelect>
-    <button class="menu__button-submit" type="button" @click="addItem">
-      Add item
-    </button>
+    <TheDimensionSelect @toogle="changeDimensionAbbr"></TheDimensionSelect>
   </div>
 </template>
 
