@@ -23,12 +23,14 @@
       <label class="item__label" for="item__params">Item size</label>
     </div>
     <TheDimensionSelect @toogle="changeDimensionAbbr"></TheDimensionSelect>
+    <TheButton @click="addItem"> Add item</TheButton>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-import TheSelect from "Components/ui/TheSelect.vue";
+import TheDimensionSelect from "Components/ui/TheDimensionSelect.vue";
+import TheButton from "Components/ui/TheButton.vue";
 import { useItemsStore } from "Stores/items";
 import { getRandomColor } from "Utils/colorRandomizer";
 import validateItemParams from "Utils/validateItemParams";
@@ -87,18 +89,6 @@ function addItem() {
   flex-direction: column;
   gap: 0.5em;
   padding: 2em;
-
-  .menu__button-submit {
-    background-color: var(--btn-submit-bg);
-    border: none;
-    border-radius: 5px;
-    color: var(--btn-submit-text);
-    padding: 0.5em 1.5em;
-
-    &:hover {
-      background-color: var(--btn-submit-bg-hover);
-    }
-  }
 }
 
 .item {
