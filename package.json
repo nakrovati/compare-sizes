@@ -34,12 +34,10 @@
     "*.{html,json,md,yml,yaml}": "prettier --write",
     "*.scss": "stylelint --fix",
     "*.vue": [
-      "prettier --write",
-      "stylelint --fix",
-      "eslint --fix"
+      "eslint --fix",
+      "stylelint --fix"
     ],
     "*.{js,cjs,ts}": [
-      "prettier --write",
       "eslint --fix"
     ]
   },
@@ -58,7 +56,7 @@
     "autoprefixer": "^10.4.10",
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-vue": "^9.4.0",
+    "eslint-plugin-prettier-vue": "^4.2.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "postcss": "^8.4.16",

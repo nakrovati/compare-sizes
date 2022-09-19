@@ -8,9 +8,14 @@
     "eslint:recommended",
     "plugin:vue/vue3-recommended",
     "@vue/typescript/recommended",
-    "prettier"
+    "plugin:prettier-vue/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 2022
+  },
+  "settings": {
+    "prettier-vue": {
+      "SFCBlocks": { "style": false }
+    }
   }
 }
