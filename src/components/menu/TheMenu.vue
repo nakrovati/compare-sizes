@@ -26,7 +26,7 @@
     <TheButton @click="addItem"> Add item</TheButton>
     <Teleport to="body">
       <TheModal v-if="isOpen" @close="isOpen = !isOpen">
-        Enter the object name, height, width and length
+        Enter the object name, width, height and length
       </TheModal>
     </Teleport>
   </div>
@@ -66,16 +66,16 @@ function addItem() {
     return;
   }
 
-  const { height, width, length } = data;
   const name = itemName.value;
+  const { height, width, length } = data;
   const color = getRandomColor();
   const dimensionAbbr = selectedDimension.value;
 
   const item: Box = {
-    height,
-    width,
-    length,
     name,
+    width,
+    height,
+    length,
     color,
     dimensionAbbr,
   };

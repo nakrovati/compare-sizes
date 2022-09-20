@@ -6,7 +6,7 @@ import { useItemsStore } from "Stores/items";
 
 export const useCanvasStore = defineStore("canvas", {
   state: () => ({
-    camera: new PerspectiveCamera(),
+    camera: new PerspectiveCamera(100),
     controls: {} as OrbitControls,
   }),
   actions: {
@@ -14,9 +14,9 @@ export const useCanvasStore = defineStore("canvas", {
       const itemsStore = useItemsStore();
 
       if (itemsStore.items.length > 1) {
-        const cameraX: number = itemsStore.middlePositionX - 1,
-          cameraY: number = itemsStore.maxHeight * 1.25,
-          cameraZ: number = itemsStore.maxLength * 1.25;
+        const cameraX: number = itemsStore.middlePositionX / 3,
+          cameraY: number = itemsStore.maxHeight,
+          cameraZ: number = itemsStore.maxLength;
 
         this.camera.position.set(cameraX, cameraY, cameraZ);
 
@@ -30,9 +30,9 @@ export const useCanvasStore = defineStore("canvas", {
       }
 
       if (itemsStore.items.length === 1) {
-        const cameraX: number = -itemsStore.maxWidth * 1.25,
-          cameraY: number = itemsStore.maxHeight * 1.25,
-          cameraZ: number = itemsStore.maxLength * 1.25;
+        const cameraX: number = -itemsStore.maxWidth,
+          cameraY: number = itemsStore.maxHeight,
+          cameraZ: number = itemsStore.maxLength;
 
         this.camera.position.set(cameraX, cameraY, cameraZ);
 

@@ -1,4 +1,4 @@
-/** Returns the height, width and length from the string */
+/** Returns the width, height and length from the string */
 function validateItemParams(params: string) {
   const regexp = /(\d+(?:\.\d+)?), ?(\d+(?:\.\d+)?), ?(\d+(?:\.\d+)?)/;
 
@@ -8,8 +8,8 @@ function validateItemParams(params: string) {
 
   return {
     data: data[0],
-    height: +data[1],
-    width: +data[2],
+    width: +data[1],
+    height: +data[2],
     length: +data[3],
   };
 }
