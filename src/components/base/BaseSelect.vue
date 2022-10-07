@@ -25,15 +25,7 @@ interface AbbreviationOptions {
   value: string;
 }
 
-const options = ref<AbbreviationOptions[]>([
-  { text: "millimeter", value: "mm" },
-  { text: "centimeter", value: "cm" },
-  { text: "meter", value: "m" },
-  { text: "inch", value: "in" },
-  { text: "feet", value: "ft" },
-  { text: "yards", value: "ya" },
-  { text: "miles", value: "mi" },
-]);
+defineProps<{ options: AbbreviationOptions[] }>();
 
 const selectedDimension = ref("mm");
 

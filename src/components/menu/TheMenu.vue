@@ -22,8 +22,11 @@
       />
       <label class="item__label" for="item__params">Item size</label>
     </div>
-    <TheDimensionSelect @toogle="changeDimensionAbbr"></TheDimensionSelect>
-    <TheButton @click="addItem"> Add item</TheButton>
+    <BaseSelect
+      :options="dimensions"
+      @toogle="changeDimensionAbbr"
+    ></BaseSelect>
+    <BaseButton @click="addItem"> Add item</BaseButton>
     <Teleport to="body">
       <TheModal v-if="isOpen" @close="isOpen = !isOpen">
         Enter the object name, width, height and length
@@ -34,17 +37,27 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import TheDimensionSelect from "Components/ui/TheDimensionSelect.vue";
-import TheButton from "Components/ui/TheButton.vue";
+import BaseButton from "Components/base/BaseButton.vue";
+import BaseSelect from "Components/base/BaseSelect.vue";
 import { useItemsStore } from "Stores/items";
 import { getRandomColor } from "Utils/colorRandomizer";
 import validateItemParams from "Utils/validateItemParams";
 import type { Box } from "Types/types";
-import TheModal from "Components/ui/TheModal.vue";
+import TheModal from "Components/TheModal.vue";
 
 const isOpen = ref(false);
 
 const selectedDimension = ref("mm");
+
+const dimensions = [
+  { text: "millimeter", value: "mm" },
+  { text: "centimeter", value: "cm" },
+  { text: "meter", value: "m" },
+  { text: "inch", value: "in" },
+  { text: "feet", value: "ft" },
+  { text: "yards", value: "ya" },
+  { text: "miles", value: "mi" },
+];
 
 function changeDimensionAbbr(value: string) {
   selectedDimension.value = value;

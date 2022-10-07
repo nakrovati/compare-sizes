@@ -4,8 +4,8 @@
       <div ref="modal" class="modal">
         <p class="text"><slot class="text"></slot></p>
 
-        <TheButton class="button-close" type="button" @click="close"
-          >Close</TheButton
+        <BaseButton class="button-close" type="button" @click="close"
+          >Close</BaseButton
         >
       </div>
     </div>
@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
-import TheButton from "Components/ui/TheButton.vue";
+import BaseButton from "./base/BaseButton.vue";
 
 const modal = ref<HTMLDivElement>();
 
