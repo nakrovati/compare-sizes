@@ -14,7 +14,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
-import BaseButton from "./base/BaseButton.vue";
+
+import BaseButton from "Components/base/BaseButton.vue";
 
 const modal = ref<HTMLDivElement>();
 

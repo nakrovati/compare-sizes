@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import TheLayout from "Components/layout/TheLayout.vue";
 import TheCanvas from "Components/TheCanvas.vue";
-import TheMenu from "Components/menu/TheMenu.vue";
+import TheMenu from "Components/Menu/TheMenu.vue";
 import ItemsList from "Components/ItemsList/ItemsList.vue";
 
 if (window.matchMedia("(prefers-color-scheme: dark)").matches)

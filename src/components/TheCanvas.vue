@@ -5,6 +5,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { WebGLRenderer } from "three";
+
 import { useItemsStore } from "Stores/items";
 import { useCanvasStore } from "Stores/canvas";
 import { scene } from "Helpers/canvas";

@@ -24,6 +24,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
+
 import IconXmark from "Assets/icons/xmark-solid.svg";
 import { useItemsStore } from "Stores/items";
 
