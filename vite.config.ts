@@ -32,6 +32,7 @@ export default defineConfig({
   resolve: {
     alias: {
       Assets: resolve("./src/assets"),
+      Icons: resolve("./src/assets/icons"),
       Styles: resolve("./src/assets/styles"),
       Components: resolve("./src/components"),
       Helpers: resolve("./src/helpers"),

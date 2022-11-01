@@ -15,6 +15,7 @@
     "baseUrl": ".",
     "paths": {
       "Assets/*": ["src/assets/*"],
+      "Icons/*": ["src/assets/icons/*"],
       "Styles/*": ["src/assets/styles/*"],
       "Components/*": ["src/components/*"],
       "Helpers/*": ["src/helpers/*"],
