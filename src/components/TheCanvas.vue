@@ -6,14 +6,13 @@
 import { ref, onMounted } from "vue";
 import { WebGLRenderer } from "three";
 
-import { useItemsStore } from "Stores/items";
 import { useCanvasStore } from "Stores/canvas";
 import { scene } from "Helpers/canvas";
 
 const canvas = ref<HTMLCanvasElement>();
 
-const { initScene } = useItemsStore();
-const { camera, initOrbitControls } = useCanvasStore();
+const canvasStore = useCanvasStore();
+const camera = canvasStore.camera;
 
 onMounted(() => {
   if (canvas.value === undefined) {
@@ -27,8 +26,8 @@ onMounted(() => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.render(scene, camera);
 
-  initOrbitControls(camera, renderer.domElement);
-  initScene();
+  canvasStore.initOrbitControls(camera, renderer.domElement);
+  canvasStore.initScene();
 
   function resizeCanvasToDisplaySize(): void {
     const canvas = renderer.domElement;

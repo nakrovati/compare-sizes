@@ -1,5 +1,12 @@
 import { defineStore } from "pinia";
-import { PerspectiveCamera, Camera, Vector3 } from "three";
+import {
+  Camera,
+  PerspectiveCamera,
+  Vector3,
+  Mesh,
+  MeshBasicMaterial,
+  BoxGeometry,
+} from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { scene } from "Helpers/canvas";
 import { useItemsStore } from "Stores/items";
@@ -53,6 +60,22 @@ export const useCanvasStore = defineStore("canvas", {
       this.controls = new OrbitControls(object, domElement);
 
       this.controls.maxDistance = Infinity;
+    },
+    initScene(): void {
+      const itemsStore = useItemsStore();
+
+      if (!itemsStore.items.length) return;
+
+      const itemsForScene: Mesh<BoxGeometry, MeshBasicMaterial>[] = [];
+
+      for (const item of itemsStore.items) {
+        itemsForScene.push(itemsStore.createItem(item));
+      }
+
+      scene.add(...itemsForScene);
+
+      const canvasStore = useCanvasStore();
+      canvasStore.updateCamera();
     },
     clearScene(): void {
       scene.clear();

@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 import { useStorage } from "@vueuse/core";
 import {
-  MeshBasicMaterial,
   Mesh,
+  MeshBasicMaterial,
   BoxGeometry,
   EdgesGeometry,
   LineBasicMaterial,
@@ -104,20 +104,6 @@ export const useItemsStore = defineStore("items", {
       const canvasStore = useCanvasStore();
       canvasStore.updateCamera();
     },
-    initScene(): void {
-      if (!this.items.length) return;
-
-      const itemsForScene: Mesh<BoxGeometry, MeshBasicMaterial>[] = [];
-
-      for (const item of this.items) {
-        itemsForScene.push(this.createItem(item));
-      }
-
-      scene.add(...itemsForScene);
-
-      const canvasStore = useCanvasStore();
-      canvasStore.updateCamera();
-    },
     repositionItems(): void {
       const items = this.items;
 
@@ -160,7 +146,8 @@ export const useItemsStore = defineStore("items", {
       canvasStore.clearScene();
 
       this.repositionItems();
-      this.initScene();
+
+      canvasStore.initScene();
 
       canvasStore.updateCamera();
     },
