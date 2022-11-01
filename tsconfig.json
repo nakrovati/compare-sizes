@@ -15,10 +15,10 @@
     "baseUrl": ".",
     "paths": {
       "Assets/*": ["src/assets/*"],
+      "Styles/*": ["src/assets/styles/*"],
       "Components/*": ["src/components/*"],
       "Helpers/*": ["src/helpers/*"],
       "Stores/*": ["src/stores/*"],
-      "Styles/*": ["src/styles/*"],
       "Types/*": ["src/types/*"],
       "Utils/*": ["src/utils/*"],
       "@/*": ["src/*"]

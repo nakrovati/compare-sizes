@@ -32,10 +32,10 @@ export default defineConfig({
   resolve: {
     alias: {
       Assets: resolve("./src/assets"),
+      Styles: resolve("./src/assets/styles"),
       Components: resolve("./src/components"),
       Helpers: resolve("./src/helpers"),
       Stores: resolve("./src/stores"),
-      Styles: resolve("./src/styles"),
       Types: resolve("./src/types"),
       Utils: resolve("./src/utils"),
       "@": resolve("./src"),
