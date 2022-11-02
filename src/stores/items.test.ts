@@ -1,4 +1,4 @@
-import { describe, beforeEach, test, expect } from "vitest";
+import { describe, beforeEach, expect, it } from "vitest";
 import { setActivePinia, createPinia } from "pinia";
 import { useItemsStore } from "./items";
 import { getRandomColor } from "Utils/colorRandomizer";
@@ -36,7 +36,7 @@ describe("Counter Store", () => {
   });
 
   // Test getters
-  test("max width getter", () => {
+  it("give max width of items", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.maxWidth).toBe(0);
 
@@ -51,7 +51,7 @@ describe("Counter Store", () => {
     expect(itemsStore.maxWidth).toBe(5);
   });
 
-  test("max height getter", () => {
+  it("give max height of items", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.maxHeight).toBe(0);
 
@@ -66,7 +66,7 @@ describe("Counter Store", () => {
     expect(itemsStore.maxHeight).toBe(5);
   });
 
-  test("max length getter", () => {
+  it("give max length of items", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.maxLength).toBe(0);
 
@@ -81,7 +81,7 @@ describe("Counter Store", () => {
     expect(itemsStore.maxLength).toBe(5);
   });
 
-  test("middle position 'X' getter", () => {
+  it("give middle position 'X' of items", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.middlePositionX).toBe(0);
 

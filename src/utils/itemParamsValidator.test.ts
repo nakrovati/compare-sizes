@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
-import validateItemParams from "./validateItemParams";
+import validateItemParams from "./itemParamsValidator";
 
-describe("Validate item params", () => {
+describe("Item params validator", () => {
   it("contains width, height and length", () => {
     expect(validateItemParams("10,20,30")).toStrictEqual({
       data: "10,20,30",

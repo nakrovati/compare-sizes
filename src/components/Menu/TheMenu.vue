@@ -44,7 +44,7 @@ import TheModal from "Components/TheModal.vue";
 import { useItemsStore } from "Stores/items";
 import type { Box } from "Types/types";
 import { getRandomColor } from "Utils/colorRandomizer";
-import validateItemParams from "Utils/validateItemParams";
+import validateItemParams from "Utils/itemParamsValidator";
 
 const isOpen = ref(false);
 
