@@ -36,7 +36,7 @@ describe("Counter Store", () => {
   });
 
   // Test getters
-  it("give max width of items", () => {
+  it("Give max width of items", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.maxWidth).toBe(0);
 
@@ -51,7 +51,7 @@ describe("Counter Store", () => {
     expect(itemsStore.maxWidth).toBe(5);
   });
 
-  it("give max height of items", () => {
+  it("Give max height of items", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.maxHeight).toBe(0);
 
@@ -66,7 +66,7 @@ describe("Counter Store", () => {
     expect(itemsStore.maxHeight).toBe(5);
   });
 
-  it("give max length of items", () => {
+  it("Give max length of items", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.maxLength).toBe(0);
 
@@ -81,7 +81,7 @@ describe("Counter Store", () => {
     expect(itemsStore.maxLength).toBe(5);
   });
 
-  it("give middle position 'X' of items", () => {
+  it("Give middle position 'X' of items", () => {
     const itemsStore = useItemsStore();
     expect(itemsStore.middlePositionX).toBe(0);
 
