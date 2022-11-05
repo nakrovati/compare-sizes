@@ -2,6 +2,8 @@
 
 A site where you can compare object sizes.
 
+Site - [nakrovati.github.io/compare-sizes/](https://nakrovati.github.io/compare-sizes/)
+
 ## Features
 
 - The whole interface is on one page
