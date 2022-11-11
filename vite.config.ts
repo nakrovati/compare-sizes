@@ -42,5 +42,6 @@ export default defineConfig({
       "@": resolve("./src"),
     },
   },
+  define: { __VUE_OPTIONS_API__: false },
   plugins: [vue()],
 });
