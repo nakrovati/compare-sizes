@@ -2,7 +2,7 @@ import { describe, beforeEach, expect, it } from "vitest";
 import { setActivePinia, createPinia } from "pinia";
 import { useItemsStore } from "./items";
 import { getRandomColor } from "Utils/colorRandomizer";
-import type { Box } from "Types/types";
+import type { Dimensions, Box } from "Types/index";
 
 class Item implements Box {
   name: string;
@@ -10,7 +10,7 @@ class Item implements Box {
   height: number;
   length: number;
   color: string;
-  dimensionAbbr: string;
+  dimensionAbbr: Dimensions;
 
   constructor(
     name: string,
@@ -18,7 +18,7 @@ class Item implements Box {
     height: number,
     length: number,
     color: string,
-    dimensionAbbr: string
+    dimensionAbbr: Dimensions
   ) {
     this.name = name;
     this.width = width;

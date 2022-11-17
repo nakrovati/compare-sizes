@@ -42,13 +42,13 @@ import BaseButton from "Components/base/BaseButton.vue";
 import BaseSelect from "Components/base/BaseSelect.vue";
 import TheModal from "Components/TheModal.vue";
 import { useItemsStore } from "Stores/items";
-import type { Box } from "Types/types";
+import type { Dimensions, Box } from "Types/index";
 import { getRandomColor } from "Utils/colorRandomizer";
 import validateItemParams from "Utils/itemParamsValidator";
 
 const isOpen = ref(false);
 
-const selectedDimension = ref("mm");
+const selectedDimension = ref<Dimensions>("mm");
 
 const dimensions = [
   { text: "millimeter", value: "mm" },
@@ -60,7 +60,7 @@ const dimensions = [
   { text: "miles", value: "mi" },
 ];
 
-function changeDimensionAbbr(value: string) {
+function changeDimensionAbbr(value: Dimensions) {
   selectedDimension.value = value;
 }
 

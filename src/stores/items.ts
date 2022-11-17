@@ -13,7 +13,7 @@ import { useCanvasStore } from "Stores/canvas";
 import { toThreeColor } from "Utils/colorRandomizer";
 import { convertToMM } from "Utils/dimensionsConverter";
 import { scene } from "Helpers/canvas";
-import type { Box } from "Types/types";
+import type { Box } from "Types/index";
 
 export const useItemsStore = defineStore("items", {
   state: () => ({

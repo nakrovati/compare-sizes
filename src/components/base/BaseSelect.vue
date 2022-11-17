@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import type { Dimensions } from "Types/index";
 
 const emit = defineEmits(["toogle"]);
 
@@ -27,7 +28,7 @@ interface AbbreviationOptions {
 
 defineProps<{ options: AbbreviationOptions[] }>();
 
-const selectedDimension = ref("mm");
+const selectedDimension = ref<Dimensions>("mm");
 
 watch(selectedDimension, () => {
   emit("toogle", selectedDimension.value);
