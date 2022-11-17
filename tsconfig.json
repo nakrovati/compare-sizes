@@ -24,6 +24,7 @@
       "Utils/*": ["src/utils/*"],
       "@/*": ["src/*"]
     },
+    "resolveJsonModule": true,
 
     /* JavaScript Support */
 
