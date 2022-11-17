@@ -82,9 +82,9 @@ export const useItemsStore = defineStore("items", {
       itemForScene.name = item.name;
       itemForScene.position.setX(item.positionX ?? 0);
 
-      const geo = new EdgesGeometry(itemForScene.geometry);
-      const mat = new LineBasicMaterial({ color: 0xffffff });
-      const wireframe = new LineSegments(geo, mat);
+      const edgeGeometry = new EdgesGeometry(itemForScene.geometry);
+      const edgeMaterial = new LineBasicMaterial({ color: 0xffffff });
+      const wireframe = new LineSegments(edgeGeometry, edgeMaterial);
 
       itemForScene.add(wireframe);
 
@@ -141,16 +141,15 @@ export const useItemsStore = defineStore("items", {
       );
     },
     removeItem(index: number): void {
+      const canvasStore = useCanvasStore();
+
       this.items.splice(index, 1);
 
-      const canvasStore = useCanvasStore();
       canvasStore.clearScene();
 
       this.repositionItems();
 
       canvasStore.initScene();
-
-      canvasStore.updateCamera();
     },
   },
 });

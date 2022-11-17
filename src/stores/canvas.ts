@@ -75,8 +75,7 @@ export const useCanvasStore = defineStore("canvas", {
 
       scene.add(...itemsForScene);
 
-      const canvasStore = useCanvasStore();
-      canvasStore.updateCamera();
+      this.updateCamera();
     },
     clearScene(): void {
       scene.clear();
