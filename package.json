@@ -2,19 +2,23 @@
   "name": "compare-sizes",
   "version": "1.0.0",
   "description": "",
-  "main": "src/main.js",
-  "private": true,
+  "keywords": [
+    "compare",
+    "size"
+  ],
+  "main": "src/main.ts",
   "type": "module",
+  "private": true,
+  "homepage": "https://github.com/nakrovati/compare-sizes#readme",
+  "bugs": {
+    "url": "https://github.com/nakrovati/compare-sizes/issues"
+  },
+  "license": "ISC",
+  "author": "Daniil Zhuravlev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nakrovati/compare-sizes.git"
   },
-  "author": "Daniil Zhuravlev",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nakrovati/compare-sizes/issues"
-  },
-  "homepage": "https://github.com/nakrovati/compare-sizes#readme",
   "scripts": {
     "dev": "vite",
     "dev:host": "vite --host",
