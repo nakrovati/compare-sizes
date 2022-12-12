@@ -11,13 +11,11 @@
       aria-label="delete item"
       @click="deleteItem"
     >
-      <object
+      <IconDelete
         class="button-delete__icon"
-        type="image/svg+xml"
-        :data="IconXmark"
         aria-hidden="true"
         tabindex="-1"
-      ></object>
+      />
     </button>
   </div>
 </template>
@@ -25,7 +23,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-import IconXmark from "Icons/xmark-solid.svg";
+import IconDelete from "../../assets/icons/IconDelete.vue";
 import { useItemsStore } from "Stores/items";
 
 const itemsStore = useItemsStore();
