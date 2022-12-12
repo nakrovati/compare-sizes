@@ -2,7 +2,7 @@
 
 body {
   background-color: var(--bg);
-  color: var(--text);
+  color: var(--secondary);
   font-family: Quicksand, sans-serif;
   font-size: 16px;
   margin: 0;
@@ -17,13 +17,9 @@ input,
 select,
 button {
   border: 1px solid black;
-}
+  color: var(--secondary);
 
-// Dark theme
-.dark {
-  input,
-  select,
-  button {
+  .dark & {
     border: none;
   }
 }

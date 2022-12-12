@@ -39,7 +39,6 @@ watch(selectedDimension, () => {
 .select {
   background-color: var(--menu-select-bg);
   border-radius: 5px;
-  color: var(--secondary);
   padding: 0.25em;
 }
 </style>

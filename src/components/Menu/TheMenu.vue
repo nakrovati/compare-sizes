@@ -118,7 +118,6 @@ function addItem() {
 
   .item__label {
     bottom: 0;
-    color: var(--secondary);
     left: 0.5rem;
     position: absolute;
     transform: translateY(-50%);
@@ -128,7 +127,6 @@ function addItem() {
   .item__input {
     background-color: var(--menu-input-bg);
     border-radius: 5px;
-    color: var(--secondary);
     padding: 1.5em 0.5em 0.5em;
     width: 100%;
 
