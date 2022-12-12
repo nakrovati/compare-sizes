@@ -1,17 +1,14 @@
 <template>
-  <TheLayout>
-    <main class="intro">
-      <TheCanvas></TheCanvas>
-      <div class="menu-container">
-        <TheMenu></TheMenu>
-        <ItemsList></ItemsList>
-      </div>
-    </main>
-  </TheLayout>
+  <main class="intro">
+    <TheCanvas></TheCanvas>
+    <div class="menu-container">
+      <TheMenu></TheMenu>
+      <ItemsList></ItemsList>
+    </div>
+  </main>
 </template>
 
 <script setup lang="ts">
-import TheLayout from "Components/layout/TheLayout.vue";
 import TheCanvas from "Components/TheCanvas.vue";
 import TheMenu from "Components/Menu/TheMenu.vue";
 import ItemsList from "Components/ItemsList/ItemsList.vue";
