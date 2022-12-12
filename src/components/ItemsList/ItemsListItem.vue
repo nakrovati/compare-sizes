@@ -1,9 +1,9 @@
 <template>
   <div class="item">
-    <div>{{ props.name }}</div>
+    <div>{{ name }}</div>
     <div>
-      ({{ props.height }}{{ dimensionAbbr }} x {{ props.width
-      }}{{ dimensionAbbr }} x {{ props.length }}{{ dimensionAbbr }})
+      ({{ height }}{{ dimensionAbbr }} x {{ width }}{{ dimensionAbbr }} x
+      {{ length }}{{ dimensionAbbr }})
     </div>
     <button
       type="button"
