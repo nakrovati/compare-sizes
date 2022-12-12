@@ -37,6 +37,7 @@ const props = defineProps({
   color: { type: String, required: true },
   dimensionAbbr: { type: String, required: true },
 });
+
 const color = computed(() => props.color);
 
 function deleteItem() {
@@ -45,11 +46,13 @@ function deleteItem() {
 </script>
 
 <style scoped lang="scss">
+$item-primary: #f3f3f3;
+
 .item {
   background-color: v-bind(color);
   border-radius: 10px;
   box-shadow: var(--shadow-default);
-  color: var(--item-list-text);
+  color: $item-primary;
   padding: 0.5rem;
   position: relative;
 }
@@ -65,7 +68,7 @@ function deleteItem() {
   z-index: 0;
 
   .button-delete__icon {
-    filter: invert(0.9);
+    color: $item-primary;
     height: 100%;
     position: relative;
     z-index: -1;

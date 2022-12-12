@@ -1,28 +1,20 @@
-// Light theme
 :root {
-  --bg: inherit;
-  --text: #1e1e1e;
-
-  // Item list
-  --item-list-text: #f3f3f3;
-
-  // Button submin
+  --primary: #225de8;
+  --secondary: #1e1e1e;
+  --bg: #f3f3f3;
   --btn-submit-text: #f3f3f3;
   --btn-submit-bg: #225de8;
   --btn-submit-bg-hover: #1849bd;
+  --modal-bg: #f3f3f3;
 }
 
-// Dark theme
-:root.dark {
-  --text: #f3f3f3;
-  --bg: #121212;
-
-  // Menu
+.dark {
+  --primary: #225de8;
+  --secondary: #f3f3f3;
+  --bg: #1e1e1e;
   --menu-bg: #343434;
   --menu-input-bg: #4b4b4b;
   --menu-input-placeholder: #9a9a9a;
   --menu-select-bg: #4b4b4b;
-
-  // Modal
   --modal-bg: #343434;
 }

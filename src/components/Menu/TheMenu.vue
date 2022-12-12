@@ -109,8 +109,8 @@ function addItem() {
   box-shadow: var(--shadow-default);
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
-  padding: 2em;
+  gap: 0.75em;
+  padding: 1em;
 }
 
 .item {
@@ -118,12 +118,9 @@ function addItem() {
   position: relative;
   width: 100%;
 
-  &:first-child {
-    margin-bottom: 1em;
-  }
-
   .item__label {
     bottom: 0;
+    color: var(--secondary);
     left: 0.5rem;
     position: absolute;
     transform: translateY(-50%);
@@ -133,7 +130,7 @@ function addItem() {
   .item__input {
     background-color: var(--menu-input-bg);
     border-radius: 5px;
-    color: inherit;
+    color: var(--secondary);
     padding: 1.5em 0.5em 0.5em;
     width: 100%;
 
