@@ -1,27 +1,15 @@
 <template>
   <div class="menu">
-    <div class="item">
-      <input
-        id="item__name"
-        v-model="itemName"
-        type="text"
-        class="item__input"
-        placeholder="box 1"
-        required
-      />
-      <label class="item__label" for="item__name">Item name</label>
-    </div>
-    <div class="item">
-      <input
-        id="item__params"
-        v-model="itemParams"
-        type="text"
-        class="item__input"
-        placeholder="width, height, length"
-        required
-      />
-      <label class="item__label" for="item__params">Item size</label>
-    </div>
+    <BaseInput
+      label="Item name"
+      placeholder="box 1"
+      @change="changeItemName"
+    ></BaseInput>
+    <BaseInput
+      label="Item params"
+      placeholder="width, height, length"
+      @change="changeItemParams"
+    ></BaseInput>
     <BaseSelect
       :options="dimensions"
       @toogle="changeDimensionAbbr"
@@ -36,6 +24,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
+import BaseInput from "Components/base/BaseInput.vue";
 import BaseButton from "Components/base/BaseButton.vue";
 import BaseSelect from "Components/base/BaseSelect.vue";
 import TheModal from "Components/TheModal.vue";
@@ -47,6 +36,8 @@ import validateItemParams from "Utils/itemParamsValidator";
 const isOpen = ref(false);
 
 const selectedDimension = ref<Dimensions>("mm");
+const itemName = ref("");
+const itemParams = ref("");
 
 const dimensions = [
   { text: "millimeter", value: "mm" },
@@ -62,9 +53,15 @@ function changeDimensionAbbr(value: Dimensions) {
   selectedDimension.value = value;
 }
 
+function changeItemName(value: string) {
+  itemName.value = value;
+}
+
+function changeItemParams(value: string) {
+  itemParams.value = value;
+}
+
 const itemsStore = useItemsStore();
-const itemName = ref("");
-const itemParams = ref("");
 
 function addItem() {
   if (!itemName.value || !itemParams.value) {
