@@ -1,15 +1,14 @@
 <template>
-  <div class="modal-outside">
-    <div class="modal-inner">
+  <Teleport to="body">
+    <div ref="modalOutside" class="modal-outside">
       <div ref="modal" class="modal">
-        <p class="text"><slot class="text"></slot></p>
-
+        <span class="text"><slot></slot></span>
         <BaseButton class="button-close" type="button" @click="close"
           >Close</BaseButton
         >
       </div>
     </div>
-  </div>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
@@ -17,7 +16,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 
 import BaseButton from "Components/base/BaseButton.vue";
 
-const modal = ref<HTMLDivElement>();
+const modalOutside = ref<HTMLDivElement>();
 
 const emit = defineEmits(["close"]);
 
@@ -25,25 +24,18 @@ const close = () => {
   emit("close");
 };
 
-function addClickOutside(event: Event) {
-  if (!modal.value) {
-    console.error("Modal window not found");
-    return;
-  }
-
-  if (modal.value !== event.target) {
+function clickOutside(event: Event) {
+  if (event.target == modalOutside.value) {
     close();
   }
 }
 
 onMounted(() => {
-  setTimeout(() => {
-    window.addEventListener("click", addClickOutside);
-  }, 1);
+  window.addEventListener("click", clickOutside);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("click", addClickOutside);
+  window.removeEventListener("click", clickOutside);
 });
 </script>
 
@@ -58,28 +50,19 @@ onUnmounted(() => {
   top: 0;
   width: 100%;
   z-index: 999;
-
-  .modal-inner {
-    margin: 2rem auto;
-    max-width: 500px;
-  }
 }
 
 .modal {
-  background-clip: padding-box;
   background-color: var(--modal-bg);
   border: 1px solid rgb(0 0 0 / 30%);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: 1em;
+  margin: 2rem auto;
+  max-width: 500px;
   padding: 1em;
   position: relative;
-
-  .text {
-    margin: 0;
-    padding: 0;
-  }
 }
 
 .button-close {

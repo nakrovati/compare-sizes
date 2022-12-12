@@ -27,11 +27,9 @@
       @toogle="changeDimensionAbbr"
     ></BaseSelect>
     <BaseButton @click="addItem"> Add item</BaseButton>
-    <Teleport to="body">
-      <TheModal v-if="isOpen" @close="isOpen = !isOpen">
-        Enter the object name, width, height and length
-      </TheModal>
-    </Teleport>
+    <TheModal v-if="isOpen" @close="isOpen = !isOpen">
+      Enter the object name, width, height and length
+    </TheModal>
   </div>
 </template>
 
