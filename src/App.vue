@@ -21,7 +21,6 @@ if (window.matchMedia("(prefers-color-scheme: dark)").matches)
 .intro {
   display: flex;
   gap: 20px;
-  height: 100vh;
   padding: 40px;
 
   @media screen and (max-width: 1024px) {
