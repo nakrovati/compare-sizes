@@ -1,11 +1,13 @@
 <template>
   <div class="menu">
     <BaseInput
+      ref="inputItemName"
       label="Item name"
       placeholder="box 1"
       @change="changeItemName"
     ></BaseInput>
     <BaseInput
+      ref="inputItemParams"
       label="Item params"
       placeholder="width, height, length"
       @change="changeItemParams"
@@ -37,7 +39,9 @@ const isOpen = ref(false);
 
 const selectedDimension = ref<Dimensions>("mm");
 const itemName = ref("");
+const inputItemName = ref();
 const itemParams = ref("");
+const inputItemParams = ref();
 
 const dimensions = [
   { text: "millimeter", value: "mm" },
@@ -91,8 +95,8 @@ function addItem() {
 
   itemsStore.addItem(item);
 
-  itemName.value = "";
-  itemParams.value = "";
+  inputItemName.value.clear();
+  inputItemParams.value.clear();
 }
 </script>
 

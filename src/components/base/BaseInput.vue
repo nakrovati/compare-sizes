@@ -1,14 +1,13 @@
 <template>
-  <div class="input-container">
+  <div class="base-input">
     <input
       :id="inputId"
       v-model="input"
       type="text"
-      class="input"
+      class="base-input__input"
       :placeholder="placeholder"
-      required
     />
-    <label class="input__label" :for="inputId">{{ label }}</label>
+    <label class="base-input__label" :for="inputId">{{ label }}</label>
   </div>
 </template>
 
@@ -35,15 +34,21 @@ const input = ref("");
 watch(input, () => {
   emit("change", input.value);
 });
+
+function clear() {
+  input.value = "";
+}
+
+defineExpose({ clear });
 </script>
 
 <style scoped lang="scss">
-.input-container {
+.base-input {
   max-width: 240px;
   position: relative;
   width: 100%;
 
-  .input__label {
+  .base-input__label {
     bottom: 0;
     cursor: text;
     left: 0.5rem;
@@ -52,7 +57,7 @@ watch(input, () => {
     transition: 0.25s;
   }
 
-  .input {
+  .base-input__input {
     background-color: var(--menu-input-bg);
     border-radius: 5px;
     padding: 1.5em 0.5em 0.5em;
@@ -66,12 +71,12 @@ watch(input, () => {
     &:focus::placeholder {
       opacity: 1;
     }
+  }
 
-    &:focus + .input__label,
-    &:valid + .input__label {
-      font-size: 0.875rem;
-      transform: translateY(-200%);
-    }
+  .base-input__input:not(:placeholder-shown) + .base-input__label,
+  .base-input__input:focus + .base-input__label {
+    font-size: 0.875rem;
+    transform: translateY(-200%);
   }
 }
 </style>
