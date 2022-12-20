@@ -1,16 +1,18 @@
 <template>
   <section v-if="items.length" class="item-list">
-    <ItemsListItem
-      v-for="(item, index) in items"
-      :key="index"
-      :index="index"
-      :height="item.height"
-      :width="item.width"
-      :length="item.length"
-      :name="item.name"
-      :color="item.color"
-      :dimension-abbr="item.dimensionAbbr"
-    ></ItemsListItem>
+    <TransitionGroup>
+      <ItemsListItem
+        v-for="(item, index) in items"
+        :key="index"
+        :index="index"
+        :height="item.height"
+        :width="item.width"
+        :length="item.length"
+        :name="item.name"
+        :color="item.color"
+        :dimension-abbr="item.dimensionAbbr"
+      ></ItemsListItem>
+    </TransitionGroup>
   </section>
 </template>
 
@@ -28,5 +30,15 @@ const { items } = useItemsStore();
   gap: 1rem;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
