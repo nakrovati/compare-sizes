@@ -111,40 +111,4 @@ function addItem() {
   gap: 0.75em;
   padding: 1em;
 }
-
-.item {
-  max-width: 240px;
-  position: relative;
-  width: 100%;
-
-  .item__label {
-    bottom: 0;
-    left: 0.5rem;
-    position: absolute;
-    transform: translateY(-50%);
-    transition: 0.25s;
-  }
-
-  .item__input {
-    background-color: var(--menu-input-bg);
-    border-radius: 5px;
-    padding: 1.5em 0.5em 0.5em;
-    width: 100%;
-
-    &::placeholder {
-      color: var(--menu-input-placeholder);
-      opacity: 0;
-    }
-
-    &:focus::placeholder {
-      opacity: 1;
-    }
-
-    &:focus + .item__label,
-    &:valid + .item__label {
-      font-size: 0.875rem;
-      transform: translateY(-200%);
-    }
-  }
-}
 </style>
