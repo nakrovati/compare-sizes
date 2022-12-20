@@ -1,5 +1,5 @@
 <template>
-  <button class="button" :class="{ wide }" type="button" @click="click">
+  <button class="base-button" :class="{ wide }" type="button" @click="click">
     <slot></slot>
   </button>
 </template>
@@ -20,7 +20,7 @@ function click() {
 </script>
 
 <style scoped lang="scss">
-.button {
+.base-button {
   background-color: var(--btn-submit-bg);
   border: none;
   border-radius: 5px;

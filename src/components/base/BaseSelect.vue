@@ -1,14 +1,14 @@
 <template>
   <select
     v-model="selectedDimension"
-    class="select"
+    class="base-select"
     name="dimensionAbbreviation"
   >
     <option
       v-for="option in options"
       :key="option.value"
       :value="option.value"
-      class="select__option"
+      class="base-select__option"
     >
       {{ option.text }}
     </option>
@@ -36,7 +36,7 @@ watch(selectedDimension, () => {
 </script>
 
 <style scoped lang="scss">
-.select {
+.base-select {
   background-color: var(--menu-select-bg);
   border-radius: 5px;
   padding: 0.25em;
