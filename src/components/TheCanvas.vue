@@ -12,13 +12,13 @@ import { scene } from "Helpers/canvas";
 const canvas = ref<HTMLCanvasElement>();
 
 const canvasStore = useCanvasStore();
-const camera = canvasStore.camera;
 
 onMounted(() => {
   if (canvas.value === undefined) {
     throw new Error("Canvas not found");
   }
 
+  const camera = canvasStore.camera;
   const renderer = new WebGLRenderer({
     canvas: canvas.value,
   });
@@ -29,10 +29,23 @@ onMounted(() => {
   canvasStore.initOrbitControls(camera, renderer.domElement);
   canvasStore.initScene();
 
+  function initCanvasSize(): void {
+    const canvas = renderer.domElement,
+      width = canvas.clientWidth,
+      height = canvas.clientHeight;
+
+    renderer.setSize(width, height, false);
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  }
+
+  window.addEventListener("DOMContentLoaded", initCanvasSize);
+
   function resizeCanvasToDisplaySize(): void {
-    const canvas = renderer.domElement;
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
+    const canvas = renderer.domElement,
+      width = canvas.clientWidth,
+      height = canvas.clientHeight;
 
     if (canvas.width !== width || canvas.height !== height) {
       renderer.setSize(width, height, false);
@@ -41,17 +54,6 @@ onMounted(() => {
       camera.updateProjectionMatrix();
     }
   }
-
-  window.addEventListener("DOMContentLoaded", () => {
-    const canvas = renderer.domElement;
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
-
-    renderer.setSize(width, height, false);
-
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-  });
 
   window.addEventListener("resize", resizeCanvasToDisplaySize);
 
@@ -65,7 +67,7 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 #canvas {
   border-radius: 10px;
   box-shadow: var(--shadow-default);
