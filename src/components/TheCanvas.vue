@@ -65,16 +65,11 @@ onMounted(() => {
 });
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 #canvas {
   border-radius: 10px;
   box-shadow: var(--shadow-default);
   height: 100%;
-  width: 60%;
-
-  @media screen and (max-width: 1024px) {
-    height: 50%;
-    width: 100%;
-  }
+  width: 100%;
 }
 </style>

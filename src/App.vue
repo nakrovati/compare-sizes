@@ -19,14 +19,18 @@ if (window.matchMedia("(prefers-color-scheme: dark)").matches)
 
 <style lang="scss" scoped>
 .intro {
-  display: flex;
+  display: grid;
   gap: 20px;
+  grid-template-columns: 6fr 4fr;
+  grid-template-rows: 100%;
+  height: 100vh;
   padding: 40px;
 
   @media screen and (max-width: 1024px) {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: initial;
+    grid-template-rows: 40vh 1fr;
+    height: unset;
   }
 
   @media screen and (max-width: 768px) {
@@ -42,12 +46,5 @@ if (window.matchMedia("(prefers-color-scheme: dark)").matches)
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 100%;
-  width: 40%;
-
-  @media screen and (max-width: 1024px) {
-    height: 50%;
-    width: 100%;
-  }
 }
 </style>
