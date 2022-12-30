@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import validateItemParams from "./itemParamsValidator";
+import validateItemParams from "./validateItemParams";
 
 describe("Item params validator", () => {
   it("Contains width, height and length", () => {

@@ -32,16 +32,15 @@ import BaseSelect from "Components/base/BaseSelect.vue";
 import TheModal from "Components/TheModal.vue";
 import { useItemsStore } from "Stores/items";
 import type { Dimensions, Box } from "Types/index";
-import { getRandomColor } from "Utils/colorRandomizer";
-import validateItemParams from "Utils/itemParamsValidator";
+import { getRandomColor, validateItemParams } from "Utils/index";
 
 const isOpen = ref(false);
 
 const selectedDimension = ref<Dimensions>("mm");
-const itemName = ref("");
-const inputItemName = ref();
-const itemParams = ref("");
-const inputItemParams = ref();
+
+function changeDimensionAbbr(value: Dimensions) {
+  selectedDimension.value = value;
+}
 
 const dimensions = [
   { text: "millimeter", value: "mm" },
@@ -53,9 +52,10 @@ const dimensions = [
   { text: "miles", value: "mi" },
 ];
 
-function changeDimensionAbbr(value: Dimensions) {
-  selectedDimension.value = value;
-}
+const itemName = ref(""),
+  inputItemName = ref(),
+  itemParams = ref(""),
+  inputItemParams = ref();
 
 function changeItemName(value: string) {
   itemName.value = value;

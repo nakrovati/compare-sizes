@@ -1,4 +1,4 @@
-function convertToMM(value: number, dimensionAbbr?: string) {
+export default function convertToMM(value: number, dimensionAbbr?: string) {
   switch (dimensionAbbr) {
     case "mm":
       return value;
@@ -25,5 +25,3 @@ function convertToMM(value: number, dimensionAbbr?: string) {
       return value;
   }
 }
-
-export { convertToMM };

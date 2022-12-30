@@ -10,8 +10,7 @@ import {
 } from "three";
 
 import { useCanvasStore } from "Stores/canvas";
-import { toThreeColor } from "Utils/colorRandomizer";
-import { convertToMM } from "Utils/dimensionsConverter";
+import { convertToMM, toThreeColor } from "Utils/index";
 import { scene } from "Helpers/canvas";
 import type { Box } from "Types/index";
 
