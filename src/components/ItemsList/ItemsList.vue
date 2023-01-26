@@ -1,8 +1,8 @@
 <template>
-  <section v-if="items.length" class="item-list">
+  <section v-if="itemsStore.items.length" class="item-list">
     <TransitionGroup>
       <ItemsListItem
-        v-for="(item, index) in items"
+        v-for="(item, index) in itemsStore.items"
         :key="index"
         :index="index"
         :height="item.height"
@@ -20,7 +20,7 @@
 import ItemsListItem from "Components/ItemsList/ItemsListItem.vue";
 import { useItemsStore } from "Stores/items";
 
-const { items } = useItemsStore();
+const itemsStore = useItemsStore();
 </script>
 
 <style scoped lang="scss">
