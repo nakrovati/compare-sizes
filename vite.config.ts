@@ -19,16 +19,6 @@ export default defineConfig({
       },
     },
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `
-          @use "Styles/colors";
-          @use "Styles/shadows";
-          `,
-      },
-    },
-  },
   resolve: {
     alias: {
       Assets: resolve("./src/assets"),
