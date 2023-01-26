@@ -26,13 +26,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import BaseInput from "Components/base/BaseInput.vue";
-import BaseButton from "Components/base/BaseButton.vue";
-import BaseSelect from "Components/base/BaseSelect.vue";
-import TheModal from "Components/TheModal.vue";
-import { useItemsStore } from "Stores/items";
-import type { Dimensions, Box } from "Types/index";
-import { getRandomColor, validateItemParams } from "Utils/index";
+import BaseInput from "@components/base/BaseInput.vue";
+import BaseButton from "@components/base/BaseButton.vue";
+import BaseSelect from "@components/base/BaseSelect.vue";
+import TheModal from "@components/TheModal.vue";
+import { useItemsStore } from "@stores/items";
+import type { Dimensions, Box } from "@/types/index";
+import { getRandomColor, validateItemParams } from "@utils/index";
 
 const isOpen = ref(false);
 

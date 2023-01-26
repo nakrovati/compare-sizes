@@ -1,8 +1,8 @@
 import { describe, beforeEach, expect, it } from "vitest";
 import { setActivePinia, createPinia } from "pinia";
 import { useItemsStore } from "./items";
-import { getRandomColor } from "Utils/index";
-import type { Dimensions, Box } from "Types/index";
+import { getRandomColor } from "@utils/index";
+import type { Dimensions, Box } from "@/types/index";
 
 class Item implements Box {
   name: string;

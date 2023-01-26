@@ -9,8 +9,8 @@ import {
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-import { scene } from "Helpers/canvas";
-import { useItemsStore } from "Stores/items";
+import { scene } from "@helpers/canvas";
+import { useItemsStore } from "@stores/items";
 
 export const useCanvasStore = defineStore("canvas", {
   state: () => ({

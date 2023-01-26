@@ -23,8 +23,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-import IconDelete from "Icons/IconDelete.vue";
-import { useItemsStore } from "Stores/items";
+import IconDelete from "@icons/IconDelete.vue";
+import { useItemsStore } from "@stores/items";
 
 const itemsStore = useItemsStore();
 

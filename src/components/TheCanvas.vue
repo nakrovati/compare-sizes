@@ -6,8 +6,8 @@
 import { ref, onMounted } from "vue";
 import { WebGLRenderer } from "three";
 
-import { useCanvasStore } from "Stores/canvas";
-import { scene } from "Helpers/canvas";
+import { useCanvasStore } from "@stores/canvas";
+import { scene } from "@helpers/canvas";
 
 const canvas = ref<HTMLCanvasElement>();
 

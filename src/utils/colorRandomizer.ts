@@ -1,5 +1,5 @@
 /** Generates a random color as a string, e.g. 540D6E */
-import colorsJson from "Assets/colors.json";
+import colorsJson from "@assets/colors.json";
 
 function getRandomColor(): string {
   const colors = colorsJson.colors;

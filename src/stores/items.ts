@@ -9,10 +9,10 @@ import {
   LineSegments,
 } from "three";
 
-import { useCanvasStore } from "Stores/canvas";
-import { convertToMM, toThreeColor } from "Utils/index";
-import { scene } from "Helpers/canvas";
-import type { Box } from "Types/index";
+import { useCanvasStore } from "@stores/canvas";
+import { convertToMM, toThreeColor } from "@utils/index";
+import { scene } from "@helpers/canvas";
+import type { Box } from "@/types/index";
 
 export const useItemsStore = defineStore("items", {
   state: () => ({

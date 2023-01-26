@@ -9,9 +9,9 @@
 </template>
 
 <script setup lang="ts">
-import TheCanvas from "Components/TheCanvas.vue";
-import TheMenu from "Components/Menu/TheMenu.vue";
-import ItemsList from "Components/ItemsList/ItemsList.vue";
+import TheCanvas from "@components/TheCanvas.vue";
+import TheMenu from "@components/Menu/TheMenu.vue";
+import ItemsList from "@components/ItemsList/ItemsList.vue";
 
 if (window.matchMedia("(prefers-color-scheme: dark)").matches)
   document.documentElement.classList.add("dark");

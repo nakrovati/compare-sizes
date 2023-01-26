@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import type { Dimensions } from "Types/index";
+import type { Dimensions } from "@/types/index";
 
 const emit = defineEmits(["toogle"]);
 

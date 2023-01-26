@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 
-import BaseButton from "Components/base/BaseButton.vue";
+import BaseButton from "@components/base/BaseButton.vue";
 
 const modalOutside = ref<HTMLDivElement>();
 
