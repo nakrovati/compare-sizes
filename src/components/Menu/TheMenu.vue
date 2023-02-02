@@ -81,8 +81,13 @@ function addItem() {
 
   const name = itemName.value;
   const { height, width, length } = data;
-  const color = getRandomColor();
   const dimensionAbbr = selectedDimension.value;
+
+  let color: string;
+
+  do {
+    color = getRandomColor();
+  } while (color === itemsStore.lastItemColor);
 
   const item: Box = {
     name,

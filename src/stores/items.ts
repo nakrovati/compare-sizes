@@ -64,6 +64,15 @@ export const useItemsStore = defineStore("items", {
 
       return (firstItemPositionX + lastItemPositionX) / 2;
     },
+    // Last item color
+    lastItemColor: (state): string | undefined => {
+      const lastItem = state.items.at(-1);
+      console.log(lastItem);
+
+      if (!lastItem) return undefined;
+
+      return lastItem.color;
+    },
   },
   actions: {
     createItem(item: Box): Mesh<BoxGeometry, MeshBasicMaterial> {
