@@ -67,24 +67,25 @@ export const useItemsStore = defineStore("items", {
   },
   actions: {
     createItem(item: Box): Mesh<BoxGeometry, MeshBasicMaterial> {
-      const width = convertToMM(item.width, item.dimensionAbbr);
-      const height = convertToMM(item.height, item.dimensionAbbr);
-      const length = convertToMM(item.length, item.dimensionAbbr);
+      const name = item.name,
+        width = convertToMM(item.width, item.dimensionAbbr),
+        height = convertToMM(item.height, item.dimensionAbbr),
+        length = convertToMM(item.length, item.dimensionAbbr),
+        color = toThreeColor(item.color),
+        positionX = item.positionX;
 
-      const geometry = new BoxGeometry(width, height, length);
-      const material = new MeshBasicMaterial({
-        color: toThreeColor(item.color),
-      });
+      const geometry = new BoxGeometry(width, height, length),
+        material = new MeshBasicMaterial({ color });
 
       const itemForScene = new Mesh(geometry, material);
 
-      itemForScene.name = item.name;
-      itemForScene.position.setX(item.positionX ?? 0);
+      const edgeGeometry = new EdgesGeometry(itemForScene.geometry),
+        edgeMaterial = new LineBasicMaterial({ color: 0xffffff });
 
-      const edgeGeometry = new EdgesGeometry(itemForScene.geometry);
-      const edgeMaterial = new LineBasicMaterial({ color: 0xffffff });
       const wireframe = new LineSegments(edgeGeometry, edgeMaterial);
 
+      itemForScene.name = name;
+      itemForScene.position.setX(positionX ?? 0);
       itemForScene.add(wireframe);
 
       return itemForScene;
