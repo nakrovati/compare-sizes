@@ -1,5 +1,5 @@
 import { getRandomColor, toThreeColor } from "./colorRandomizer";
 import convertToMM from "./convertToMM";
-import validateItemParams from "./validateItemParams";
+import parseItemParams from "./parseItemParams";
 
-export { getRandomColor, toThreeColor, convertToMM, validateItemParams };
+export { getRandomColor, toThreeColor, convertToMM, parseItemParams };

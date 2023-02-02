@@ -2,5 +2,5 @@
   "*.{html,json,md,yml,yaml}": "prettier --write",
   "*.scss": "stylelint --fix",
   "*.vue": ["eslint --fix", "stylelint --fix"],
-  "*.{js,cjs,ts}": ["eslint --fix"]
+  "*.{(c)js,ts}": ["eslint --fix"]
 }

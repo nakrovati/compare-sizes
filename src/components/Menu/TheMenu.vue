@@ -32,7 +32,7 @@ import BaseSelect from "@components/base/BaseSelect.vue";
 import TheModal from "@components/TheModal.vue";
 import { useItemsStore } from "@stores/items";
 import type { Dimensions, Box } from "@/types/index";
-import { getRandomColor, validateItemParams } from "@utils/index";
+import { getRandomColor, parseItemParams } from "@utils/index";
 
 const isOpen = ref(false);
 
@@ -73,7 +73,7 @@ function addItem() {
     return;
   }
 
-  const data = validateItemParams(itemParams.value);
+  const data = parseItemParams(itemParams.value);
 
   if (!data) {
     return;

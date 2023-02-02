@@ -1,5 +1,5 @@
 /** Returns the width, height and length from the string */
-function validateItemParams(params: string) {
+function parseItemParams(params: string) {
   const regexp = /(\d+(?:\.\d+)?), ?(\d+(?:\.\d+)?), ?(\d+(?:\.\d+)?)/;
 
   const data = params.match(regexp);
@@ -14,4 +14,4 @@ function validateItemParams(params: string) {
   };
 }
 
-export default validateItemParams;
+export default parseItemParams;
