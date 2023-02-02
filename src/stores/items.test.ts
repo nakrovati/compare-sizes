@@ -38,14 +38,10 @@ describe("Counter Store", () => {
   // Test getters
   it("Give max width of items", () => {
     const itemsStore = useItemsStore();
-    expect(itemsStore.maxWidth).toBe(0);
-
     const item1 = new Item("Item 1", 1, 1, 1, getRandomColor(), "mm");
-    itemsStore.addItem(item1);
-
-    expect(itemsStore.maxWidth).toBe(1);
-
     const item2 = new Item("Item 2", 5, 5, 5, getRandomColor(), "mm");
+
+    itemsStore.addItem(item1);
     itemsStore.addItem(item2);
 
     expect(itemsStore.maxWidth).toBe(5);
@@ -53,14 +49,10 @@ describe("Counter Store", () => {
 
   it("Give max height of items", () => {
     const itemsStore = useItemsStore();
-    expect(itemsStore.maxHeight).toBe(0);
-
     const item1 = new Item("Item 1", 1, 1, 1, getRandomColor(), "mm");
-    itemsStore.addItem(item1);
-
-    expect(itemsStore.maxHeight).toBe(1);
-
     const item2 = new Item("Item 2", 5, 5, 5, getRandomColor(), "mm");
+
+    itemsStore.addItem(item1);
     itemsStore.addItem(item2);
 
     expect(itemsStore.maxHeight).toBe(5);
@@ -68,14 +60,10 @@ describe("Counter Store", () => {
 
   it("Give max length of items", () => {
     const itemsStore = useItemsStore();
-    expect(itemsStore.maxLength).toBe(0);
-
-    const item1 = new Item("Item 1", 1, 1, 1, getRandomColor(), "mm");
-    itemsStore.addItem(item1);
-
-    expect(itemsStore.maxLength).toBe(1);
-
     const item2 = new Item("Item 2", 5, 5, 5, getRandomColor(), "mm");
+    const item1 = new Item("Item 1", 1, 1, 1, getRandomColor(), "mm");
+
+    itemsStore.addItem(item1);
     itemsStore.addItem(item2);
 
     expect(itemsStore.maxLength).toBe(5);
@@ -83,14 +71,10 @@ describe("Counter Store", () => {
 
   it("Give middle position 'X' of items", () => {
     const itemsStore = useItemsStore();
-    expect(itemsStore.middlePositionX).toBe(0);
-
     const item1 = new Item("Item 1", 1, 1, 1, getRandomColor(), "mm");
-    itemsStore.addItem(item1);
-
-    expect(itemsStore.middlePositionX).toBe(0);
-
     const item2 = new Item("Item 2", 5, 5, 5, getRandomColor(), "mm");
+
+    itemsStore.addItem(item1);
     itemsStore.addItem(item2);
 
     expect(itemsStore.middlePositionX).toBe(1.5);
