@@ -3,7 +3,6 @@
   "plugins": ["stylelint-order"],
   "rules": {
     "order/properties-alphabetical-order": true,
-    "property-no-vendor-prefix": true,
     "selector-class-pattern": null
   },
   "overrides": [
