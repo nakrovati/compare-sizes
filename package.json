@@ -29,8 +29,8 @@
     "coverage": "vitest run --coverage",
     "lint": "eslint --ext .ts,.vue src/",
     "lint:fix": "eslint --ext .ts,.vue --fix src/",
-    "style": "stylelint **/*.{scss,vue}",
-    "style:fix": "stylelint **/*.{scss,vue} --fix",
+    "style": "stylelint \"**/*.{scss,vue}\"",
+    "style:fix": "stylelint --fix \"**/*.{scss,vue}\"",
     "format": "prettier . --write",
     "prepare": "husky install || exit 0"
   },
