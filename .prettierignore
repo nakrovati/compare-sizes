@@ -12,7 +12,3 @@ pnpm-lock.yaml
 # Coverage
 coverage
 *.lcov
-
-# IDE
-.vscode
-.idea
