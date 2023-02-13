@@ -1,7 +1,18 @@
-coverage
+# Build
 dist
-node_modules
+public
 
+# Src
+*.scss
+
+# Dependencies
+node_modules
 pnpm-lock.yaml
 
-*.scss
+# Coverage
+coverage
+*.lcov
+
+# IDE
+.vscode
+.idea

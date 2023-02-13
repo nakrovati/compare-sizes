@@ -1,4 +1,16 @@
-coverage
+# Build
 dist
-node_modules
+
+# Src
 public
+
+# Dependencies
+node_modules
+
+# Coverage
+coverage
+*.lcov
+
+# IDE
+.vscode
+.idea
