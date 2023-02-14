@@ -4,12 +4,9 @@ body {
   background-color: var(--bg);
   color: var(--secondary);
   font-family: Quicksand, sans-serif;
-  font-size: 16px;
-  margin: 0;
 }
 
 button {
-  cursor: pointer;
   transition: color 0.2s, background-color 0.2s;
 }
 
@@ -18,6 +15,7 @@ select,
 button {
   border: 1px solid black;
   color: var(--secondary);
+  cursor: pointer;
 
   .dark & {
     border: none;
