@@ -38,6 +38,7 @@ Sections
 */
 
 body {
+	margin: 0;
 	font-family:
 		system-ui,
 		'Segoe UI',
@@ -46,8 +47,7 @@ body {
 		Arial,
 		sans-serif,
 		'Apple Color Emoji',
-		'Segoe UI Emoji';
-	margin: 0; 
+		'Segoe UI Emoji'; 
 }
 
 /*
@@ -61,8 +61,8 @@ Grouping content
 */
 
 hr {
-	color: inherit;
-	height: 0; 
+	height: 0;
+	color: inherit; 
 }
 
 /*
@@ -120,9 +120,9 @@ Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
 
 sub,
 sup {
+	position: relative;
 	font-size: 75%;
 	line-height: 0;
-	position: relative;
 	vertical-align: baseline;
 }
 
@@ -145,8 +145,8 @@ Tabular data
 */
 
 table {
-	border-color: inherit;
-	text-indent: 0; 
+	text-indent: 0;
+	border-color: inherit; 
 }
 
 /*
@@ -163,11 +163,11 @@ button,
 input,
 optgroup,
 select,
-textarea {
+textarea { 
+	margin: 0;
 	font-family: inherit; 
 	font-size: 100%; 
-	line-height: 1.15; 
-	margin: 0;
+	line-height: 1.15;
 }
 
 /**
@@ -195,8 +195,8 @@ Remove the inner border and padding in Firefox.
 */
 
 ::-moz-focus-inner {
-	border-style: none;
 	padding: 0;
+	border-style: none;
 }
 
 /**

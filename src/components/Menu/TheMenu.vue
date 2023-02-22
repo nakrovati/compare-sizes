@@ -107,13 +107,13 @@ function addItem() {
 
 <style scoped lang="scss">
 .menu {
-  align-items: center;
-  background-color: var(--menu-bg);
-  border-radius: 10px;
-  box-shadow: var(--shadow-default);
   display: flex;
   flex-direction: column;
   gap: 0.75em;
+  align-items: center;
   padding: 1em;
+  background-color: var(--menu-bg);
+  border-radius: 10px;
+  box-shadow: var(--shadow-default);
 }
 </style>

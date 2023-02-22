@@ -1,9 +1,9 @@
 @use "../tokens/colors";
 
 body {
-  background-color: var(--bg);
-  color: var(--secondary);
   font-family: Quicksand, sans-serif;
+  color: var(--secondary);
+  background-color: var(--bg);
 }
 
 button {
@@ -13,9 +13,9 @@ button {
 input,
 select,
 button {
-  border: 1px solid black;
   color: var(--secondary);
   cursor: pointer;
+  border: 1px solid black;
 
   .dark & {
     border: none;

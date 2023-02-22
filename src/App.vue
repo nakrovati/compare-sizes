@@ -20,16 +20,16 @@ if (window.matchMedia("(prefers-color-scheme: dark)").matches)
 <style lang="scss" scoped>
 .intro {
   display: grid;
-  gap: 20px;
-  grid-template-columns: 6fr 4fr;
   grid-template-rows: 100%;
+  grid-template-columns: 6fr 4fr;
+  gap: 20px;
   height: 100vh;
   padding: 40px;
 
   @media screen and (max-width: 1024px) {
     display: grid;
-    grid-template-columns: initial;
     grid-template-rows: 40vh 1fr;
+    grid-template-columns: initial;
     height: unset;
   }
 

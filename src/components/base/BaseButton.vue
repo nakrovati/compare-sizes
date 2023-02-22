@@ -14,11 +14,11 @@ function click() {
 
 <style scoped lang="scss">
 .base-button {
+  padding: 0.5em 1.5em;
+  color: var(--btn-submit-text);
   background-color: var(--btn-submit-bg);
   border: none;
   border-radius: 5px;
-  color: var(--btn-submit-text);
-  padding: 0.5em 1.5em;
 
   &:active {
     transform: scale(0.9);

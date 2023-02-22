@@ -69,9 +69,9 @@ onMounted(() => {
 
 <style scoped lang="scss">
 #canvas {
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
   box-shadow: var(--shadow-default);
-  height: 100%;
-  width: 100%;
 }
 </style>

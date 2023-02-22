@@ -49,29 +49,29 @@ function deleteItem() {
 $item-primary: #f3f3f3;
 
 .item {
+  position: relative;
+  padding: 0.5rem;
+  color: $item-primary;
   background-color: v-bind(color);
   border-radius: 10px;
   box-shadow: var(--shadow-default);
-  color: $item-primary;
-  padding: 0.5rem;
-  position: relative;
 }
 
 .button-delete {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  bottom: 0.5em;
+  z-index: 0;
+  padding: 0 0.5rem;
   background-color: inherit;
   border: none;
-  bottom: 0.5em;
-  padding: 0 0.5rem;
-  position: absolute;
-  right: 0.5em;
-  top: 0.5em;
-  z-index: 0;
 
   .button-delete__icon {
-    color: $item-primary;
-    height: 100%;
     position: relative;
     z-index: -1;
+    height: 100%;
+    color: $item-primary;
   }
 }
 </style>

@@ -41,28 +41,28 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .modal-outside {
-  background-color: rgb(0 0 0 / 40%);
-  height: 100%;
-  left: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
   z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgb(0 0 0 / 40%);
 }
 
 .modal {
-  background-color: var(--modal-bg);
-  border: 1px solid rgb(0 0 0 / 30%);
-  border-radius: 10px;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1em;
-  margin: 2rem auto;
   max-width: 500px;
   padding: 1em;
-  position: relative;
+  margin: 2rem auto;
+  background-color: var(--modal-bg);
+  border: 1px solid rgb(0 0 0 / 30%);
+  border-radius: 10px;
 }
 
 .button-close {

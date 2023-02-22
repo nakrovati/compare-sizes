@@ -44,24 +44,24 @@ defineExpose({ clear });
 
 <style scoped lang="scss">
 .base-input {
-  max-width: 240px;
   position: relative;
   width: 100%;
+  max-width: 240px;
 
   .base-input__label {
-    bottom: 0;
-    cursor: text;
-    left: 0.5rem;
     position: absolute;
-    transform: translateY(-50%);
+    bottom: 0;
+    left: 0.5rem;
+    cursor: text;
     transition: 0.25s;
+    transform: translateY(-50%);
   }
 
   .base-input__input {
+    width: 100%;
+    padding: 1.5em 0.5em 0.5em;
     background-color: var(--menu-input-bg);
     border-radius: 5px;
-    padding: 1.5em 0.5em 0.5em;
-    width: 100%;
 
     &::placeholder {
       color: var(--menu-input-placeholder);
