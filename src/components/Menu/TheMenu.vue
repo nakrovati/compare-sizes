@@ -17,7 +17,7 @@
       @toogle="changeDimensionAbbr"
     ></BaseSelect>
     <BaseButton @click="addItem"> Add item</BaseButton>
-    <TheModal v-if="isOpen" @close="isOpen = !isOpen">
+    <TheModal v-if="isModalShown" @close="isModalShown = !isModalShown">
       Enter the object name, width, height and length
     </TheModal>
   </div>
@@ -34,7 +34,11 @@ import { useItemsStore } from "@stores/items";
 import type { Dimensions, Box } from "@/types/index";
 import { getRandomColor, parseItemParams } from "@utils/index";
 
-const isOpen = ref(false);
+const isModalShown = ref();
+
+function showModla() {
+  isModalShown.value = true;
+}
 
 const selectedDimension = ref<Dimensions>("mm");
 
@@ -69,7 +73,7 @@ const itemsStore = useItemsStore();
 
 function addItem() {
   if (!itemName.value || !itemParams.value) {
-    isOpen.value = true;
+    showModla();
     return;
   }
 
