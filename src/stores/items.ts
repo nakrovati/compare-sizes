@@ -67,7 +67,6 @@ export const useItemsStore = defineStore("items", {
     // Last item color
     lastItemColor: (state): string | undefined => {
       const lastItem = state.items.at(-1);
-      console.log(lastItem);
 
       if (!lastItem) return undefined;
 
