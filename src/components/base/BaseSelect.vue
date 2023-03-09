@@ -38,6 +38,7 @@ watch(selectedDimension, () => {
 <style scoped lang="scss">
 .base-select {
   padding: 0.25em;
+  color: var(--text);
   background-color: var(--menu-select-bg);
   border-radius: 5px;
 }

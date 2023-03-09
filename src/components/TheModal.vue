@@ -43,6 +43,7 @@ onUnmounted(() => {
 .modal {
   padding: 1em;
   margin: 2rem auto;
+  color: var(--text);
   background-color: var(--modal-bg);
   border: 1px solid rgb(0 0 0 / 30%);
   border-radius: 10px;

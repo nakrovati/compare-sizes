@@ -60,6 +60,7 @@ defineExpose({ clear });
   .base-input__input {
     width: 100%;
     padding: 1.5em 0.5em 0.5em;
+    color: var(--text);
     background-color: var(--menu-input-bg);
     border-radius: 5px;
 
