@@ -12,9 +12,9 @@
 import TheCanvas from "@components/TheCanvas.vue";
 import TheMenu from "@components/Menu/TheMenu.vue";
 import ItemsList from "@components/ItemsList/ItemsList.vue";
+import { useDark } from "@composables/useDark";
 
-if (window.matchMedia("(prefers-color-scheme: dark)").matches)
-  document.documentElement.classList.add("dark");
+useDark();
 </script>
 
 <style lang="scss" scoped>

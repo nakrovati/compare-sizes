@@ -25,6 +25,7 @@ export default defineConfig({
       "@icons": resolve("./src/assets/icons"),
       "@styles": resolve("./src/assets/styles"),
       "@components": resolve("./src/components"),
+      "@composables": resolve("./src/composables"),
       "@helpers": resolve("./src/helpers"),
       "@stores": resolve("./src/stores"),
       "@utils": resolve("./src/utils"),
