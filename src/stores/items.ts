@@ -12,7 +12,7 @@ import {
 import { useCanvasStore } from "@stores/canvas";
 import { convertToMM, toThreeColor } from "@utils/index";
 import { scene } from "@helpers/canvas";
-import type { Box } from "@/types/index";
+import type { Box, Dimensions } from "@/types/index";
 
 export const useItemsStore = defineStore("items", {
   state: () => ({
@@ -135,7 +135,7 @@ export const useItemsStore = defineStore("items", {
           prevItemPositionX + prevItemHalfWidth + currentItemHalfWidth;
       }
     },
-    calcCurrentPositionX(width: number, dimensionAbbr: string) {
+    calcCurrentPositionX(width: number, dimensionAbbr: Dimensions) {
       const lastItem = this.items.at(-1);
 
       if (!lastItem) return 0;

@@ -17,7 +17,7 @@
       @toogle="changeDimensionAbbr"
     ></BaseSelect>
     <BaseButton @click="addItem"> Add item</BaseButton>
-    <TheModal v-if="isModalShown" @close="isModalShown = !isModalShown">
+    <TheModal v-if="isModalShown" @close="closeModal">
       Enter the object name, width, height and length
     </TheModal>
   </div>
@@ -34,16 +34,25 @@ import { useItemsStore } from "@stores/items";
 import type { Dimensions, Box } from "@/types/index";
 import { getRandomColor, parseItemParams } from "@utils/index";
 
-const isModalShown = ref();
+const isModalShown = ref(false);
 
 function showModla() {
   isModalShown.value = true;
+}
+
+function closeModal() {
+  isModalShown.value = false;
 }
 
 const selectedDimension = ref<Dimensions>("mm");
 
 function changeDimensionAbbr(value: Dimensions) {
   selectedDimension.value = value;
+}
+
+interface IDimensions {
+  text: string;
+  value: Dimensions;
 }
 
 const dimensions = [
@@ -54,7 +63,7 @@ const dimensions = [
   { text: "feet", value: "ft" },
   { text: "yards", value: "ya" },
   { text: "miles", value: "mi" },
-];
+] satisfies IDimensions[];
 
 const itemName = ref(""),
   inputItemName = ref(),
