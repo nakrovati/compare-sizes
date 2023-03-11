@@ -3,14 +3,16 @@ import { onMounted, ref } from "vue";
 export function usePreferredDark() {
   const isDark = ref(false);
 
-  onMounted(() => {
-    const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)");
+  const isDarkThemePreferred = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  );
 
-    if (preferredTheme.matches) {
+  onMounted(() => {
+    if (isDarkThemePreferred.matches) {
       isDark.value = true;
     }
 
-    preferredTheme.addEventListener("change", ({ matches }) => {
+    isDarkThemePreferred.addEventListener("change", ({ matches }) => {
       if (matches) {
         isDark.value = true;
       } else {
