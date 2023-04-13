@@ -1,15 +1,11 @@
 <template>
-  <button class="base-button" type="button" @click="click">
+  <button class="base-button" type="button" @click="$emit('click')">
     <slot></slot>
   </button>
 </template>
 
 <script setup lang="ts">
-const emit = defineEmits(["click"]);
-
-function click() {
-  emit("click");
-}
+defineEmits(["click"]);
 </script>
 
 <style scoped lang="scss">
