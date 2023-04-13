@@ -20,25 +20,19 @@ useDark();
 <style lang="scss" scoped>
 .intro {
   display: grid;
-  grid-template-rows: 100%;
-  grid-template-columns: 6fr 4fr;
+  grid-template-rows: 40vh 1fr;
   gap: 20px;
-  height: 100vh;
-  padding: 40px;
+  padding: 10px;
 
-  @media screen and (max-width: 1024px) {
-    display: grid;
-    grid-template-rows: 40vh 1fr;
-    grid-template-columns: initial;
-    height: unset;
-  }
-
-  @media screen and (max-width: 768px) {
+  @media screen and (width >= 425px) {
     padding: 20px;
   }
 
-  @media screen and (max-width: 425px) {
-    padding: 10px;
+  @media screen and (width >= 1024px) {
+    grid-template-rows: 100%;
+    grid-template-columns: 6fr 4fr;
+    height: 100vh;
+    padding: 40px;
   }
 }
 
