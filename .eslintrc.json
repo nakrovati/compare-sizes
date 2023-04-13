@@ -1,6 +1,7 @@
 {
   "root": true,
   "env": {
+    "node": true,
     "browser": true,
     "es2022": true
   },
@@ -10,9 +11,6 @@
     "@vue/typescript/recommended",
     "plugin:prettier-vue/recommended"
   ],
-  "parserOptions": {
-    "ecmaVersion": 2022
-  },
   "settings": {
     "prettier-vue": {
       "SFCBlocks": { "style": false }

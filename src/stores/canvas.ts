@@ -7,7 +7,7 @@ import {
   MeshBasicMaterial,
   BoxGeometry,
 } from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 import { scene } from "@helpers/canvas";
 import { useItemsStore } from "@stores/items";
