@@ -4,17 +4,38 @@ A site where you can compare object sizes.
 
 Site - [nakrovati.github.io/compare-sizes/](https://nakrovati.github.io/compare-sizes/)
 
-## Features
+### Features
 
 - The whole interface is on one page
 - The dark theme is supported
-- Supports millimeters, centimiters, meters and inches
+- Supports millimeters, centimiters, meters, inches, feet, yards and miles
 
-## Quick start
+## Setup locally
 
-```bash
-git clone https://github.com/nakrovati/compare-sizes.git
-cd comapre-sizes
-pnpm i # or yarn or npm
+Make sure to install the dependencies:
+
+```sh
+pnpm install # or yarn or npm
+```
+
+## Development server
+
+Start the development server on http://localhost:5173/compare-sizes/
+
+```sh
 pnpm dev # or yarn or npm
+```
+
+## Production
+
+Build the application for production:
+
+```sh
+pnpm build
+```
+
+Locally preview production build:
+
+```sh
+pnpm preview
 ```
