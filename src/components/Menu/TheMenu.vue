@@ -55,7 +55,7 @@ const dimensions = [
   { text: "centimeter", value: "cm" },
   { text: "meter", value: "m" },
   { text: "inch", value: "in" },
-  { text: "feet", value: "ft" },
+  { text: "foot", value: "ft" },
   { text: "yards", value: "ya" },
   { text: "miles", value: "mi" },
 ] satisfies { text: string; value: Dimensions }[];

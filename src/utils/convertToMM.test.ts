@@ -41,15 +41,15 @@ describe("Dimension converter", () => {
     expect(convertToMM(value, dimensionAbbr)).toBe(313.563);
   });
 
-  // Feets
-  test("Convert 1 feet to millimeters", () => {
+  // Feet
+  test("Convert 1 foot to millimeters", () => {
     const value = 1;
     const dimensionAbbr = "ft";
 
     expect(convertToMM(value, dimensionAbbr)).toBe(304.8);
   });
 
-  test("Convert feets to millimeters rounded to ten thousandths", () => {
+  test("Convert feet to millimeters rounded to ten thousandths", () => {
     const value = 12.345;
     const dimensionAbbr = "ft";
 
