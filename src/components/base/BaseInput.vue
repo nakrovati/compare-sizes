@@ -2,29 +2,32 @@
   <div class="base-input">
     <input
       :id="inputId"
-      v-model="input"
+      :value="modelValue"
       type="text"
       class="base-input__input"
       :placeholder="placeholder"
+      @input="onInput"
     />
     <label class="base-input__label" :for="inputId">{{ label }}</label>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref } from "vue";
 
-const props = defineProps<{ label: string; placeholder: string }>();
+const props = defineProps<{
+  label: string;
+  placeholder: string;
+  modelValue: string;
+}>();
+
+const emit = defineEmits<{ "update:modelValue": [value: string] }>();
 
 const inputId = ref(props.label.split(" ").join("__").toLocaleLowerCase());
 
-const emit = defineEmits(["change"]);
-
-const input = defineModel();
-
-watch(input, () => {
-  emit("change", input.value);
-});
+function onInput(e: Event): void {
+  emit("update:modelValue", (e.target as HTMLInputElement).value);
+}
 </script>
 
 <style scoped lang="scss">

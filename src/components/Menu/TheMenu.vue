@@ -1,16 +1,16 @@
 <template>
   <div class="menu">
     <BaseInput
-      ref="inputItemName"
       label="Item name"
+      :model-value="itemName"
       placeholder="box 1"
-      @change="changeItemName"
+      @update:model-value="updateItemNameInputValue"
     ></BaseInput>
     <BaseInput
-      ref="inputItemParams"
       label="Item params"
+      :model-value="itemParams"
       placeholder="width, height, length"
-      @change="changeItemParams"
+      @update:model-value="updateItemParamsInputValue"
     ></BaseInput>
     <BaseSelect
       :options="dimensions"
@@ -65,16 +65,14 @@ const dimensions = [
   { text: "miles", value: "mi" },
 ] satisfies IDimensions[];
 
-const itemName = ref(""),
-  inputItemName = ref(),
-  itemParams = ref(""),
-  inputItemParams = ref();
+const itemName = ref("");
+const itemParams = ref("");
 
-function changeItemName(value: string) {
+function updateItemNameInputValue(value: string) {
   itemName.value = value;
 }
 
-function changeItemParams(value: string) {
+function updateItemParamsInputValue(value: string) {
   itemParams.value = value;
 }
 
@@ -113,8 +111,8 @@ function addItem() {
 
   itemsStore.addItem(item);
 
-  inputItemName.value.clear();
-  inputItemParams.value.clear();
+  itemName.value = "";
+  itemParams.value = "";
 }
 </script>
 
