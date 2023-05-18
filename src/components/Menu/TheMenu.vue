@@ -50,11 +50,6 @@ function changeDimensionAbbr(value: Dimensions) {
   selectedDimension.value = value;
 }
 
-interface IDimensions {
-  text: string;
-  value: Dimensions;
-}
-
 const dimensions = [
   { text: "millimeter", value: "mm" },
   { text: "centimeter", value: "cm" },
@@ -63,7 +58,7 @@ const dimensions = [
   { text: "feet", value: "ft" },
   { text: "yards", value: "ya" },
   { text: "miles", value: "mi" },
-] satisfies IDimensions[];
+] satisfies { text: string; value: Dimensions }[];
 
 const itemName = ref("");
 const itemParams = ref("");
