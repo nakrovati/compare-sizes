@@ -2,7 +2,7 @@
 
 A site where you can compare object sizes.
 
-Site - [nakrovati.github.io/compare-sizes/](https://nakrovati.github.io/compare-sizes/)
+Site - [https://compare-sizes.vercel.app/](https://compare-sizes.vercel.app/)
 
 ### Features
 
@@ -20,7 +20,7 @@ pnpm install # or yarn or npm
 
 ## Development server
 
-Start the development server on http://localhost:5173/compare-sizes/
+Start the development server on http://localhost:5173
 
 ```sh
 pnpm dev # or yarn or npm
