@@ -14,32 +14,17 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 
-const props = defineProps({
-  label: {
-    type: String,
-    required: true,
-  },
-  placeholder: {
-    type: String,
-    required: true,
-  },
-});
+const props = defineProps<{ label: string; placeholder: string }>();
 
 const inputId = ref(props.label.split(" ").join("__").toLocaleLowerCase());
 
 const emit = defineEmits(["change"]);
 
-const input = ref("");
+const input = defineModel();
 
 watch(input, () => {
   emit("change", input.value);
 });
-
-function clear() {
-  input.value = "";
-}
-
-defineExpose({ clear });
 </script>
 
 <style scoped lang="scss">
