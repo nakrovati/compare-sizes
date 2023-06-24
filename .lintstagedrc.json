@@ -1,6 +1,6 @@
 {
   "*.{html,json,md,yml,yaml}": "prettier --write",
   "*.scss": "stylelint --fix",
-  "*.vue": ["eslint --fix", "stylelint --fix"],
-  "*.{(c)js,ts}": ["eslint --fix"]
+  "*.vue": ["eslint --fix", "prettier --write", "stylelint --fix"],
+  "*.{(c)js,ts}": ["eslint --fix", "prettier --write"]
 }

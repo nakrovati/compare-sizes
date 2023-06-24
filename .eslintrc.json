@@ -8,12 +8,12 @@
   "extends": [
     "eslint:recommended",
     "plugin:vue/vue3-recommended",
-    "@vue/typescript/recommended",
-    "plugin:prettier-vue/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
-  "settings": {
-    "prettier-vue": {
-      "SFCBlocks": { "style": false }
-    }
+  "plugins": ["@typescript-eslint"],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser"
   }
 }
