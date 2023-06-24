@@ -1,7 +1,3 @@
-<template>
-  <canvas id="canvas" ref="canvas" />
-</template>
-
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { WebGLRenderer } from "three";
@@ -66,6 +62,10 @@ onMounted(() => {
   animate();
 });
 </script>
+
+<template>
+  <canvas id="canvas" ref="canvas" />
+</template>
 
 <style scoped lang="scss">
 #canvas {

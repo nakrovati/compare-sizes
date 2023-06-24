@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import ItemsListItem from "@components/ItemsList/ItemsListItem.vue";
+import { useItemsStore } from "@stores/items";
+
+const itemsStore = useItemsStore();
+</script>
+
 <template>
   <section v-if="itemsStore.items.length" class="item-list">
     <TransitionGroup>
@@ -15,13 +22,6 @@
     </TransitionGroup>
   </section>
 </template>
-
-<script setup lang="ts">
-import ItemsListItem from "@components/ItemsList/ItemsListItem.vue";
-import { useItemsStore } from "@stores/items";
-
-const itemsStore = useItemsStore();
-</script>
 
 <style scoped lang="scss">
 .item-list {

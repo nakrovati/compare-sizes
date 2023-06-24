@@ -1,14 +1,3 @@
-<template>
-  <dialog ref="modal" class="modal">
-    <form method="dialog">
-      <span class="text"><slot /></span>
-      <BaseButton class="button-close" type="button" @click="close">
-        Close
-      </BaseButton>
-    </form>
-  </dialog>
-</template>
-
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 
@@ -38,6 +27,17 @@ onUnmounted(() => {
   window.removeEventListener("click", clickOutside);
 });
 </script>
+
+<template>
+  <dialog ref="modal" class="modal">
+    <form method="dialog">
+      <span class="text"><slot /></span>
+      <BaseButton class="button-close" type="button" @click="close">
+        Close
+      </BaseButton>
+    </form>
+  </dialog>
+</template>
 
 <style scoped lang="scss">
 .modal {

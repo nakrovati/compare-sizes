@@ -1,20 +1,3 @@
-<template>
-  <select
-    v-model="selectedDimension"
-    class="base-select"
-    name="dimensionAbbreviation"
-  >
-    <option
-      v-for="option in options"
-      :key="option.value"
-      :value="option.value"
-      class="base-select__option"
-    >
-      {{ option.text }}
-    </option>
-  </select>
-</template>
-
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import type { Dimensions } from "@/types/index";
@@ -34,6 +17,23 @@ watch(selectedDimension, () => {
   emit("toogle", selectedDimension.value);
 });
 </script>
+
+<template>
+  <select
+    v-model="selectedDimension"
+    class="base-select"
+    name="dimensionAbbreviation"
+  >
+    <option
+      v-for="option in options"
+      :key="option.value"
+      :value="option.value"
+      class="base-select__option"
+    >
+      {{ option.text }}
+    </option>
+  </select>
+</template>
 
 <style scoped lang="scss">
 .base-select {

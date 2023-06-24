@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import TheCanvas from "@components/Canvas/TheCanvas.vue";
+import TheItemsMenu from "@components/ItemsMenu/TheItemsMenu.vue";
+import TheItemsList from "@components/ItemsList/TheItemsList.vue";
+import { useDark } from "@composables/useDark";
+
+useDark();
+</script>
+
 <template>
   <main class="intro">
     <TheCanvas />
@@ -7,15 +16,6 @@
     </div>
   </main>
 </template>
-
-<script setup lang="ts">
-import TheCanvas from "@components/Canvas/TheCanvas.vue";
-import TheItemsMenu from "@components/ItemsMenu/TheItemsMenu.vue";
-import TheItemsList from "@components/ItemsList/TheItemsList.vue";
-import { useDark } from "@composables/useDark";
-
-useDark();
-</script>
 
 <style lang="scss" scoped>
 .intro {

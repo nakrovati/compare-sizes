@@ -1,25 +1,3 @@
-<template>
-  <div class="item">
-    <div>{{ name }}</div>
-    <div>
-      ({{ height }}{{ dimensionAbbr }} x {{ width }}{{ dimensionAbbr }} x
-      {{ length }}{{ dimensionAbbr }})
-    </div>
-    <button
-      type="button"
-      class="button-delete"
-      aria-label="delete item"
-      @click="deleteItem"
-    >
-      <IconDelete
-        class="button-delete__icon"
-        aria-hidden="true"
-        tabindex="-1"
-      />
-    </button>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed } from "vue";
 
@@ -44,6 +22,28 @@ function deleteItem() {
   itemsStore.removeItem(props.index);
 }
 </script>
+
+<template>
+  <div class="item">
+    <div>{{ name }}</div>
+    <div>
+      ({{ height }}{{ dimensionAbbr }} x {{ width }}{{ dimensionAbbr }} x
+      {{ length }}{{ dimensionAbbr }})
+    </div>
+    <button
+      type="button"
+      class="button-delete"
+      aria-label="delete item"
+      @click="deleteItem"
+    >
+      <IconDelete
+        class="button-delete__icon"
+        aria-hidden="true"
+        tabindex="-1"
+      />
+    </button>
+  </div>
+</template>
 
 <style scoped lang="scss">
 $item-primary: #f3f3f3;

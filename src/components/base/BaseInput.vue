@@ -1,17 +1,3 @@
-<template>
-  <div class="base-input">
-    <input
-      :id="inputId"
-      :value="modelValue"
-      type="text"
-      class="base-input__input"
-      :placeholder="placeholder"
-      @input="onInput"
-    />
-    <label class="base-input__label" :for="inputId">{{ label }}</label>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref } from "vue";
 
@@ -29,6 +15,20 @@ function onInput(e: Event): void {
   emit("update:modelValue", (e.target as HTMLInputElement).value);
 }
 </script>
+
+<template>
+  <div class="base-input">
+    <input
+      :id="inputId"
+      :value="modelValue"
+      type="text"
+      class="base-input__input"
+      :placeholder="placeholder"
+      @input="onInput"
+    />
+    <label class="base-input__label" :for="inputId">{{ label }}</label>
+  </div>
+</template>
 
 <style scoped lang="scss">
 .base-input {
