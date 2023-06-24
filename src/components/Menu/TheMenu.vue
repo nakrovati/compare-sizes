@@ -5,18 +5,15 @@
       :model-value="itemName"
       placeholder="box 1"
       @update:model-value="updateItemNameInputValue"
-    ></BaseInput>
+    />
     <BaseInput
       label="Item params"
       :model-value="itemParams"
       placeholder="width, height, length"
       @update:model-value="updateItemParamsInputValue"
-    ></BaseInput>
-    <BaseSelect
-      :options="dimensions"
-      @toogle="changeDimensionAbbr"
-    ></BaseSelect>
-    <BaseButton @click="addItem"> Add item</BaseButton>
+    />
+    <BaseSelect :options="dimensions" @toogle="changeDimensionAbbr" />
+    <BaseButton @click="addItem"> Add item </BaseButton>
     <TheModal v-if="isModalShown" @close="closeModal">
       Enter the object name, width, height and length
     </TheModal>

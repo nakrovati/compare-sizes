@@ -1,9 +1,9 @@
 <template>
   <main class="intro">
-    <TheCanvas></TheCanvas>
+    <TheCanvas />
     <div class="menu-container">
-      <TheMenu></TheMenu>
-      <ItemsList></ItemsList>
+      <TheMenu />
+      <ItemsList />
     </div>
   </main>
 </template>

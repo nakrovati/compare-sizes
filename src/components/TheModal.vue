@@ -1,10 +1,10 @@
 <template>
   <dialog ref="modal" class="modal">
     <form method="dialog">
-      <span class="text"><slot></slot></span>
-      <BaseButton class="button-close" type="button" @click="close"
-        >Close</BaseButton
-      >
+      <span class="text"><slot /></span>
+      <BaseButton class="button-close" type="button" @click="close">
+        Close
+      </BaseButton>
     </form>
   </dialog>
 </template>

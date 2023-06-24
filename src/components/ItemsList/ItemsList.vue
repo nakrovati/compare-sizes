@@ -11,7 +11,7 @@
         :name="item.name"
         :color="item.color"
         :dimension-abbr="item.dimensionAbbr"
-      ></ItemsListItem>
+      />
     </TransitionGroup>
   </section>
 </template>
