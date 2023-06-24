@@ -26,7 +26,7 @@ import { ref } from "vue";
 import BaseInput from "@components/base/BaseInput.vue";
 import BaseButton from "@components/base/BaseButton.vue";
 import BaseSelect from "@components/base/BaseSelect.vue";
-import TheModal from "@components/TheModal.vue";
+import TheModal from "@components/base/BaseModal.vue";
 import { useItemsStore } from "@stores/items";
 import type { Dimensions, Box } from "@/types/index";
 import { getRandomColor, parseItemParams } from "@utils/index";

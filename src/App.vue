@@ -2,16 +2,16 @@
   <main class="intro">
     <TheCanvas />
     <div class="menu-container">
-      <TheMenu />
-      <ItemsList />
+      <TheItemsMenu />
+      <TheItemsList />
     </div>
   </main>
 </template>
 
 <script setup lang="ts">
-import TheCanvas from "@components/TheCanvas.vue";
-import TheMenu from "@components/Menu/TheMenu.vue";
-import ItemsList from "@components/ItemsList/ItemsList.vue";
+import TheCanvas from "@components/Canvas/TheCanvas.vue";
+import TheItemsMenu from "@components/ItemsMenu/TheItemsMenu.vue";
+import TheItemsList from "@components/ItemsList/TheItemsList.vue";
 import { useDark } from "@composables/useDark";
 
 useDark();
