@@ -1,6 +1,6 @@
-import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "node:path";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
@@ -18,19 +18,11 @@ export default defineConfig({
       },
     },
   },
-  resolve: {
-    alias: {
-      "@assets": resolve("./src/assets"),
-      "@icons": resolve("./src/assets/icons"),
-      "@styles": resolve("./src/assets/styles"),
-      "@components": resolve("./src/components"),
-      "@composables": resolve("./src/composables"),
-      "@helpers": resolve("./src/helpers"),
-      "@stores": resolve("./src/stores"),
-      "@utils": resolve("./src/utils"),
-      "@": resolve("./src"),
-    },
-  },
   define: { __VUE_OPTIONS_API__: false },
   plugins: [vue()],
+  resolve: {
+    alias: {
+      "~": resolve("./src"),
+    },
+  },
 });

@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-import IconDelete from "@icons/IconDelete.vue";
-import { useItemsStore } from "@stores/items";
+import IconDelete from "~/assets/icons/IconDelete.vue";
+import { useItemsStore } from "~/stores/items";
 
 const itemsStore = useItemsStore();
 
 const props = defineProps({
-  index: { type: Number, required: true },
-  height: { type: Number, required: true },
-  width: { type: Number, required: true },
-  length: { type: Number, required: true },
-  name: { type: String, required: true },
-  color: { type: String, required: true },
-  dimensionAbbr: { type: String, required: true },
+  color: { required: true, type: String },
+  dimensionAbbr: { required: true, type: String },
+  height: { required: true, type: Number },
+  index: { required: true, type: Number },
+  length: { required: true, type: Number },
+  name: { required: true, type: String },
+  width: { required: true, type: Number },
 });
 
 const color = computed(() => props.color);

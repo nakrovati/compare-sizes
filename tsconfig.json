@@ -10,15 +10,7 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@icons/*": ["src/assets/icons/*"],
-      "@styles/*": ["src/assets/styles/*"],
-      "@components/*": ["src/components/*"],
-      "@composables/*": ["src/composables/*"],
-      "@helpers/*": ["src/helpers/*"],
-      "@stores/*": ["src/stores/*"],
-      "@utils/*": ["src/utils/*"],
-      "@/*": ["src/*"]
+      "~/*": ["src/*"]
     },
     "resolveJsonModule": true,
 

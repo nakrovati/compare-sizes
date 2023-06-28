@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import BaseInput from "@components/base/BaseInput.vue";
-import BaseButton from "@components/base/BaseButton.vue";
-import BaseSelect from "@components/base/BaseSelect.vue";
-import BaseModal from "@components/base/BaseModal.vue";
-import { useItemsStore } from "@stores/items";
-import type { Dimensions, Box } from "@/types/index";
-import { getRandomColor, parseItemParams } from "@utils/index";
+import type { Box, Dimensions } from "~/types/index";
+
+import BaseButton from "~/components/base/BaseButton.vue";
+import BaseInput from "~/components/base/BaseInput.vue";
+import BaseModal from "~/components/base/BaseModal.vue";
+import BaseSelect from "~/components/base/BaseSelect.vue";
+import { useItemsStore } from "~/stores/items";
+import { getRandomColor, parseItemParams } from "~/utils/index";
 
 const isModalShown = ref(false);
 const selectedDimension = ref<Dimensions>("mm");
@@ -46,7 +47,7 @@ function addItem() {
   }
 
   const name = itemName.value;
-  const { height, width, length } = data;
+  const { height, length, width } = data;
   const dimensionAbbr = selectedDimension.value;
 
   let color: string;
@@ -56,12 +57,12 @@ function addItem() {
   } while (color === itemsStore.lastItemColor);
 
   const item: Box = {
-    name,
-    width,
-    height,
-    length,
     color,
     dimensionAbbr,
+    height,
+    length,
+    name,
+    width,
   };
 
   itemsStore.addItem(item);

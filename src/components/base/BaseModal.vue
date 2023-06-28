@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
-import BaseButton from "@components/base/BaseButton.vue";
+import BaseButton from "~/components/base/BaseButton.vue";
 
 const emit = defineEmits<{ close: [] }>();
 const modal = ref<HTMLDialogElement>();

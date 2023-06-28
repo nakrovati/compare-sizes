@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ItemsListItem from "@components/ItemsList/ItemsListItem.vue";
-import { useItemsStore } from "@stores/items";
+import ItemsListItem from "~/components/ItemsList/ItemsListItem.vue";
+import { useItemsStore } from "~/stores/items";
 
 const itemsStore = useItemsStore();
 </script>

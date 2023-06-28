@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import TheCanvas from "@components/Canvas/TheCanvas.vue";
-import TheItemsMenu from "@components/ItemsMenu/TheItemsMenu.vue";
-import TheItemsList from "@components/ItemsList/TheItemsList.vue";
-import { useDark } from "@composables/useDark";
+import TheCanvas from "~/components/Canvas/TheCanvas.vue";
+import TheItemsList from "~/components/ItemsList/TheItemsList.vue";
+import TheItemsMenu from "~/components/ItemsMenu/TheItemsMenu.vue";
+import { useDark } from "~/composables/useDark";
 
 useDark();
 </script>

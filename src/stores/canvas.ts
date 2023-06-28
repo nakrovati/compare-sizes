@@ -1,23 +1,42 @@
 import { defineStore } from "pinia";
 import {
+  BoxGeometry,
   Camera,
-  PerspectiveCamera,
-  Vector3,
   Mesh,
   MeshBasicMaterial,
-  BoxGeometry,
+  PerspectiveCamera,
+  Vector3,
 } from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
-import { scene } from "@helpers/canvas";
-import { useItemsStore } from "@stores/items";
+import { scene } from "~/helpers/canvas";
+import { useItemsStore } from "~/stores/items";
 
 export const useCanvasStore = defineStore("canvas", {
-  state: () => ({
-    camera: new PerspectiveCamera(100),
-    controls: {} as OrbitControls,
-  }),
   actions: {
+    clearScene(): void {
+      scene.clear();
+    },
+    initOrbitControls(object: Camera, domElement: HTMLElement) {
+      this.controls = new OrbitControls(object, domElement);
+
+      this.controls.maxDistance = Infinity;
+    },
+    initScene(): void {
+      const itemsStore = useItemsStore();
+
+      if (!itemsStore.items.length) return;
+
+      const itemsForScene: Mesh<BoxGeometry, MeshBasicMaterial>[] = [];
+
+      for (const item of itemsStore.items) {
+        itemsForScene.push(itemsStore.createItem(item));
+      }
+
+      scene.add(...itemsForScene);
+
+      this.updateCamera();
+    },
     updateCamera(): void {
       const itemsStore = useItemsStore();
 
@@ -57,28 +76,9 @@ export const useCanvasStore = defineStore("canvas", {
 
       return;
     },
-    initOrbitControls(object: Camera, domElement: HTMLElement) {
-      this.controls = new OrbitControls(object, domElement);
-
-      this.controls.maxDistance = Infinity;
-    },
-    initScene(): void {
-      const itemsStore = useItemsStore();
-
-      if (!itemsStore.items.length) return;
-
-      const itemsForScene: Mesh<BoxGeometry, MeshBasicMaterial>[] = [];
-
-      for (const item of itemsStore.items) {
-        itemsForScene.push(itemsStore.createItem(item));
-      }
-
-      scene.add(...itemsForScene);
-
-      this.updateCamera();
-    },
-    clearScene(): void {
-      scene.clear();
-    },
   },
+  state: () => ({
+    camera: new PerspectiveCamera(100),
+    controls: {} as OrbitControls,
+  }),
 });

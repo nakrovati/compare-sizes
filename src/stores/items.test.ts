@@ -1,16 +1,19 @@
-import { describe, beforeEach, expect, it } from "vitest";
-import { setActivePinia, createPinia } from "pinia";
+import { createPinia, setActivePinia } from "pinia";
+import { beforeEach, describe, expect, it } from "vitest";
+
+import type { Box, Dimensions } from "~/types/index";
+
+import { getRandomColor } from "~/utils/index";
+
 import { useItemsStore } from "./items";
-import { getRandomColor } from "@utils/index";
-import type { Dimensions, Box } from "@/types/index";
 
 class Item implements Box {
-  name: string;
-  width: number;
-  height: number;
-  length: number;
   color: string;
   dimensionAbbr: Dimensions;
+  height: number;
+  length: number;
+  name: string;
+  width: number;
 
   constructor(
     name: string,

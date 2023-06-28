@@ -1,4 +1,5 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
+
 import parseItemParams from "./parseItemParams";
 
 describe("Item params parser", () => {
@@ -7,9 +8,9 @@ describe("Item params parser", () => {
 
     const result = {
       data: "10,20,30",
-      width: 10,
       height: 20,
       length: 30,
+      width: 10,
     };
 
     expect(parseItemParams(value)).toStrictEqual(result);
@@ -20,9 +21,9 @@ describe("Item params parser", () => {
 
     const result = {
       data: "10, 20, 30",
-      width: 10,
       height: 20,
       length: 30,
+      width: 10,
     };
 
     expect(parseItemParams(value)).toStrictEqual(result);
@@ -33,9 +34,9 @@ describe("Item params parser", () => {
 
     const result = {
       data: "10.55, 20.55, 30.55",
-      width: 10.55,
       height: 20.55,
       length: 30.55,
+      width: 10.55,
     };
 
     expect(parseItemParams(value)).toStrictEqual(result);
@@ -44,7 +45,7 @@ describe("Item params parser", () => {
   it("Contains width, height length and anything else after the decimal point", () => {
     const value = "10, 20, 30, 400";
 
-    const result = { data: "10, 20, 30", width: 10, height: 20, length: 30 };
+    const result = { data: "10, 20, 30", height: 20, length: 30, width: 10 };
 
     expect(parseItemParams(value)).toStrictEqual(result);
   });

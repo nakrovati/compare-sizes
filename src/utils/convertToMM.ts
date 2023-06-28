@@ -1,4 +1,4 @@
-import type { Dimensions } from "@/types";
+import type { Dimensions } from "~/types";
 
 export default function convertToMM(value: number, dimensionAbbr?: Dimensions) {
   switch (dimensionAbbr) {

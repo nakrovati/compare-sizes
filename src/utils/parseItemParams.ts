@@ -8,9 +8,9 @@ function parseItemParams(params: string) {
 
   return {
     data: data[0],
-    width: +data[1],
     height: +data[2],
     length: +data[3],
+    width: +data[1],
   };
 }
 

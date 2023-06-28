@@ -7,8 +7,8 @@ interface AbbreviationOptions {
 }
 
 defineProps<{
-  options: AbbreviationOptions[];
   modelValue: string;
+  options: AbbreviationOptions[];
 }>();
 
 function onInput(event: Event) {

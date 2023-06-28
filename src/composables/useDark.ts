@@ -1,5 +1,6 @@
 import { watch } from "vue";
-import { usePreferredDark } from "@composables/usePreferredDark";
+
+import { usePreferredDark } from "~/composables/usePreferredDark";
 
 export function useDark() {
   const isDark = usePreferredDark();

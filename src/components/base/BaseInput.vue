@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const props = defineProps<{
   label: string;
-  placeholder: string;
   modelValue: string;
+  placeholder: string;
 }>();
 
 const emit = defineEmits<{ "update:modelValue": [value: string] }>();
