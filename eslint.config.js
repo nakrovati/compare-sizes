@@ -8,6 +8,7 @@ import vueParser from "vue-eslint-parser";
 
 export default [
   {
+    ignores: ["**/dist/**", "**/public/**"],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -20,11 +21,11 @@ export default [
   },
   {
     files: ["**/*.ts"],
-    plugins: {
-      "@typescript-eslint": ts,
-    },
     languageOptions: {
       parser: tsParser,
+    },
+    plugins: {
+      "@typescript-eslint": ts,
     },
     rules: {
       ...ts.configs.recommended.rules,
@@ -33,13 +34,13 @@ export default [
   },
   {
     files: ["**/*.vue"],
-    plugins: { vue, "@typescript-eslint": ts },
     languageOptions: {
       parser: vueParser,
       parserOptions: {
         parser: tsParser,
       },
     },
+    plugins: { "@typescript-eslint": ts, vue },
     rules: {
       ...vue.configs["vue3-recommended"].rules,
       ...ts.configs.recommended.rules,
