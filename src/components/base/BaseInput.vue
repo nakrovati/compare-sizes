@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
-
 const props = defineProps<{
   label: string;
   placeholder: string;
@@ -9,10 +7,10 @@ const props = defineProps<{
 
 const emit = defineEmits<{ "update:modelValue": [value: string] }>();
 
-const inputId = ref(props.label.split(" ").join("__").toLocaleLowerCase());
+const inputId = props.label.split(" ").join("__").toLowerCase();
 
-function onInput(e: Event): void {
-  emit("update:modelValue", (e.target as HTMLInputElement).value);
+function onInput(event: Event): void {
+  emit("update:modelValue", (event.target as HTMLInputElement).value);
 }
 </script>
 

@@ -4,25 +4,23 @@ import { ref } from "vue";
 import BaseInput from "@components/base/BaseInput.vue";
 import BaseButton from "@components/base/BaseButton.vue";
 import BaseSelect from "@components/base/BaseSelect.vue";
-import TheModal from "@components/base/BaseModal.vue";
+import BaseModal from "@components/base/BaseModal.vue";
 import { useItemsStore } from "@stores/items";
 import type { Dimensions, Box } from "@/types/index";
 import { getRandomColor, parseItemParams } from "@utils/index";
 
 const isModalShown = ref(false);
+const selectedDimension = ref<Dimensions>("mm");
+const itemName = ref("");
+const itemParams = ref("");
+const itemsStore = useItemsStore();
 
-function showModla() {
+function showModal() {
   isModalShown.value = true;
 }
 
 function closeModal() {
   isModalShown.value = false;
-}
-
-const selectedDimension = ref<Dimensions>("mm");
-
-function changeDimensionAbbr(value: Dimensions) {
-  selectedDimension.value = value;
 }
 
 const dimensions = [
@@ -35,22 +33,9 @@ const dimensions = [
   { text: "miles", value: "mi" },
 ] satisfies { text: string; value: Dimensions }[];
 
-const itemName = ref("");
-const itemParams = ref("");
-
-function updateItemNameInputValue(value: string) {
-  itemName.value = value;
-}
-
-function updateItemParamsInputValue(value: string) {
-  itemParams.value = value;
-}
-
-const itemsStore = useItemsStore();
-
 function addItem() {
   if (!itemName.value || !itemParams.value) {
-    showModla();
+    showModal();
     return;
   }
 
@@ -88,23 +73,17 @@ function addItem() {
 
 <template>
   <div class="menu">
+    <BaseInput v-model="itemName" label="Item name" placeholder="box 1" />
     <BaseInput
-      label="Item name"
-      :model-value="itemName"
-      placeholder="box 1"
-      @update:model-value="updateItemNameInputValue"
-    />
-    <BaseInput
+      v-model="itemParams"
       label="Item params"
-      :model-value="itemParams"
       placeholder="width, height, length"
-      @update:model-value="updateItemParamsInputValue"
     />
-    <BaseSelect :options="dimensions" @toggle="changeDimensionAbbr" />
+    <BaseSelect v-model="selectedDimension" :options="dimensions" />
     <BaseButton @click="addItem"> Add item </BaseButton>
-    <TheModal v-if="isModalShown" @close="closeModal">
+    <BaseModal v-if="isModalShown" @close="closeModal">
       Enter the object name, width, height and length
-    </TheModal>
+    </BaseModal>
   </div>
 </template>
 

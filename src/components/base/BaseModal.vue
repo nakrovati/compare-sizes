@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 
 import BaseButton from "@components/base/BaseButton.vue";
 
-const emit = defineEmits(["close"]);
+const emit = defineEmits<{ close: [] }>();
 const modal = ref<HTMLDialogElement>();
 
 function close() {

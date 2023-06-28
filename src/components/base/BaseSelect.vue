@@ -1,28 +1,27 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import type { Dimensions } from "@/types/index";
-
-const emit = defineEmits(["toogle"]);
+const emit = defineEmits<{ "update:modelValue": [value: string] }>();
 
 interface AbbreviationOptions {
   text: string;
   value: string;
 }
 
-defineProps<{ options: AbbreviationOptions[] }>();
+defineProps<{
+  options: AbbreviationOptions[];
+  modelValue: string;
+}>();
 
-const selectedDimension = ref<Dimensions>("mm");
-
-watch(selectedDimension, () => {
-  emit("toogle", selectedDimension.value);
-});
+function onInput(event: Event) {
+  emit("update:modelValue", (event.target as HTMLSelectElement).value);
+}
 </script>
 
 <template>
   <select
-    v-model="selectedDimension"
+    :value="modelValue"
     class="base-select"
     name="dimensionAbbreviation"
+    @input="onInput"
   >
     <option
       v-for="option in options"
