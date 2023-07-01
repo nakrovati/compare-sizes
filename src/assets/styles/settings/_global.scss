@@ -10,17 +10,21 @@ button {
   transition: color 0.2s, background-color 0.2s;
 }
 
-input {
-  cursor: text;
-}
-
-input,
-select,
-button, {
-  cursor: pointer;
+%dark-border {
   border: 1px solid black;
 
   .dark & {
     border: none;
   }
+}
+
+input {
+  @extend %dark-border;
+}
+
+select,
+button {
+  cursor: pointer;
+
+  @extend %dark-border;
 }
