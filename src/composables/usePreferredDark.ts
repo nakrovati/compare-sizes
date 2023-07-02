@@ -1,4 +1,4 @@
-import { onMounted, ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
 export function usePreferredDark() {
   const isDark = ref(false);
@@ -7,18 +7,18 @@ export function usePreferredDark() {
     "(prefers-color-scheme: dark)"
   );
 
-  onMounted(() => {
-    if (isDarkThemePreferred.matches) {
-      isDark.value = true;
-    }
+  function toogleDarkTheme(event: MediaQueryListEvent) {
+    isDark.value = event.matches;
+  }
 
-    isDarkThemePreferred.addEventListener("change", ({ matches }) => {
-      if (matches) {
-        isDark.value = true;
-      } else {
-        isDark.value = false;
-      }
-    });
+  onMounted(() => {
+    isDark.value = isDarkThemePreferred.matches;
+
+    isDarkThemePreferred.addEventListener("change", toogleDarkTheme);
+  });
+
+  onUnmounted(() => {
+    isDarkThemePreferred.removeEventListener("change", toogleDarkTheme);
   });
 
   return isDark;
