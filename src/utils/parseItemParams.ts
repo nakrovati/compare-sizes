@@ -1,5 +1,12 @@
 /** Returns the width, height and length from the string */
-function parseItemParams(params: string) {
+interface ItemParams {
+  data: string;
+  height: number;
+  length: number;
+  width: number;
+}
+
+function parseItemParams(params: string): ItemParams | undefined {
   const regexp = /(\d+(?:\.\d+)?), ?(\d+(?:\.\d+)?), ?(\d+(?:\.\d+)?)/;
 
   const data = params.match(regexp);

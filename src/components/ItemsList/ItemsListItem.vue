@@ -3,18 +3,15 @@ import { computed } from "vue";
 
 import IconDelete from "~/assets/icons/IconDelete.vue";
 import { useItemsStore } from "~/stores/items";
+import { Box } from "~/types";
 
 const itemsStore = useItemsStore();
 
-const props = defineProps({
-  color: { required: true, type: String },
-  dimensionAbbr: { required: true, type: String },
-  height: { required: true, type: Number },
-  index: { required: true, type: Number },
-  length: { required: true, type: Number },
-  name: { required: true, type: String },
-  width: { required: true, type: Number },
-});
+interface Props extends Box {
+  index: number;
+}
+
+const props = defineProps<Props>();
 
 const color = computed(() => props.color);
 
