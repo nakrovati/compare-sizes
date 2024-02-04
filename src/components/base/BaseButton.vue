@@ -1,9 +1,16 @@
 <script setup lang="ts">
 defineEmits<{ click: [] }>();
+
+const props = defineProps({
+  type: {
+    type: String as () => "button" | "submit" | "reset",
+    default: "button",
+  },
+});
 </script>
 
 <template>
-  <button class="base-button" type="button" @click="$emit('click')">
+  <button class="base-button" :type="props.type" @click="$emit('click')">
     <slot />
   </button>
 </template>

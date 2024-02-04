@@ -73,7 +73,7 @@ function addItem() {
 </script>
 
 <template>
-  <div class="menu">
+  <form class="menu" @submit.prevent="addItem">
     <BaseInput v-model="itemName" label="Item name" placeholder="box 1" />
     <BaseInput
       v-model="itemParams"
@@ -81,11 +81,11 @@ function addItem() {
       placeholder="width, height, length"
     />
     <BaseSelect v-model="selectedDimension" :options="dimensions" />
-    <BaseButton @click="addItem"> Add item </BaseButton>
+    <BaseButton type="submit"> Add item </BaseButton>
     <BaseModal v-if="isModalShown" @close="closeModal">
       Enter the object name, width, height and length
     </BaseModal>
-  </div>
+  </form>
 </template>
 
 <style scoped>
