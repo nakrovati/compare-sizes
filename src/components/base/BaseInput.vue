@@ -1,24 +1,25 @@
 <script setup lang="ts">
-const props = defineProps<{
+import { nanoid } from "nanoid";
+
+defineProps<{
   label: string;
   placeholder: string;
 }>();
 
 const value = defineModel<string>();
-
-const inputId = props.label.split(" ").join("__").toLowerCase();
+const id = nanoid();
 </script>
 
 <template>
   <div class="base-input">
     <input
-      :id="inputId"
+      :id="id"
       v-model="value"
       :placeholder="placeholder"
       class="base-input__input"
       type="text"
     />
-    <label :for="inputId" class="base-input__label">{{ label }}</label>
+    <label :for="id" class="base-input__label">{{ label }}</label>
   </div>
 </template>
 
