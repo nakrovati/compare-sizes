@@ -2,12 +2,8 @@
 dist
 public
 
-# Src
-*.css
-
 # Dependencies
 node_modules
-pnpm-lock.yaml
 
 # Coverage
 coverage
