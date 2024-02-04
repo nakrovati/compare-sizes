@@ -18,13 +18,13 @@ function onInput(event: Event): void {
   <div class="base-input">
     <input
       :id="inputId"
-      :value="modelValue"
-      type="text"
-      class="base-input__input"
       :placeholder="placeholder"
+      :value="modelValue"
+      class="base-input__input"
+      type="text"
       @input="onInput"
     />
-    <label class="base-input__label" :for="inputId">{{ label }}</label>
+    <label :for="inputId" class="base-input__label">{{ label }}</label>
   </div>
 </template>
 

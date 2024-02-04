@@ -28,14 +28,14 @@ function deleteItem() {
       {{ length }}{{ dimensionAbbr }})
     </div>
     <button
-      type="button"
-      class="button-delete"
       aria-label="delete item"
+      class="button-delete"
+      type="button"
       @click="deleteItem"
     >
       <IconDelete
-        class="button-delete__icon"
         aria-hidden="true"
+        class="button-delete__icon"
         tabindex="-1"
       />
     </button>

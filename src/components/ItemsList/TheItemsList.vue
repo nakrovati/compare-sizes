@@ -11,13 +11,13 @@ const itemsStore = useItemsStore();
       <ItemsListItem
         v-for="(item, index) in itemsStore.items"
         :key="index"
-        :index="index"
-        :height="item.height"
-        :width="item.width"
-        :length="item.length"
-        :name="item.name"
         :color="item.color"
         :dimension-abbr="item.dimensionAbbr"
+        :height="item.height"
+        :index="index"
+        :length="item.length"
+        :name="item.name"
+        :width="item.width"
       />
     </TransitionGroup>
   </section>
