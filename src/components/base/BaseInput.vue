@@ -1,28 +1,22 @@
 <script setup lang="ts">
 const props = defineProps<{
   label: string;
-  modelValue: string;
   placeholder: string;
 }>();
 
-const emit = defineEmits<{ "update:modelValue": [value: string] }>();
+const value = defineModel<string>();
 
 const inputId = props.label.split(" ").join("__").toLowerCase();
-
-function onInput(event: Event): void {
-  emit("update:modelValue", (event.target as HTMLInputElement).value);
-}
 </script>
 
 <template>
   <div class="base-input">
     <input
       :id="inputId"
+      v-model="value"
       :placeholder="placeholder"
-      :value="modelValue"
       class="base-input__input"
       type="text"
-      @input="onInput"
     />
     <label :for="inputId" class="base-input__label">{{ label }}</label>
   </div>
