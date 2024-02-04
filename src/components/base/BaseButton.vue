@@ -8,20 +8,20 @@ defineEmits<{ click: [] }>();
   </button>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .base-button {
   padding: 0.5em 1.5em;
   color: var(--btn-submit-text);
   background-color: var(--btn-submit-bg);
   border: none;
   border-radius: 5px;
+}
 
-  &:active {
-    transform: scale(0.9);
-  }
+.base-button:active {
+  transform: scale(0.9);
+}
 
-  &:hover {
-    background-color: var(--btn-submit-bg-hover);
-  }
+.base-button:hover {
+  background-color: var(--btn-submit-bg-hover);
 }
 </style>

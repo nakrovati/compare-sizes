@@ -8,7 +8,7 @@
   --modal-bg: #f3f3f3;
 }
 
-.dark {
+:root.dark {
   --primary: #225de8;
   --text: #f3f3f3;
   --bg: #1e1e1e;

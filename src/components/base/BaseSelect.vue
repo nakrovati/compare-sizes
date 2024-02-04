@@ -34,7 +34,7 @@ function onInput(event: Event) {
   </select>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .base-select {
   padding: 0.25em;
   color: var(--text);

@@ -67,7 +67,7 @@ onMounted(() => {
   <canvas id="canvas" ref="canvas" />
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 #canvas {
   width: 100%;
   height: 100%;

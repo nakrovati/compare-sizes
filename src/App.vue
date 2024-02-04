@@ -17,7 +17,7 @@ useDark();
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .intro {
   display: grid;
   grid-template-rows: 40vh 1fr;

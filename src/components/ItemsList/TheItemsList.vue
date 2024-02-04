@@ -23,7 +23,7 @@ const itemsStore = useItemsStore();
   </section>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .item-list {
   display: flex;
   flex-direction: column;

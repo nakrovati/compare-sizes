@@ -42,13 +42,13 @@ function deleteItem() {
   </div>
 </template>
 
-<style scoped lang="scss">
-$item-primary: #f3f3f3;
-
+<style scoped>
 .item {
+  --item-primary: #f3f3f3;
+
   position: relative;
   padding: 0.5rem;
-  color: $item-primary;
+  color: var(--item-primary);
   background-color: v-bind(color);
   border-radius: 10px;
   box-shadow: var(--shadow-default);
@@ -63,12 +63,12 @@ $item-primary: #f3f3f3;
   padding: 0 0.5rem;
   background-color: inherit;
   border: none;
+}
 
-  .button-delete__icon {
-    position: relative;
-    z-index: -1;
-    height: 100%;
-    color: $item-primary;
-  }
+.button-delete .button-delete__icon {
+  position: relative;
+  z-index: -1;
+  height: 100%;
+  color: var(--item-primary);
 }
 </style>

@@ -1,11 +1,5 @@
 {
-  "extends": [
-    "stylelint-config-standard-scss",
-    "stylelint-config-recess-order"
-  ],
-  "rules": {
-    "selector-class-pattern": null
-  },
+  "extends": ["stylelint-config-standard", "stylelint-config-recess-order"],
   "overrides": [
     {
       "files": ["*.vue", "**/*.vue"],

@@ -1,5 +1,3 @@
-@use "../tokens/colors";
-
 body {
   font-family: Quicksand, sans-serif;
   color: var(--text);
@@ -10,21 +8,21 @@ button {
   transition: color 0.2s, background-color 0.2s;
 }
 
-%dark-border {
+input {
   border: 1px solid black;
 
-  .dark & {
-    border: none;
-  }
-}
-
-input {
-  @extend %dark-border;
 }
 
 select,
 button {
   cursor: pointer;
+  border: 1px solid black;
 
-  @extend %dark-border;
+
+}
+
+.dark input,
+.dark select,
+.dark button {
+  border: none;
 }

@@ -88,7 +88,7 @@ function addItem() {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .menu {
   display: flex;
   flex-direction: column;

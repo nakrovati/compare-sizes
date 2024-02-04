@@ -265,8 +265,8 @@ Remove the inner padding in Chrome and Safari on macOS.
 */
 
 ::-webkit-file-upload-button {
-	appearance: button; 
 	font: inherit;
+	appearance: button; 
 }
 
 /*
