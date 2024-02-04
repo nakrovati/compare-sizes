@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 
 import type { Box, Dimensions } from "~/types/index";
 
@@ -12,8 +12,7 @@ import { getRandomColor, parseItemParams } from "~/utils/index";
 
 const isModalShown = ref(false);
 const selectedDimension = ref<Dimensions>("mm");
-const itemName = ref("");
-const itemParams = ref("");
+const item = reactive({ name: "", params: "" });
 const itemsStore = useItemsStore();
 
 function showModal() {
@@ -34,19 +33,23 @@ const dimensions = [
   { text: "miles", value: "mi" },
 ] satisfies { text: string; value: Dimensions }[];
 
+const validateForm = () => {
+  return item.name && item.params;
+};
+
 function addItem() {
-  if (!itemName.value || !itemParams.value) {
+  if (!validateForm()) {
     showModal();
     return;
   }
 
-  const data = parseItemParams(itemParams.value);
+  const data = parseItemParams(item.params);
 
   if (!data) {
     return;
   }
 
-  const name = itemName.value;
+  const name = item.name;
   const { height, length, width } = data;
   const dimensionAbbr = selectedDimension.value;
 
@@ -56,7 +59,7 @@ function addItem() {
     color = getRandomColor();
   } while (color === itemsStore.lastItemColor);
 
-  const item: Box = {
+  const newItem: Box = {
     color,
     dimensionAbbr,
     height,
@@ -65,18 +68,18 @@ function addItem() {
     width,
   };
 
-  itemsStore.addItem(item);
+  itemsStore.addItem(newItem);
 
-  itemName.value = "";
-  itemParams.value = "";
+  item.name = "";
+  item.params = "";
 }
 </script>
 
 <template>
   <form class="menu" @submit.prevent="addItem">
-    <BaseInput v-model="itemName" label="Item name" placeholder="box 1" />
+    <BaseInput v-model="item.name" label="Item name" placeholder="box 1" />
     <BaseInput
-      v-model="itemParams"
+      v-model="item.params"
       label="Item params"
       placeholder="width, height, length"
     />
