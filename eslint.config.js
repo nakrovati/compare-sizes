@@ -2,7 +2,6 @@ import js from "@eslint/js";
 import ts from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import prettier from "eslint-config-prettier";
-import perfectionist from "eslint-plugin-perfectionist";
 import vue from "eslint-plugin-vue";
 import globals from "globals";
 import vueParser from "vue-eslint-parser";
@@ -16,12 +15,8 @@ export default [
         ...globals.node,
       },
     },
-    plugins: {
-      perfectionist,
-    },
     rules: {
       ...js.configs.recommended.rules,
-      ...perfectionist.configs["recommended-natural"].rules,
     },
   },
   {
