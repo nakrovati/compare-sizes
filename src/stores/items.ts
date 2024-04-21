@@ -26,7 +26,7 @@ export const useItemsStore = defineStore("items", {
       const itemForStore = item;
       this.items.push(itemForStore);
 
-      const itemForScene = this.createItem(item);
+      const itemForScene = this.createItemForScene(item);
       scene.add(itemForScene);
 
       const canvasStore = useCanvasStore();
@@ -45,7 +45,7 @@ export const useItemsStore = defineStore("items", {
         convertLengthUnits(width, dimensionAbbr) / 2
       );
     },
-    createItem(item: Box): Mesh<BoxGeometry, MeshBasicMaterial> {
+    createItemForScene(item: Box): Mesh<BoxGeometry, MeshBasicMaterial> {
       const name = item.name;
       const width = convertLengthUnits(item.width, item.dimensionAbbr);
       const height = convertLengthUnits(item.height, item.dimensionAbbr);

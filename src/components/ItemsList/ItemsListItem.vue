@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
-
 import IconDelete from "~/assets/icons/IconDelete.vue";
 import { useItemsStore } from "~/stores/items";
 import { Box } from "~/types";
@@ -13,7 +11,7 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const color = computed(() => props.item.color);
+const itemParams = `(${props.item.height}${props.item.dimensionAbbr} x ${props.item.width}${props.item.dimensionAbbr} x ${props.item.length}${props.item.dimensionAbbr})`;
 
 function deleteItem() {
   itemsStore.removeItem(props.item.id);
@@ -21,12 +19,9 @@ function deleteItem() {
 </script>
 
 <template>
-  <div class="item">
+  <div class="item" :style="{ backgroundColor: item.color }">
     <div>{{ item.name }}</div>
-    <div>
-      ({{ item.height }}{{ item.dimensionAbbr }} x {{ item.width
-      }}{{ item.dimensionAbbr }} x {{ item.length }}{{ item.dimensionAbbr }})
-    </div>
+    <div>{{ itemParams }}</div>
     <button
       aria-label="delete item"
       class="button-delete"
@@ -49,7 +44,6 @@ function deleteItem() {
   position: relative;
   padding: 0.5rem;
   color: var(--item-primary);
-  background-color: v-bind(color);
   border-radius: 0.5rem;
   box-shadow: var(--shadow-default);
 }

@@ -2,7 +2,7 @@ import type { Dimensions } from "~/types";
 
 export default function convertLengthUnits(
   value: number,
-  dimensionAbbr?: Dimensions,
+  dimensionAbbr: Dimensions,
 ) {
   switch (dimensionAbbr) {
     case "mm":
@@ -25,8 +25,5 @@ export default function convertLengthUnits(
 
     case "mi":
       return +(value * 1_609_344).toFixed(4);
-
-    default:
-      return value;
   }
 }

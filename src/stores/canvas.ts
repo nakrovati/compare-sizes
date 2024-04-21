@@ -30,7 +30,7 @@ export const useCanvasStore = defineStore("canvas", {
       const itemsForScene: Mesh<BoxGeometry, MeshBasicMaterial>[] = [];
 
       for (const item of itemsStore.items) {
-        itemsForScene.push(itemsStore.createItem(item));
+        itemsForScene.push(itemsStore.createItemForScene(item));
       }
 
       scene.add(...itemsForScene);
