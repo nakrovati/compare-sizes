@@ -17,7 +17,7 @@ export const useCanvasStore = defineStore("canvas", {
     clearScene(): void {
       scene.clear();
     },
-    initOrbitControls(object: Camera, domElement: HTMLElement) {
+    initOrbitControls(object: Camera, domElement: HTMLElement): void {
       this.controls = new OrbitControls(object, domElement);
 
       this.controls.maxDistance = Number.POSITIVE_INFINITY;
@@ -39,42 +39,38 @@ export const useCanvasStore = defineStore("canvas", {
     },
     updateCamera(): void {
       const itemsStore = useItemsStore();
+      const itemCount = itemsStore.items.length;
 
-      if (itemsStore.items.length > 1) {
-        const cameraX: number = itemsStore.middlePositionX / 3,
-          cameraY: number = itemsStore.maxHeight,
-          cameraZ: number = itemsStore.maxLength;
+      let cameraX: number, cameraY: number, cameraZ: number;
+      let targetX: number, targetY: number, targetZ: number;
 
-        this.camera.position.set(cameraX, cameraY, cameraZ);
+      if (itemCount === 1) {
+        cameraX = -itemsStore.maxWidth;
+        cameraY = itemsStore.maxHeight;
+        cameraZ = itemsStore.maxLength;
 
-        const targetX = cameraX + 1,
-          targety = cameraY - 1,
-          targetZ = cameraZ - 1;
+        targetX = 0;
+        targetY = 0;
+        targetZ = 0;
+      } else if (itemCount > 1) {
+        cameraX = itemsStore.middlePositionX / 3;
+        cameraY = itemsStore.maxHeight;
+        cameraZ = itemsStore.maxLength;
 
-        this.camera.lookAt(targetX, targety, targetZ);
-
-        this.controls.target = new Vector3(targetX, targety, targetZ);
+        targetX = cameraX + 1;
+        targetY = cameraY - 1;
+        targetZ = cameraZ - 1;
+      } else {
+        return;
       }
 
-      if (itemsStore.items.length === 1) {
-        const cameraX: number = -itemsStore.maxWidth,
-          cameraY: number = itemsStore.maxHeight,
-          cameraZ: number = itemsStore.maxLength;
-
-        this.camera.position.set(cameraX, cameraY, cameraZ);
-
-        const targetX = 0,
-          targety = 0,
-          targetZ = 0;
-
-        this.camera.lookAt(targetX, targety, targetZ);
-
-        this.controls.target = new Vector3(targetX, targety, targetZ);
-      }
+      this.camera.position.set(cameraX, cameraY, cameraZ);
+      this.camera.lookAt(targetX, targetY, targetZ);
+      this.controls.target = new Vector3(targetX, targetY, targetZ);
     },
   },
   state: () => ({
-    camera: new PerspectiveCamera(100),
+    camera: new PerspectiveCamera(),
     controls: {} as OrbitControls,
   }),
 });

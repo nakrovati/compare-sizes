@@ -4,7 +4,7 @@ import { getRandomColor, toThreeColor } from "~/utils/colorRandomizer";
 
 describe("Color randomizer", () => {
   it("Gives a random color", () => {
-    expect(getRandomColor()).toMatch(/^#[A-Z0-9]{6}/);
+    expect(getRandomColor()).toMatch(/^#[\dA-Z]{6}/);
   });
 });
 

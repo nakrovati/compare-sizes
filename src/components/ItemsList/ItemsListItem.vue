@@ -11,7 +11,7 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const itemParams = `(${props.item.height}${props.item.dimensionAbbr} x ${props.item.width}${props.item.dimensionAbbr} x ${props.item.length}${props.item.dimensionAbbr})`;
+const itemParams = `(${props.item.width}${props.item.dimensionAbbr} x ${props.item.height}${props.item.dimensionAbbr} x ${props.item.length}${props.item.dimensionAbbr})`;
 
 function deleteItem() {
   itemsStore.removeItem(props.item.id);
