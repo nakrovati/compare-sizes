@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { createPinia, setActivePinia } from "pinia";
 import { beforeEach, describe, expect, it } from "vitest";
 
@@ -6,13 +7,12 @@ import type { Box, Dimensions } from "~/types/index";
 import { getRandomColor } from "~/utils/index";
 
 import { useItemsStore } from "./items";
-import { nanoid } from "nanoid";
 
 class Item implements Box {
-  id: string;
   color: string;
   dimensionAbbr: Dimensions;
   height: number;
+  id: string;
   length: number;
   name: string;
   width: number;

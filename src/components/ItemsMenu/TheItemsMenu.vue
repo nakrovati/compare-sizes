@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { nanoid } from "nanoid";
 import { reactive, ref } from "vue";
 
 import type { Box, Dimensions } from "~/types/index";
@@ -9,7 +10,6 @@ import BaseModal from "~/components/base/BaseModal.vue";
 import BaseSelect from "~/components/base/BaseSelect.vue";
 import { useItemsStore } from "~/stores/items";
 import { getRandomColor, parseItemParams } from "~/utils/index";
-import { nanoid } from "nanoid";
 
 const isModalShown = ref(false);
 const selectedDimension = ref<Dimensions>("mm");
@@ -62,10 +62,10 @@ function addItem() {
   } while (color === itemsStore.lastItemColor);
 
   const newItem: Box = {
-    id,
     color,
     dimensionAbbr,
     height,
+    id,
     length,
     name,
     width,

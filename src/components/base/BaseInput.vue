@@ -5,8 +5,8 @@ import { InputHTMLAttributes } from "vue";
 withDefaults(
   defineProps<{
     label: string;
-    type?: InputHTMLAttributes["type"];
     placeholder: string;
+    type?: InputHTMLAttributes["type"];
   }>(),
   { type: "text" },
 );

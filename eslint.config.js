@@ -1,10 +1,12 @@
 import js from "@eslint/js";
-import ts from "typescript-eslint";
 import prettier from "eslint-config-prettier";
+import perfectionistNatural from "eslint-plugin-perfectionist/configs/recommended-natural";
 import vue from "eslint-plugin-vue";
 import globals from "globals";
+import ts from "typescript-eslint";
 
 export default [
+  perfectionistNatural,
   js.configs.recommended,
   ...ts.configs.recommended,
   ...vue.configs["flat/recommended"],
@@ -30,6 +32,9 @@ export default [
           ts: "@typescript-eslint/parser",
         },
       },
+    },
+    rules: {
+      "perfectionist/sort-vue-attributes": "off",
     },
   },
   {

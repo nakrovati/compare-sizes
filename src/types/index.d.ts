@@ -6,8 +6,8 @@ export interface Box {
   color: string;
   dimensionAbbr: Dimensions;
   height: number;
-  length: number;
   id: string;
+  length: number;
   name: string;
   positionX?: number;
   width: number;
