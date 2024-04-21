@@ -59,7 +59,7 @@ export const useItemsStore = defineStore("items", {
       const itemForScene = new Mesh(geometry, material);
 
       const edgeGeometry = new EdgesGeometry(itemForScene.geometry),
-        edgeMaterial = new LineBasicMaterial({ color: 0xffffff });
+        edgeMaterial = new LineBasicMaterial({ color: 0xff_ff_ff });
 
       const wireframe = new LineSegments(edgeGeometry, edgeMaterial);
 
@@ -114,7 +114,7 @@ export const useItemsStore = defineStore("items", {
     },
     /** Height of highest element */
     maxHeight: (state): number => {
-      if (!state.items.length) return 0;
+      if (state.items.length === 0) return 0;
 
       const heights: number[] = [];
 
@@ -126,7 +126,7 @@ export const useItemsStore = defineStore("items", {
     },
     /** Length of the longest element */
     maxLength: (state): number => {
-      if (!state.items.length) return 0;
+      if (state.items.length === 0) return 0;
 
       const lengths: number[] = [];
 
@@ -138,7 +138,7 @@ export const useItemsStore = defineStore("items", {
     },
     /** Width of widest element */
     maxWidth: (state): number => {
-      if (!state.items.length) return 0;
+      if (state.items.length === 0) return 0;
 
       const width: number[] = [];
 
@@ -150,7 +150,7 @@ export const useItemsStore = defineStore("items", {
     },
     /** Maximum width of all item */
     middlePositionX: (state): number => {
-      if (!state.items.length || state.items.length === 1) return 0;
+      if (state.items.length === 0 || state.items.length === 1) return 0;
 
       const firstItemPositionX = state.items.at(0)?.positionX ?? 0;
       const lastItemPositionX = state.items.at(-1)?.positionX ?? 0;

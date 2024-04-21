@@ -5,25 +5,32 @@ export default function convertLengthUnits(
   dimensionAbbr: Dimensions,
 ) {
   switch (dimensionAbbr) {
-    case "mm":
+    case "mm": {
       return value;
+    }
 
-    case "cm":
+    case "cm": {
       return value * 10;
+    }
 
-    case "m":
-      return value * 1_000;
+    case "m": {
+      return value * 1000;
+    }
 
-    case "in":
+    case "in": {
       return +(value * 25.4).toFixed(4);
+    }
 
-    case "ft":
+    case "ft": {
       return +(value * 304.8).toFixed(4);
+    }
 
-    case "ya":
+    case "ya": {
       return +(value * 914.4).toFixed(4);
+    }
 
-    case "mi":
+    case "mi": {
       return +(value * 1_609_344).toFixed(4);
+    }
   }
 }

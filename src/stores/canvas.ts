@@ -20,12 +20,12 @@ export const useCanvasStore = defineStore("canvas", {
     initOrbitControls(object: Camera, domElement: HTMLElement) {
       this.controls = new OrbitControls(object, domElement);
 
-      this.controls.maxDistance = Infinity;
+      this.controls.maxDistance = Number.POSITIVE_INFINITY;
     },
     initScene(): void {
       const itemsStore = useItemsStore();
 
-      if (!itemsStore.items.length) return;
+      if (itemsStore.items.length === 0) return;
 
       const itemsForScene: Mesh<BoxGeometry, MeshBasicMaterial>[] = [];
 
@@ -70,11 +70,7 @@ export const useCanvasStore = defineStore("canvas", {
         this.camera.lookAt(targetX, targety, targetZ);
 
         this.controls.target = new Vector3(targetX, targety, targetZ);
-
-        return;
       }
-
-      return;
     },
   },
   state: () => ({

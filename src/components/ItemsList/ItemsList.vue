@@ -6,7 +6,7 @@ const itemsStore = useItemsStore();
 </script>
 
 <template>
-  <section v-if="itemsStore.items.length" class="item-list">
+  <section v-if="itemsStore.items.length > 0" class="item-list">
     <TransitionGroup>
       <ItemsListItem
         v-for="item in itemsStore.items"
