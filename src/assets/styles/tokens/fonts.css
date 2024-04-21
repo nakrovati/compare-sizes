@@ -3,11 +3,11 @@
 */
 
 @font-face {
-    font-family: Quicksand;
-    font-weight: 300 700;
-    font-stretch: normal;
-    src: url("/fonts/quicksand/Quicksand-VariableFont_wght.woff2") format("woff2-variations");
-    font-display: swap;
-    unicode-range: U+00-7F;
-  }
-  
+  font-family: Quicksand;
+  font-weight: 300 700;
+  font-stretch: normal;
+  src: url("/fonts/quicksand/Quicksand-VariableFont_wght.woff2")
+    format("woff2-variations");
+  font-display: swap;
+  unicode-range: U+00-7F;
+}

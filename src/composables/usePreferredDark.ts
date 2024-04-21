@@ -4,7 +4,7 @@ export function usePreferredDark() {
   const isDark = ref(false);
 
   const isDarkThemePreferred = window.matchMedia(
-    "(prefers-color-scheme: dark)"
+    "(prefers-color-scheme: dark)",
   );
 
   function toogleDarkTheme(event: MediaQueryListEvent) {
