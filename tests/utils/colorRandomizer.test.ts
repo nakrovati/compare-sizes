@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { getRandomColor, toThreeColor } from "./colorRandomizer";
+import { getRandomColor, toThreeColor } from "~/utils/colorRandomizer";
 
 describe("Color randomizer", () => {
   it("Gives a random color", () => {

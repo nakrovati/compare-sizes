@@ -4,9 +4,8 @@ import { beforeEach, describe, expect, it } from "vitest";
 
 import type { Box, Dimensions } from "~/types/index";
 
+import { useItemsStore } from "~/stores/items";
 import { getRandomColor } from "~/utils/index";
-
-import { useItemsStore } from "./items";
 
 class Item implements Box {
   color: string;

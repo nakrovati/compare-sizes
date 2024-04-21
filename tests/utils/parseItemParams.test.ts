@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import parseItemParams from "./parseItemParams";
+import parseItemParams from "~/utils/parseItemParams";
 
 describe("Item params parser", () => {
   it("Contains width, height and length", () => {
