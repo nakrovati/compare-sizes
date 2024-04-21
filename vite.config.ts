@@ -8,11 +8,7 @@ export default defineConfig({
       output: {
         manualChunks: (id) => {
           if (id.includes("node_modules")) {
-            if (id.includes("@vueuse")) return "vendor.@vueuse";
-            if (id.includes("pinia")) return "vendor.pinia";
-            if (id.includes("vue")) return "vendor.vue";
             if (id.includes("three")) return "vendor.three";
-            return "vendor.packages";
           }
         },
       },
