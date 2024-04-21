@@ -1,39 +1,29 @@
 {
   "compilerOptions": {
-    /* Visit https://aka.ms/tsconfig to read more about this file */
-
-    /* Type Checking */
-    "strict": true,
-
-    /* Modules */
-    "baseUrl": ".",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]
     },
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
-
-    /* Emit */
-    "importHelpers": true,
-
-    /* JavaScript Support */
-
-    /* Interop Constraints */
     "isolatedModules": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-
-    /* Language and Environment */
-    "target": "ESNext",
-    "lib": ["ESNext", "DOM"],
+    "noEmit": true,
     "jsx": "preserve",
 
-    /* Projects */
-
-    /* Completeness */
-    "skipLibCheck": true
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
