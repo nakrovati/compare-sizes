@@ -21,24 +21,24 @@ useDark();
 .intro {
   display: grid;
   grid-template-rows: 40vh 1fr;
-  gap: 20px;
-  padding: 10px;
+  gap: 1rem;
+  padding: 0.5rem;
 
   @media screen and (width >= 425px) {
-    padding: 20px;
+    padding: 1rem;
   }
 
   @media screen and (width >= 1024px) {
     grid-template-rows: 100%;
     grid-template-columns: 6fr 4fr;
     height: 100vh;
-    padding: 40px;
+    padding: 2rem;
   }
 }
 
 .menu-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
 }
 </style>

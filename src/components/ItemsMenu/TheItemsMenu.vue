@@ -9,6 +9,7 @@ import BaseModal from "~/components/base/BaseModal.vue";
 import BaseSelect from "~/components/base/BaseSelect.vue";
 import { useItemsStore } from "~/stores/items";
 import { getRandomColor, parseItemParams } from "~/utils/index";
+import { nanoid } from "nanoid";
 
 const isModalShown = ref(false);
 const selectedDimension = ref<Dimensions>("mm");
@@ -49,6 +50,7 @@ function addItem() {
     return;
   }
 
+  const id = nanoid();
   const name = item.name;
   const { height, length, width } = data;
   const dimensionAbbr = selectedDimension.value;
@@ -60,6 +62,7 @@ function addItem() {
   } while (color === itemsStore.lastItemColor);
 
   const newItem: Box = {
+    id,
     color,
     dimensionAbbr,
     height,
@@ -95,11 +98,11 @@ function addItem() {
 .menu {
   display: flex;
   flex-direction: column;
-  gap: 0.75em;
+  gap: 0.75rem;
   align-items: center;
-  padding: 1em;
+  padding: 1rem;
   background-color: var(--menu-bg);
-  border-radius: 10px;
+  border-radius: 0.5rem;
   box-shadow: var(--shadow-default);
 }
 </style>

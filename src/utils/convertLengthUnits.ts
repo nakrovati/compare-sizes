@@ -1,6 +1,9 @@
 import type { Dimensions } from "~/types";
 
-export default function convertToMM(value: number, dimensionAbbr?: Dimensions) {
+export default function convertLengthUnits(
+  value: number,
+  dimensionAbbr?: Dimensions,
+) {
   switch (dimensionAbbr) {
     case "mm":
       return value;

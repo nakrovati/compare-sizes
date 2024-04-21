@@ -41,12 +41,12 @@ onUnmounted(() => {
 
 <style scoped>
 .modal {
-  padding: 1em;
+  padding: 1rem;
   margin: 2rem auto;
   color: var(--text);
   background-color: var(--modal-bg);
   border: 1px solid rgb(0 0 0 / 30%);
-  border-radius: 10px;
+  border-radius: 0.5rem;
 }
 
 .modal::backdrop {
@@ -56,7 +56,7 @@ onUnmounted(() => {
 .modal form {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1rem;
 }
 
 .button-close {

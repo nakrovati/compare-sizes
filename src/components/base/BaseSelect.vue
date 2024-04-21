@@ -36,9 +36,9 @@ function onInput(event: Event) {
 
 <style scoped>
 .base-select {
-  padding: 0.25em;
+  padding: 0.25rem;
   color: var(--text);
   background-color: var(--menu-select-bg);
-  border-radius: 5px;
+  border-radius: 0.25rem;
 }
 </style>

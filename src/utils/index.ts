@@ -1,5 +1,5 @@
 import { getRandomColor, toThreeColor } from "./colorRandomizer";
-import convertToMM from "./convertToMM";
+import convertLengthUnits from "./convertLengthUnits";
 import parseItemParams from "./parseItemParams";
 
-export { convertToMM, getRandomColor, parseItemParams, toThreeColor };
+export { convertLengthUnits, getRandomColor, parseItemParams, toThreeColor };

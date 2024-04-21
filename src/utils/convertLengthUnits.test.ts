@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import convertToMM from "./convertToMM";
+import convertToMM from "./convertLengthUnits";
 
 describe("Dimension converter", () => {
   // Millimeters

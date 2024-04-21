@@ -1,27 +1,20 @@
 <script setup lang="ts">
 defineEmits<{ click: [] }>();
-
-const props = defineProps({
-  type: {
-    type: String as () => "button" | "submit" | "reset",
-    default: "button",
-  },
-});
 </script>
 
 <template>
-  <button class="base-button" :type="props.type" @click="$emit('click')">
+  <button class="base-button" @click="$emit('click')">
     <slot />
   </button>
 </template>
 
 <style scoped>
 .base-button {
-  padding: 0.5em 1.5em;
+  padding: 0.5rem 1.5rem;
   color: var(--btn-submit-text);
   background-color: var(--btn-submit-bg);
   border: none;
-  border-radius: 5px;
+  border-radius: 0.25rem;
 }
 
 .base-button:active {

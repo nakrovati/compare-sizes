@@ -6,8 +6,10 @@ import type { Box, Dimensions } from "~/types/index";
 import { getRandomColor } from "~/utils/index";
 
 import { useItemsStore } from "./items";
+import { nanoid } from "nanoid";
 
 class Item implements Box {
+  id: string;
   color: string;
   dimensionAbbr: Dimensions;
   height: number;
@@ -16,13 +18,15 @@ class Item implements Box {
   width: number;
 
   constructor(
+    id: string,
     name: string,
     width: number,
     height: number,
     length: number,
     color: string,
-    dimensionAbbr: Dimensions
+    dimensionAbbr: Dimensions,
   ) {
+    this.id = id;
     this.name = name;
     this.width = width;
     this.height = height;
@@ -41,8 +45,8 @@ describe("Counter Store", () => {
   // Test getters
   it("Give max width of items", () => {
     const itemsStore = useItemsStore();
-    const item1 = new Item("Item 1", 1, 1, 1, getRandomColor(), "mm");
-    const item2 = new Item("Item 2", 5, 5, 5, getRandomColor(), "mm");
+    const item1 = new Item(nanoid(), "Item 1", 1, 1, 1, getRandomColor(), "mm");
+    const item2 = new Item(nanoid(), "Item 2", 5, 5, 5, getRandomColor(), "mm");
 
     itemsStore.addItem(item1);
     itemsStore.addItem(item2);
@@ -52,8 +56,8 @@ describe("Counter Store", () => {
 
   it("Give max height of items", () => {
     const itemsStore = useItemsStore();
-    const item1 = new Item("Item 1", 1, 1, 1, getRandomColor(), "mm");
-    const item2 = new Item("Item 2", 5, 5, 5, getRandomColor(), "mm");
+    const item1 = new Item(nanoid(), "Item 1", 1, 1, 1, getRandomColor(), "mm");
+    const item2 = new Item(nanoid(), "Item 2", 5, 5, 5, getRandomColor(), "mm");
 
     itemsStore.addItem(item1);
     itemsStore.addItem(item2);
@@ -63,8 +67,8 @@ describe("Counter Store", () => {
 
   it("Give max length of items", () => {
     const itemsStore = useItemsStore();
-    const item2 = new Item("Item 2", 5, 5, 5, getRandomColor(), "mm");
-    const item1 = new Item("Item 1", 1, 1, 1, getRandomColor(), "mm");
+    const item2 = new Item(nanoid(), "Item 2", 5, 5, 5, getRandomColor(), "mm");
+    const item1 = new Item(nanoid(), "Item 1", 1, 1, 1, getRandomColor(), "mm");
 
     itemsStore.addItem(item1);
     itemsStore.addItem(item2);
@@ -74,8 +78,8 @@ describe("Counter Store", () => {
 
   it("Give middle position 'X' of items", () => {
     const itemsStore = useItemsStore();
-    const item1 = new Item("Item 1", 1, 1, 1, getRandomColor(), "mm");
-    const item2 = new Item("Item 2", 5, 5, 5, getRandomColor(), "mm");
+    const item1 = new Item(nanoid(), "Item 1", 1, 1, 1, getRandomColor(), "mm");
+    const item2 = new Item(nanoid(), "Item 2", 5, 5, 5, getRandomColor(), "mm");
 
     itemsStore.addItem(item1);
     itemsStore.addItem(item2);

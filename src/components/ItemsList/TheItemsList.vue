@@ -7,17 +7,11 @@ const itemsStore = useItemsStore();
 
 <template>
   <section v-if="itemsStore.items.length" class="item-list">
-    <TransitionGroup>
+    <TransitionGroup name="fade">
       <ItemsListItem
-        v-for="(item, index) in itemsStore.items"
-        :key="index"
-        :color="item.color"
-        :dimension-abbr="item.dimensionAbbr"
-        :height="item.height"
-        :index="index"
-        :length="item.length"
-        :name="item.name"
-        :width="item.width"
+        v-for="item in itemsStore.items"
+        :key="item.id"
+        :item="item"
       />
     </TransitionGroup>
   </section>

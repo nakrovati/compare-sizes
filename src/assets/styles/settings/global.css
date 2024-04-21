@@ -5,20 +5,19 @@ body {
 }
 
 button {
-  transition: color 0.2s, background-color 0.2s;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
 }
 
 input {
   border: 1px solid black;
-
 }
 
 select,
 button {
   cursor: pointer;
   border: 1px solid black;
-
-
 }
 
 .dark input,

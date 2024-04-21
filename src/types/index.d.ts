@@ -7,6 +7,7 @@ export interface Box {
   dimensionAbbr: Dimensions;
   height: number;
   length: number;
+  id: string;
   name: string;
   positionX?: number;
   width: number;

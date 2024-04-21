@@ -71,7 +71,7 @@ onMounted(() => {
 #canvas {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   box-shadow: var(--shadow-default);
 }
 </style>

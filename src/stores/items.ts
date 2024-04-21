@@ -13,14 +13,14 @@ import type { Box, Dimensions } from "~/types/index";
 
 import { scene } from "~/helpers/canvas";
 import { useCanvasStore } from "~/stores/canvas";
-import { convertToMM, toThreeColor } from "~/utils/index";
+import { convertLengthUnits, toThreeColor } from "~/utils/index";
 
 export const useItemsStore = defineStore("items", {
   actions: {
     addItem(item: Box): void {
       item.positionX = this.calcCurrentPositionX(
         item.width,
-        item.dimensionAbbr
+        item.dimensionAbbr,
       );
 
       const itemForStore = item;
@@ -41,17 +41,17 @@ export const useItemsStore = defineStore("items", {
 
       return (
         lastItem.positionX +
-        convertToMM(lastItem.width, lastItem.dimensionAbbr) / 2 +
-        convertToMM(width, dimensionAbbr) / 2
+        convertLengthUnits(lastItem.width, lastItem.dimensionAbbr) / 2 +
+        convertLengthUnits(width, dimensionAbbr) / 2
       );
     },
     createItem(item: Box): Mesh<BoxGeometry, MeshBasicMaterial> {
-      const name = item.name,
-        width = convertToMM(item.width, item.dimensionAbbr),
-        height = convertToMM(item.height, item.dimensionAbbr),
-        length = convertToMM(item.length, item.dimensionAbbr),
-        color = toThreeColor(item.color),
-        positionX = item.positionX;
+      const name = item.name;
+      const width = convertLengthUnits(item.width, item.dimensionAbbr);
+      const height = convertLengthUnits(item.height, item.dimensionAbbr);
+      const length = convertLengthUnits(item.length, item.dimensionAbbr);
+      const color = toThreeColor(item.color);
+      const positionX = item.positionX;
 
       const geometry = new BoxGeometry(width, height, length),
         material = new MeshBasicMaterial({ color });
@@ -69,10 +69,10 @@ export const useItemsStore = defineStore("items", {
 
       return itemForScene;
     },
-    removeItem(index: number): void {
+    removeItem(id: Box["id"]): void {
       const canvasStore = useCanvasStore();
 
-      this.items.splice(index, 1);
+      this.items = this.items.filter((item) => item.id !== id);
 
       canvasStore.clearScene();
 
@@ -94,9 +94,9 @@ export const useItemsStore = defineStore("items", {
 
         const prevItemPositionX = prevItem.positionX ?? 0;
         const prevItemHalfWidth =
-          convertToMM(prevItem.width, prevItem.dimensionAbbr) / 2;
+          convertLengthUnits(prevItem.width, prevItem.dimensionAbbr) / 2;
         const currentItemHalfWidth =
-          convertToMM(currentItem.width, currentItem.dimensionAbbr) / 2;
+          convertLengthUnits(currentItem.width, currentItem.dimensionAbbr) / 2;
 
         currentItem.positionX =
           prevItemPositionX + prevItemHalfWidth + currentItemHalfWidth;
@@ -119,7 +119,7 @@ export const useItemsStore = defineStore("items", {
       const heights: number[] = [];
 
       for (const item of state.items) {
-        heights.push(convertToMM(item.height, item.dimensionAbbr));
+        heights.push(convertLengthUnits(item.height, item.dimensionAbbr));
       }
 
       return Math.max(...heights);
@@ -131,7 +131,7 @@ export const useItemsStore = defineStore("items", {
       const lengths: number[] = [];
 
       for (const item of state.items) {
-        lengths.push(convertToMM(item.height, item.dimensionAbbr));
+        lengths.push(convertLengthUnits(item.height, item.dimensionAbbr));
       }
 
       return Math.max(...lengths);
@@ -143,7 +143,7 @@ export const useItemsStore = defineStore("items", {
       const width: number[] = [];
 
       for (const item of state.items) {
-        width.push(convertToMM(item.width, item.dimensionAbbr));
+        width.push(convertLengthUnits(item.width, item.dimensionAbbr));
       }
 
       return Math.max(...width);

@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { nanoid } from "nanoid";
+import { InputHTMLAttributes } from "vue";
 
-defineProps<{
-  label: string;
-  placeholder: string;
-}>();
+withDefaults(
+  defineProps<{
+    label: string;
+    type?: InputHTMLAttributes["type"];
+    placeholder: string;
+  }>(),
+  { type: "text" },
+);
 
 const value = defineModel<string>();
 const id = nanoid();
@@ -17,7 +22,7 @@ const id = nanoid();
       v-model="value"
       :placeholder="placeholder"
       class="base-input__input"
-      type="text"
+      :type="type"
     />
     <label :for="id" class="base-input__label">{{ label }}</label>
   </div>
@@ -43,10 +48,10 @@ const id = nanoid();
 
 .base-input__input {
   width: 100%;
-  padding: 1.5em 0.5em 0.5em;
+  padding: 1.5rem 0.5rem 0.5rem;
   color: var(--text);
   background-color: var(--menu-input-bg);
-  border-radius: 5px;
+  border-radius: 0.25rem;
 }
 
 .base-input__input::placeholder {

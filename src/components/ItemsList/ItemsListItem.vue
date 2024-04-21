@@ -7,25 +7,25 @@ import { Box } from "~/types";
 
 const itemsStore = useItemsStore();
 
-interface Props extends Box {
-  index: number;
+interface Props {
+  item: Box;
 }
 
 const props = defineProps<Props>();
 
-const color = computed(() => props.color);
+const color = computed(() => props.item.color);
 
 function deleteItem() {
-  itemsStore.removeItem(props.index);
+  itemsStore.removeItem(props.item.id);
 }
 </script>
 
 <template>
   <div class="item">
-    <div>{{ name }}</div>
+    <div>{{ item.name }}</div>
     <div>
-      ({{ height }}{{ dimensionAbbr }} x {{ width }}{{ dimensionAbbr }} x
-      {{ length }}{{ dimensionAbbr }})
+      ({{ item.height }}{{ item.dimensionAbbr }} x {{ item.width
+      }}{{ item.dimensionAbbr }} x {{ item.length }}{{ item.dimensionAbbr }})
     </div>
     <button
       aria-label="delete item"
@@ -50,15 +50,15 @@ function deleteItem() {
   padding: 0.5rem;
   color: var(--item-primary);
   background-color: v-bind(color);
-  border-radius: 10px;
+  border-radius: 0.5rem;
   box-shadow: var(--shadow-default);
 }
 
 .button-delete {
   position: absolute;
-  top: 0.5em;
-  right: 0.5em;
-  bottom: 0.5em;
+  top: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.5rem;
   z-index: 0;
   padding: 0 0.5rem;
   background-color: inherit;
