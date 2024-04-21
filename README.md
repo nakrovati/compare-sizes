@@ -15,7 +15,7 @@ Site - [https://compare-sizes.vercel.app/](https://compare-sizes.vercel.app/)
 Make sure to install the dependencies:
 
 ```sh
-pnpm install # or yarn or npm
+bun install
 ```
 
 ## Development server
@@ -23,7 +23,7 @@ pnpm install # or yarn or npm
 Start the development server on http://localhost:5173
 
 ```sh
-pnpm dev # or yarn or npm
+bun --bun run dev
 ```
 
 ## Production
@@ -31,11 +31,11 @@ pnpm dev # or yarn or npm
 Build the application for production:
 
 ```sh
-pnpm build
+bun build
 ```
 
 Locally preview production build:
 
 ```sh
-pnpm preview
+bun preview
 ```
